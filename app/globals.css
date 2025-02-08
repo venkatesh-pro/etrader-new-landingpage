@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* for feature modal animation */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInSection {
+  from {
+    opacity: 0;
+    /* transform: scale(1); */
+  }
+  to {
+    opacity: 1;
+    /* transform: scale(0.95); */
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* Tailwind CSS customization */
+@layer utilities {
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out;
+  }
+  .animate-fadeInSection {
+    animation: fadeInSection 1s ease-out;
+  }
+  .animate-fadeOut {
+    animation: fadeOut 1s ease-out;
+  }
+}
+
+/* for feature modal carousal */
+
+#scrollbarWidth {
+  scrollbar-width: none;
+}
+
+* {
+  scrollbar-width: none; /* For Firefox */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* For Chrome, Edge, Safari */
+}
+
+/* Custom navigation styles */
+.swiper-button-next,
+.swiper-button-prev {
+  background: #00000064; /* Optional: remove background */
+  color: red !important; /* Set your custom arrow color */
+  font-size: 0; /* Remove text */
+  width: 52px !important; /* Set size of the arrow buttons */
+  height: 52px !important; /* Set height of the arrow buttons */
+  display: flex;
+  margin-left: 10vw;
+  margin-right: 10vw;
+
+  align-items: center;
+  justify-content: center;
+  padding: 25px; /* Remove padding if it's not required */
+  border-radius: 100%; /* Circular button shape */
+  background-repeat: no-repeat;
+  background-size: 40%; /* Adjust size of the arrow to fit button */
+  background-position: center; /* Center the background image */
+}
+
+@media (max-width: 768px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+.swiper-button-next {
+  background-image: url("/images/arrow-right.svg");
+}
+.swiper-button-prev {
+  background-image: url("/images/arrow-left.svg");
+}
+
+/* Add custom SVG arrow for the next button */
+.swiper-button-next::after {
+  content: "" !important;
+}
+
+/* Add custom SVG arrow for the prev button */
+.swiper-button-prev::after {
+  content: "" !important; /* Remove default text */
+}
+
+.swiper {
+  overflow: visible !important;
+}
+.swiper-pagination {
+  bottom: -60px !important;
+}
+
+/* 
+.swiper-button-next.swiper-button-disabled,
+.swiper-button-prev.swiper-button-disabled {
+  opacity: 0 !important;
+} */
+
+/* @media screen and (max-width: 425px) {
+  .swiper-slide {
+    width: 280.857px !important;
+  }
+} */
+/* @media screen and (max-width: 396px) {
+  .swiper-slide {
+    width: 270.857px !important;
+  }
+} */
+
+/* number input remove the up and down arrow */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* For Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
