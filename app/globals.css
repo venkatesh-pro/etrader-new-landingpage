@@ -67,11 +67,11 @@
 /* Custom navigation styles */
 .swiper-button-next,
 .swiper-button-prev {
-  background: #00000064; /* Optional: remove background */
+  background: rgba(0, 0, 0, 0.3);/* Optional: remove background */
   color: red !important; /* Set your custom arrow color */
   font-size: 0; /* Remove text */
-  width: 52px !important; /* Set size of the arrow buttons */
-  height: 52px !important; /* Set height of the arrow buttons */
+  width: 60px !important; /* Set size of the arrow buttons */
+  height: 60px !important; /* Set height of the arrow buttons */
   display: flex;
   margin-left: 10vw;
   margin-right: 10vw;

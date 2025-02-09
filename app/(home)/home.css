@@ -1,5 +1,53 @@
 :root {
-  --primary-color: #1e3a8a;
-  --secondary-color: #9333ea;
-}
+  /* desktop header */
+  --desktop-header-xl: 96px;
+  --desktop-header-lg: 64px;
+  --desktop-header-md: 42px;
+  --desktop-header-sm: 32px;
 
+  /* desktop body */
+  --desktop-body-xl: 24px;
+  --desktop-body-lg: 21px;
+  --desktop-body-md: 19px;
+  --desktop-body-sm: 15px;
+
+  /* mobile header */
+  --mobile-header-xl: 48px;
+  --mobile-header-lg: 40px;
+  --mobile-header-md: 32px;
+  --mobile-header-sm: 28px;
+
+  /* mobile body */
+  --mobile-body-xl: 24px;
+  --mobile-body-lg: 18px;
+  --mobile-body-md: 16px;
+  --mobile-body-sm: 12px;
+
+  /* background colors */
+  --background-a: #ffffff;
+  --background-b: #000000;
+  --alt-background-a: #f5f5f7;
+  --alt-background-b: #1d1d1f;
+
+  /* header colors */
+  --header-a: #eeeeee;
+  --header-b: #171a20;
+
+  /* text colors */
+  --text-color-dark: #818180;
+
+  /* button color */
+  --button-a: #3e6ae1;
+  --button-a-hover: #1f70e0;
+  --button-b-o30: rgba(0, 0, 0, 0.3); /* Opacity 30% */
+  --button-b-o40: rgba(0, 0, 0, 0.4); /* Opacity 40% */
+
+  /* tab color */
+  --tab-a: #f2f2f3;
+  --tab-a-hover: #e0e0e2;
+  --tab-b: #000000;
+
+  /* divider color */
+  --divider-a: #e0e0e0;
+  --divider-b: #4a4a4a;
+}
