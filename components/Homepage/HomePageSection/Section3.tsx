@@ -87,10 +87,7 @@ const Section3 = () => {
                 className="w-[850px] h-[700px]"
                 src="https://www.youtube.com/embed/TKeU1bLlAcc?si=58TxulSoAtAItklA"
                 title="YouTube video player"
-                frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
               ></iframe>{" "}
             </div>
             <div className="flex flex-col justify-between h-[519px]">
