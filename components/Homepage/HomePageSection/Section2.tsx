@@ -11,10 +11,6 @@ const Section2 = () => {
       url: "/homepageImages/section-2.png",
       alt: "Sweden Photo Two",
     },
-    {
-      url: "/homepageImages/section-2.png",
-      alt: "Sweden Photo Two",
-    },
   ];
 
   return (
