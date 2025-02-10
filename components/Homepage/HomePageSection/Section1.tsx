@@ -3,7 +3,7 @@ import React from "react";
 const Section1 = () => {
   return (
     <div className="mt-[100px] mx-[48px]">
-      <h1 className="text-desktop-header-xl text-header-b mt-[171px]">
+      <h1 className="text-desktop-header-xl text-header-b mt-[107px]">
         Space One
       </h1>
       <div className="mt-[30px] flex justify-between">
