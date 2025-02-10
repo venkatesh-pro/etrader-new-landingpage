@@ -461,6 +461,8 @@ const Section6TitleDescription = ({ title, data }) => {
           {/* space one */}
 
           {data.spaceOne[title]?.map((d, i) => {
+            const match = d.title?.match(/(.*?)(\d+)$/);
+
             return (
               <div
                 key={i}
@@ -469,6 +471,11 @@ const Section6TitleDescription = ({ title, data }) => {
                 <p className="text-desktop-body-md">
                   {d.title === null ? (
                     <span className="text-[30px] leading-[30px]">-</span>
+                  ) : match ? (
+                    <>
+                      {match[1]}
+                      <sup>{match[2]}</sup>
+                    </>
                   ) : (
                     d.title
                   )}
@@ -482,7 +489,7 @@ const Section6TitleDescription = ({ title, data }) => {
           {/* space one plus */}
 
           {data.spaceOnePlus[title]?.map((d, i) => {
-            console.log(title, "data.spaceOnePlus[title] ");
+            const match = d.title?.match(/(.*?)(\d+)$/);
 
             return (
               <div
@@ -492,6 +499,11 @@ const Section6TitleDescription = ({ title, data }) => {
                 <p className="text-desktop-body-md">
                   {d.title === null ? (
                     <span className="text-[30px] leading-[30px]">-</span>
+                  ) : match ? (
+                    <>
+                      {match[1]}
+                      <sup>{match[2]}</sup>
+                    </>
                   ) : (
                     d.title
                   )}
