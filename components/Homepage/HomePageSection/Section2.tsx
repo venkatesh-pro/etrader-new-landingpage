@@ -30,8 +30,12 @@ const Section2 = () => {
           <div className="flex flex-col md:flex-row justify-between mx-[20px] md:mx-[210px] mt-[60px] md:mt-[90px]">
             <div className="mt-[40px] md:mt-[0px] w-full md:max-w-[370px]">
               <hr className="border-divider-a border-[.5px]" />
-              <div className="mt-[40px] md:mt-[34px] ">
-                <img src="/images/design.svg" alt="" />
+              <div className="w-[25.5px] h-[29.17px] md:w-[34px] md:h-[38.89px] mt-[40px] md:mt-[34px] ">
+                <img
+                  src="/images/design.svg"
+                  className="w-full h-full object-cover md:object-contain"
+                  alt=""
+                />
               </div>
               <p className="w-full md:max-w-[320px] mt-[10px] text-desktop-body-lg">
                 <span>Design. </span>
@@ -43,8 +47,13 @@ const Section2 = () => {
             </div>
             <div className="mt-[40px] md:mt-[0px] w-full md:max-w-[370px]">
               <hr className="border-divider-a border-[.5px]" />
-              <div className="mt-[40px] md:mt-[34px] ">
-                <img src="/images/manufacturing.svg" alt="" />
+              <div className="w-[31.51px] h-[25.5px] md:w-[34px] md:h-[38.89px] mt-[40px] md:mt-[34px] ">
+                {" "}
+                <img
+                  src="/images/manufacturing.svg"
+                  alt=""
+                  className="w-full h-full object-cover md:object-contain"
+                />
               </div>
               <p className="w-full md:max-w-[320px] mt-[10px] text-desktop-body-lg">
                 <span>Manufacturing. </span>
@@ -56,8 +65,12 @@ const Section2 = () => {
             </div>
             <div className="mt-[40px] md:mt-[0px] w-full md:max-w-[370px]">
               <hr className="border-divider-a border-[.5px]" />
-              <div className="mt-[40px] md:mt-[34px] ">
-                <img src="/images/delivery.svg" alt="" />
+              <div className="w-[22.5px] h-[28.3px] md:w-[34px] md:h-[38.89px] mt-[40px] md:mt-[34px] ">
+                <img
+                  src="/images/delivery.svg"
+                  alt=""
+                  className="object-cover md:object-contain"
+                />
               </div>
               <p className="w-full md:max-w-[320px] mt-[10px] text-desktop-body-lg">
                 <span>Delivery. </span>
