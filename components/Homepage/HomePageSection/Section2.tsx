@@ -14,26 +14,26 @@ const Section2 = () => {
   ];
 
   return (
-    <div className="mt-[100px]">
+    <div className="mt-[50px] md:mt-[100px]">
       <div>
-        <h1 className="text-desktop-header-lg text-header-b text-center">
+        <h1 className="text-mobile-header-sm md:text-desktop-header-lg text-header-b text-center">
           Your everyday space, but so much more.
         </h1>
-        <p className="text-desktop-body-lg mt-[40px] text-center text-color-dark">
+        <p className="text-mobile-body-md md:text-desktop-body-lg mt-[20px] md:mt-[40px] text-center text-color-dark">
           Extra room made easy, designed to grow with you and adapt to your
           environment.
         </p>
-        <div className=" w-[100%]">
-          <div className="mx-[210px] mt-[60px]  overflow-hidden ">
+        <div className="w-[100%]">
+          <div className="mx-[20px] md:mx-[210px] mt-[40px] md:mt-[60px]  overflow-hidden ">
             <Carousel images={images} />
           </div>
-          <div className="flex justify-between mx-[210px] mt-[90px]">
-            <div className="max-w-[370px]">
+          <div className="flex flex-col md:flex-row justify-between mx-[20px] md:mx-[210px] mt-[60px] md:mt-[90px]">
+            <div className="mt-[40px] md:mt-[0px] w-full md:max-w-[370px]">
               <hr className="border-divider-a border-[.5px]" />
-              <div className="mt-[34px] ">
+              <div className="mt-[40px] md:mt-[34px] ">
                 <img src="/images/design.svg" alt="" />
               </div>
-              <p className="max-w-[320px] mt-[10px] text-desktop-body-lg">
+              <p className="w-full md:max-w-[320px] mt-[10px] text-desktop-body-lg">
                 <span>Design. </span>
                 <span className="text-color-dark">
                   Customize your Space One. Choose your exterior color, layout,
@@ -41,12 +41,12 @@ const Section2 = () => {
                 </span>
               </p>
             </div>
-            <div className="max-w-[370px]">
+            <div className="mt-[40px] md:mt-[0px] w-full md:max-w-[370px]">
               <hr className="border-divider-a border-[.5px]" />
-              <div className="mt-[34px] ">
+              <div className="mt-[40px] md:mt-[34px] ">
                 <img src="/images/manufacturing.svg" alt="" />
               </div>
-              <p className="max-w-[320px] mt-[10px] text-desktop-body-lg">
+              <p className="w-full md:max-w-[320px] mt-[10px] text-desktop-body-lg">
                 <span>Manufacturing. </span>
                 <span className="text-color-dark">
                   Prefabricated off-site to reduce assembly time and enhance
@@ -54,12 +54,12 @@ const Section2 = () => {
                 </span>
               </p>
             </div>
-            <div className="max-w-[370px]">
+            <div className="mt-[40px] md:mt-[0px] w-full md:max-w-[370px]">
               <hr className="border-divider-a border-[.5px]" />
-              <div className="mt-[34px] ">
+              <div className="mt-[40px] md:mt-[34px] ">
                 <img src="/images/delivery.svg" alt="" />
               </div>
-              <p className="max-w-[320px] mt-[10px] text-desktop-body-lg">
+              <p className="w-full md:max-w-[320px] mt-[10px] text-desktop-body-lg">
                 <span>Delivery. </span>
                 <span className="text-color-dark">
                   Your new Space One begins its journey from factory to site,
