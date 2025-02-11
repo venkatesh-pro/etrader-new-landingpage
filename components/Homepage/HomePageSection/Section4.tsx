@@ -14,16 +14,16 @@ const Section4 = () => {
   ];
 
   return (
-    <div className="mt-[180px] ">
+    <div className="mt-[80px] md:mt-[180px] ">
       <div className="">
-        <div className="flex flex-col items-center justify-center">
-          <button className="text-[18px]  h-[53px] w-[98px] border-[2px] border-black rounded-[35px]">
+        <div className="mx-[20px] md:mx-[0px] flex flex-col  md:items-center md:justify-center">
+          <button className="text-[12px] md:text-[18px] w-[69px] h-[36px] md:h-[53px] md:w-[98px] border-[2px] border-black rounded-[35px]">
             Interior
           </button>
-          <h2 className="text-desktop-header-xl my-[40px]">
+          <h2 className="text-mobile-header-lg md:text-desktop-header-xl my-[20px] md:my-[40px]">
             All-new interior.
           </h2>
-          <p className="text-desktop-body-xl max-w-[920px]">
+          <p className="text-mobile-body-md md:text-desktop-body-xl max-w-[920px]">
             Refined materials integrate seamlessly with smart automation{" "}
             <span className="text-color-dark">
               to create a reimagined environment that changes your perception of
@@ -32,22 +32,22 @@ const Section4 = () => {
           </p>
         </div>
 
-        <div className="mt-[100px] mx-[48px]">
-          <div className="">
+        <div className="mt-[60px] md:mt-[100px] md:mx-[48px]">
+          <div className="h-[260px] md:h-full">
             <img
               src="/homepageImages/section-4.png"
-              className="h-full w-full object-contain "
+              className="h-full w-full object-cover md:object-contain"
               alt="image"
             />
           </div>
         </div>
-        <div className="mt-[140px] ">
-          <div className="flex flex-col items-center ">
+        <div className="mt-[40px] md:mt-[140px] ">
+          <div className="flex flex-col md:items-center">
             <div>
-              <h3 className="text-desktop-header-lg">
+              <h3 className="text-mobile-header-sm md:text-desktop-header-lg mx-[20px] md:mx-[0px] ">
                 Expansive architecture.
               </h3>
-              <p className="text-desktop-body-lg max-w-[840px] mt-[40px]">
+              <p className="text-desktop-body-lg max-w-[840px] mt-[30px] md:mt-[40px] mx-[20px] md:mx-[0px] ">
                 Space One models feature an undercover canopy, a spacious deck,
                 and floor-to-ceiling glass that captures expansive views.{" "}
                 <span className="text-color-dark">
@@ -62,7 +62,15 @@ const Section4 = () => {
                 </span>
               </p>
 
-              <div className="flex justify-between max-w-[920px] mt-[100px]">
+              {/* this is repeated two time for responsivness */}
+              <div className="md:hidden block mt-[80px] md:mt-[180px] mb-[60px] md:mb-[140px] h-[260px] md:h-full">
+                <img
+                  src="/homepageImages/section-4.1.png"
+                  className="h-full w-full object-cover md:object-contain "
+                  alt="image"
+                />
+              </div>
+              <div className="md:flex hidden justify-between max-w-[920px] mt-[100px] ">
                 <div className="min-w-[260px]">
                   <hr className="border-divider-a border-[.5px]" />
                   <p className="text-desktop-header-lg mt-[30px]">2x</p>
@@ -88,33 +96,64 @@ const Section4 = () => {
             </div>
           </div>
         </div>
-
-        {/* neee */}
-
-        <div className="mx-[210px]  ">
-          <div className="mt-[180px] mb-[140px]">
+        <div className=" md:mx-[210px]  ">
+          <div className="md:block hidden mt-[180px] mb-[140px]">
             <img
               src="/homepageImages/section-4.1.png"
               className="h-full w-full object-contain "
               alt="image"
             />
           </div>
-          <h3 className="text-desktop-header-lg">
+          {/* this is repeated two time for responsivness */}
+          <div className="mx-[20px] md:mx-[0px] md:hidden flex flex-col justify-between md:mt-[100px] ">
+            <div className="md:min-w-[260px]">
+              <hr className="border-divider-a border-[.5px]" />
+              <p className="text-desktop-header-md md:text-desktop-header-lg mt-[30px]">
+                2x
+              </p>
+              <p className="text-mobile-body-md md:text-desktop-body-lg text-color-dark mt-[-10px]">
+                More Deck Area<sup>6</sup>
+              </p>
+            </div>
+            <div className="md:min-w-[260px] md:ml-[119px] mt-[30px]">
+              <hr className="border-divider-a border-[.5px]" />
+              <p className="text-desktop-header-md md:text-desktop-header-lg mt-[30px]">
+                33%
+              </p>
+              <p className="text-mobile-body-md md:text-desktop-body-lg text-color-dark mt-[-10px]">
+                Increased Depth<sup>6</sup>
+              </p>
+            </div>
+            <div className="md:min-w-[260px] md:ml-[119px] mt-[30px]">
+              <hr className="border-divider-a border-[.5px]" />
+              <p className="text-desktop-header-md md:text-desktop-header-lg mt-[30px]">
+                25%
+              </p>
+              <p className="text-mobile-body-md md:text-desktop-body-lg text-color-dark mt-[-10px]">
+                Higher Ceiling<sup>6</sup>
+              </p>
+            </div>
+          </div>
+          <h3 className="mx-[20px] md:mx-[0px] md:block hidden text-desktop-header-lg">
             Amenities for every occasion.
           </h3>
 
-          <div className="mt-[60px] flex  justify-between items-center">
+          <div className="mt-[60px] flex flex-col md:flex-row justify-between md:items-center">
             <div className="">
               <div className="max-w-[850px] overflow-hidden ">
                 <Carousel images={images} />
               </div>
+              <h3 className="mx-[20px] md:mx-[0px] md:hidden block text-mobile-header-sm md:text-desktop-header-lg mt-[40px] md:mt-[0px]">
+                Amenities for every occasion.
+              </h3>
             </div>
-            <div className="flex flex-col justify-between h-[519px]">
-              <div className="ml-[89px]">
-                <div className="">
+            <div className="mx-[20px] md:mx-[0px] flex flex-col md:justify-between md:h-[519px]">
+              <div className="md:ml-[89px]">
+                <hr className="block mt-[40px] md:mt-[0px] md:hidden border-divider-b" />
+                <div className="w-[31.5px] h-[24.09px] md:w-[42px] md:h-[32.12px] mt-[40px] md:mt-[0px]">
                   <img src="/images/open-plan.svg" alt="image" />
                 </div>
-                <p className="text-desktop-body-lg">
+                <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] md:mt-[0px]">
                   Open Plan.{" "}
                   <span className="text-color-dark">
                     A seamless, elegant, and versatile canvas for personalized
@@ -122,11 +161,12 @@ const Section4 = () => {
                   </span>
                 </p>
               </div>
-              <div className="ml-[89px]">
-                <div className="">
+              <div className="md:ml-[89px]">
+                <hr className="block mt-[40px] md:mt-[0px] md:hidden border-divider-b" />
+                <div className="w-[21.35px] h-[29.58px] md:w-[28.46px] md:h-[39.44px] mt-[40px] md:mt-[0px]">
                   <img src="/images/wardrobe.svg" alt="image" />
                 </div>
-                <p className="text-desktop-body-lg">
+                <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] md:mt-[0px]">
                   Wardrobe.{" "}
                   <span className="text-color-dark">
                     High-quality open shelving, hanging space, and smart
@@ -134,11 +174,12 @@ const Section4 = () => {
                   </span>
                 </p>
               </div>
-              <div className="ml-[89px]">
-                <div className="">
+              <div className="md:ml-[89px]">
+                <hr className="block mt-[40px] md:mt-[0px] md:hidden border-divider-b" />
+                <div className="w-[28.5px] h-[27px] md:w-[38px] md:h-[36px] mt-[40px] md:mt-[0px]">
                   <img src="/images/kitchen.svg" alt="image" />
                 </div>
-                <p className="text-desktop-body-lg">
+                <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] md:mt-[0px]">
                   Kitchen.{" "}
                   <span className="text-color-dark">
                     Spacious, flowing design with seamless cooking, dining, and
@@ -149,23 +190,24 @@ const Section4 = () => {
             </div>
           </div>
 
-          <div className="my-[180px] flex items-center">
-            <div className="mr-[40px]">
-              <p className="text-desktop-header-sm">
+          <div className="my-[80px] md:my-[180px] flex flex-col-reverse md:flex-row md:items-center">
+            <div className="mx-[20px] md:mx-[0px] mr-[40px]">
+              <p className="text-desktop-body-xl md:text-desktop-header-sm">
                 Space that makes you feel good.
               </p>
-              <p className="text-desktop-body-lg text-color-dark">
+              <p className="text-mobile-body-md md:text-desktop-body-lg text-color-dark mt-[10px] md:mt-[0px]">
                 Step inside, close the sliding door and experience the vast
                 silence offered by double glazed toughened glass. Queue up your
                 favorite songs and listen as your space turns into your own
                 private sound studio. <sup>3</sup>
               </p>
             </div>
-            <div className="min-w-[860px]">
-              <div>
+            <div className="md:min-w-[860px]">
+              <div className="h-[240px] mb-[40px] md:mb-[0px] md:h-full">
+                {" "}
                 <img
                   src="/homepageImages/section-4.2.png"
-                  className="h-full w-full object-contain "
+                  className="h-full w-full object-cover md:object-contain "
                   alt="image"
                 />
               </div>
