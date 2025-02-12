@@ -2,15 +2,15 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="flex items-center justify-center bg-background-alt-a pt-[80px]">
-      <div className="max-w-[800px] ">
-        <p className="text-desktop-body-xl">
+    <div className="flex items-center justify-center bg-background-alt-a pt-[40px]  md:pt-[80px] pb-[80px] md:pb-[80px]">
+      <div className="max-w-[800px] mx-[20px] md:mx-[0px]">
+        <p className="text-mobile-body-lg md:text-desktop-body-xl">
           To create a sustainable future, we must democratize construction. We
           do this by making space more robust, efficient and relocatable. Space
           One makes this future possible, today.
         </p>
 
-        <ul className="text-desktop-body-sm text-color-dark list-decimal ml-[20px] my-[40px]">
+        <ul className="text-mobile-body-sm md:text-desktop-body-sm text-color-dark list-decimal ml-[20px] my-[40px]">
           <li>
             Pricing shown for Space One and Space One Plus is subject to change
             based on delivery location and availability. Permits, groundworks,
@@ -48,7 +48,7 @@ const Footer = () => {
           </li>
           <li>Space One is not available to order in Tasmania.</li>
         </ul>
-        <p className="text-desktop-body-sm text-color-dark">
+        <p className="text-mobile-body-sm md:text-desktop-body-sm text-color-dark">
           Space Buildings © All Rights Reserved
         </p>
       </div>

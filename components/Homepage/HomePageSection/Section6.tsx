@@ -1,11 +1,12 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 
 const Section6 = () => {
   const section6TitleDescriptionData = {
     spaceOne: {
       Dimensions: [
         {
-          title: "Lenght",
+          title: "Length",
           description: "5000 mm (16.40 foot)",
         },
         {
@@ -286,27 +287,61 @@ const Section6 = () => {
       ],
     },
   };
+
+  const [currentModel, setCurrentModel] = useState("Space One");
+
+  const isMdPoint = window.innerWidth <= 768;
+
   return (
-    <div className="my-[180px] mx-[210px] ">
-      <div className="">
-        <div className="flex flex-col items-center">
-          <div className="text-center">
-            <button className="text-[18px]  h-[53px] w-[134px] border-[2px] border-black rounded-[35px]">
+    <div className="mt-[60px] mb-[100px] md:my-[180px] md:mx-[210px] ">
+      <div className="mx-[20px] md:mx-[0px]">
+        <div className="flex flex-col md:items-center">
+          <div className="md:text-center">
+            <button className="text-[12px] md:text-[18px] w-[93px] h-[36px] md:h-[53px] md:w-[134px] border-[2px] border-black rounded-[35px]">
               Tech Specs
             </button>
           </div>
-          <h2 className="text-desktop-header-lg mt-[40px] text-center">
+          <h2 className="text-mobile-header-lg md:text-desktop-header-lg mt-[40px]  md:text-center">
             Keep exploring Space One.
           </h2>
-
-          <div className="flex justify-between w-full mt-[80px] max-w-[800px] ">
-            <div>
+          <div className="mt-[70px] block md:hidden">
+            <button
+              onClick={() => {
+                setCurrentModel("Space One");
+              }}
+              className={`${
+                currentModel === "Space One"
+                  ? "text-white bg-black"
+                  : "text-black bg-[#F2F2F3]"
+              } text-[12px] rounded-[35px] w-[90px] h-[36px]`}
+            >
+              Space One
+            </button>
+            <button
+              onClick={() => {
+                setCurrentModel("Space One Plus");
+              }}
+              className={`${
+                currentModel === "Space One"
+                  ? "text-black bg-[#F2F2F3]"
+                  : "text-white bg-black"
+              } rounded-[35px] text-[12px] w-[115px] h-[36px] bg-[#F2F2F3] ml-[10px]`}
+            >
+              Space One Plus
+            </button>
+          </div>
+          <div className="flex justify-between w-full mt-[30px] md:mt-[80px] max-w-[800px] ">
+            <div
+              className={`md:block ${
+                isMdPoint && currentModel === "Space One" ? "block" : "hidden"
+              }`}
+            >
               {/* section 1.1 */}
-              <div className="w-[350px]">
-                <div>
+              <div className="md:w-[350px]">
+                <div className="h-[144px] md:h-full">
                   <img
                     src="/homepageImages/section-6.1.png"
-                    className="h-full w-full object-contain "
+                    className="h-full w-full object-cover md:object-contain "
                     alt="image"
                   />
                 </div>
@@ -320,11 +355,13 @@ const Section6 = () => {
                 </div>
 
                 <div>
-                  <h4 className="my-[25px] text-desktop-header-md">
+                  <h4 className="my-[25px] text-desktop-header-sm md:text-desktop-header-md">
                     Space One
                   </h4>
-                  <p className="text-desktop-body-md">16 square meters</p>
-                  <p className="text-desktop-body-md mt-[5px]">
+                  <p className="text-mobile-body-md md:text-desktop-body-md">
+                    16 square meters
+                  </p>
+                  <p className="text-mobile-body-md md:text-desktop-body-md mt-[8px] md:mt-[5px]">
                     From $56,990 or $495/wk for 12 mo.1
                   </p>
                 </div>
@@ -341,13 +378,19 @@ const Section6 = () => {
                 </div>
               </div>
             </div>
-            <div className="ml-[100px]">
+            <div
+              className={`md:block ${
+                isMdPoint && currentModel === "Space One Plus"
+                  ? "block"
+                  : "hidden"
+              } md:ml-[100px]`}
+            >
               {/* section 2.1 */}
-              <div className="w-[350px]">
-                <div>
+              <div className="md:w-[350px]">
+                <div className="h-[144px] md:h-full">
                   <img
                     src="/homepageImages/section-6.1.png"
-                    className="h-full w-full object-contain "
+                    className="h-full w-full object-cover md:object-contain "
                     alt="image"
                   />
                 </div>
@@ -361,11 +404,13 @@ const Section6 = () => {
                 </div>
 
                 <div>
-                  <h4 className="my-[25px] text-desktop-header-md">
+                  <h4 className="my-[25px] text-desktop-header-sm md:text-desktop-header-md">
                     Space One Plus
                   </h4>
-                  <p className="text-desktop-body-md">25.6 square meters</p>
-                  <p className="text-desktop-body-md mt-[5px]">
+                  <p className="text-mobile-body-md md:text-desktop-body-md">
+                    25.6 square meters
+                  </p>
+                  <p className="text-mobile-body-md md:text-desktop-body-md mt-[5px]">
                     From $74,990 or $725/wk for 12 mo.1
                   </p>
                 </div>
@@ -383,62 +428,90 @@ const Section6 = () => {
               </div>
             </div>
           </div>
-          <div className=" min-w-[800px] max-w-[800px] mb-[100px]">
+          <div className=" md:min-w-[800px] md:max-w-[800px] mb-[100px]">
             <Section6TitleDescription
               title={"Dimensions"}
               data={section6TitleDescriptionData}
+              isMdPoint={isMdPoint}
+              currentModel={currentModel}
             />
             <Section6TitleDescription
               title={"Layouts"}
               data={section6TitleDescriptionData}
+              isMdPoint={isMdPoint}
+              currentModel={currentModel}
             />
             <Section6TitleDescription
               title={"Orientation"}
               data={section6TitleDescriptionData}
+              isMdPoint={isMdPoint}
+              currentModel={currentModel}
             />
             <Section6TitleDescription
               title={"Structure"}
               data={section6TitleDescriptionData}
+              isMdPoint={isMdPoint}
+              currentModel={currentModel}
             />
             <Section6TitleDescription
               title={"Cladding"}
               data={section6TitleDescriptionData}
+              isMdPoint={isMdPoint}
+              currentModel={currentModel}
             />
             <Section6TitleDescription
               title={"Roof"}
               data={section6TitleDescriptionData}
+              isMdPoint={isMdPoint}
+              currentModel={currentModel}
             />
             <Section6TitleDescription
               title={"Canopy"}
               data={section6TitleDescriptionData}
+              isMdPoint={isMdPoint}
+              currentModel={currentModel}
             />
             <Section6TitleDescription
               title={"Glass"}
               data={section6TitleDescriptionData}
+              isMdPoint={isMdPoint}
+              currentModel={currentModel}
             />
             <Section6TitleDescription
               title={"Interior"}
               data={section6TitleDescriptionData}
+              isMdPoint={isMdPoint}
+              currentModel={currentModel}
             />
             <Section6TitleDescription
               title={"Kitchen"}
               data={section6TitleDescriptionData}
+              isMdPoint={isMdPoint}
+              currentModel={currentModel}
             />
             <Section6TitleDescription
               title={"Bathroom"}
               data={section6TitleDescriptionData}
+              isMdPoint={isMdPoint}
+              currentModel={currentModel}
             />
             <Section6TitleDescription
               title={"Insulation"}
               data={section6TitleDescriptionData}
+              isMdPoint={isMdPoint}
+              currentModel={currentModel}
             />
             <Section6TitleDescription
               title={"Mechanical"}
               data={section6TitleDescriptionData}
+              isMdPoint={isMdPoint}
+              currentModel={currentModel}
             />
             <Section6TitleDescription
               title={"Tech"}
               data={section6TitleDescriptionData}
+              isMdPoint={isMdPoint}
+              currentModel={currentModel}
             />
           </div>
         </div>
@@ -449,15 +522,21 @@ const Section6 = () => {
 
 export default Section6;
 
-const Section6TitleDescription = ({ title, data }) => {
+const Section6TitleDescription = ({ title, data, isMdPoint, currentModel }) => {
   console.log("ifif", data, data[title]);
 
   return (
-    <div className="mt-[100px]">
-      <h4 className="text-desktop-header-sm">{title}</h4>
+    <div className="mt-[80px] md:mt-[100px]">
+      <h4 className="text-desktop-body-xl md:text-desktop-header-sm">
+        {title}
+      </h4>
       <hr className="border-divider-a border-[.5px] mt-[20px]" />
-      <div className="mt-[40px] flex justify-between">
-        <div className="w-[350px] mt-[-20px]">
+      <div className="mt-[25px] md:mt-[40px] flex justify-between">
+        <div
+          className={`md:block ${
+            isMdPoint && currentModel === "Space One" ? "block" : "hidden"
+          }  w-[350px] mt-[-20px]`}
+        >
           {/* space one */}
 
           {data.spaceOne[title]?.map((d, i) => {
@@ -468,7 +547,7 @@ const Section6TitleDescription = ({ title, data }) => {
                 key={i}
                 className={title === "Dimensions" ? "mt-[20px]" : "mt-[10px]"}
               >
-                <p className="text-desktop-body-md">
+                <p className="text-mobile-body-md  md:text-desktop-body-md">
                   {d.title === null ? (
                     <span className="text-[30px] leading-[30px]">-</span>
                   ) : match ? (
@@ -480,12 +559,18 @@ const Section6TitleDescription = ({ title, data }) => {
                     d.title
                   )}
                 </p>
-                <p className="text-desktop-body-md mt-[5px]">{d.description}</p>
+                <p className="text-mobile-body-md  md:text-desktop-body-md mt-[5px]">
+                  {d.description}
+                </p>
               </div>
             );
           })}
         </div>
-        <div className="w-[350px] mt-[-20px]">
+        <div
+          className={`md:block ${
+            isMdPoint && currentModel === "Space One Plus" ? "block" : "hidden"
+          }  w-[350px] mt-[-20px]`}
+        >
           {/* space one plus */}
 
           {data.spaceOnePlus[title]?.map((d, i) => {
