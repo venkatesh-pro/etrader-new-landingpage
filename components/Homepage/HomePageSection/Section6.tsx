@@ -290,21 +290,21 @@ const Section6 = () => {
 
   const [currentModel, setCurrentModel] = useState("Space One");
 
-  const isMdPoint = window.innerWidth <= 768;
+  const isMdPoint = window.innerWidth <= 927;
 
   return (
-    <div className="mt-[60px] mb-[100px] md:my-[180px] md:mx-[210px] ">
-      <div className="mx-[20px] md:mx-[0px]">
-        <div className="flex flex-col md:items-center">
-          <div className="md:text-center">
+    <div className="mt-[60px] mb-[100px] md:my-[180px] desktop:mx-[210px] ">
+      <div className="mx-[20px] custom927:mx-[0px]">
+        <div className="flex flex-col custom927:items-center">
+          <div className="custom927:text-center">
             <button className="text-[12px] md:text-[18px] w-[93px] h-[36px] md:h-[53px] md:w-[134px] border-[2px] border-black rounded-[35px]">
               Tech Specs
             </button>
           </div>
-          <h2 className="text-mobile-header-lg md:text-desktop-header-lg mt-[40px]  md:text-center">
+          <h2 className="text-mobile-header-lg md:text-desktop-header-lg mt-[40px]  custom927:text-center">
             Keep exploring Space One.
           </h2>
-          <div className="mt-[70px] block md:hidden">
+          <div className="mt-[70px] block custom927:hidden">
             <button
               onClick={() => {
                 setCurrentModel("Space One");
@@ -330,9 +330,9 @@ const Section6 = () => {
               Space One Plus
             </button>
           </div>
-          <div className="flex justify-between w-full mt-[30px] md:mt-[80px] max-w-[800px] ">
+          <div className="flex justify-between w-full mt-[30px] custom927:mt-[80px] custom927:max-w-[800px] ">
             <div
-              className={`md:block ${
+              className={`custom927:block ${
                 isMdPoint && currentModel === "Space One" ? "block" : "hidden"
               }`}
             >
@@ -379,7 +379,7 @@ const Section6 = () => {
               </div>
             </div>
             <div
-              className={`md:block ${
+              className={`custom927:block ${
                 isMdPoint && currentModel === "Space One Plus"
                   ? "block"
                   : "hidden"
@@ -533,7 +533,7 @@ const Section6TitleDescription = ({ title, data, isMdPoint, currentModel }) => {
       <hr className="border-divider-a border-[.5px] mt-[20px]" />
       <div className="mt-[25px] md:mt-[40px] flex justify-between">
         <div
-          className={`md:block ${
+          className={`custom927:block ${
             isMdPoint && currentModel === "Space One" ? "block" : "hidden"
           }  w-[350px] mt-[-20px]`}
         >
@@ -567,7 +567,7 @@ const Section6TitleDescription = ({ title, data, isMdPoint, currentModel }) => {
           })}
         </div>
         <div
-          className={`md:block ${
+          className={`custom927:block ${
             isMdPoint && currentModel === "Space One Plus" ? "block" : "hidden"
           }  w-[350px] mt-[-20px]`}
         >

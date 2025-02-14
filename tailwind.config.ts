@@ -17,6 +17,7 @@ export default {
         lapS: "1083px",
         lapL: "1440px",
         desktop: "1680px",
+        custom927: "927px",
         custom1209: "1209px",
       },
 
