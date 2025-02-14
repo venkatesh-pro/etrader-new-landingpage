@@ -331,7 +331,7 @@ const Section6 = () => {
               Space One Plus
             </button>
           </div>
-          <div className="flex justify-between w-full mt-[30px] custom927:mt-[80px] custom927:max-w-[800px] ">
+          <div className="flex custom927:justify-between w-full mt-[30px] custom927:mt-[80px] custom927:max-w-[800px] ">
             <div
               className={`custom927:block ${
                 isMdPoint && currentModel === "Space One" ? "block" : "hidden"
@@ -386,6 +386,7 @@ const Section6 = () => {
                 </div>
               </div>
             </div>
+            <div id="scrolling-place"></div>
             <div
               className={`custom927:block ${
                 isMdPoint && currentModel === "Space One Plus"
@@ -522,6 +523,19 @@ const Section6 = () => {
               currentModel={currentModel}
             />
           </div>
+        </div>
+      </div>
+      {/* top icon */}
+      <div
+        className="mt-[19px] md:mt-[100px]  flex items-center justify-center cursor-pointer"
+        onClick={() => {
+          document
+            .getElementById("scrolling-place")
+            ?.scrollIntoView({ behavior: "smooth" });
+        }}
+      >
+        <div className="w-[34px] h-[34px] md:w-[60px] md:h-[60px] text-center flex items-center justify-center bg-button-b-o30 rounded-[50%] p-[11px]">
+          <img src="/images/arrow-up.svg" alt="image" />
         </div>
       </div>
     </div>
