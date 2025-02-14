@@ -3,7 +3,7 @@ import React from "react";
 const Section5 = () => {
   return (
     <div className="bg-background-alt-a">
-      <div className="mt-[80px] mx-[20px] md:mx-[0px] md:mt-[180px] md:flex items-center justify-center flex-col">
+      <div className="mx-[20px] md:mx-[30px] desktop:mx-[0px] mt-[80px]  md:mt-[180px] md:flex items-center justify-center flex-col">
         <h2 className="text-mobile-header-lg md:text-desktop-header-xl mb-[20px] md:my-[40px]">
           Introducing SpaceOS
         </h2>
@@ -16,7 +16,7 @@ const Section5 = () => {
           </span>
         </p>
       </div>
-      <div className="mt-[60px] md:mt-[100px] md:mx-[48px]">
+      <div className="mt-[60px] md:mt-[100px] md:mx-[30px] desktop:mx-[48px]">
         <div className="h-[340px] mb-[40px] md:mb-[0px] md:h-full">
           {/* replace to video */}
           <img
@@ -26,13 +26,13 @@ const Section5 = () => {
           />{" "}
         </div>
       </div>
-      <div className="mx-[20px] md:mx-[210px]">
+      <div className="mx-[20px] md:mx-[30px] lapL:mx-[70px] desktop:mx-[210px]">
         <h3 className="text-mobile-header-sm md:text-desktop-header-lg mt-[40px] md:mt-[140px]">
           The keys to even more control.
         </h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-[119px] mt-[30px] md:mt-[80px]">
-          <div className="md:max-w-[370px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lapS:grid-cols-3 mt-[30px] md:mt-[80px] md:gap-[30px] lapS:gap-[30px]">
+          <div className="lapS:max-w-[370px]">
             <hr className="border-divider-a border-[.5px]" />
             <div className="w-[28.64px] h-[22.71px] md:w-[38.19px] md:h-[30.28px] mt-[40px] md:mt-[30px]">
               <img src="/images/speakers.svg" alt="image" />
@@ -45,7 +45,7 @@ const Section5 = () => {
               </span>
             </p>
           </div>
-          <div className="md:max-w-[370px]">
+          <div className="lapS:max-w-[370px]">
             <hr className="border-divider-a border-[.5px] mt-[40px] md:mt-[0px]" />
             <div className="w-[29.25px] h-[29.25px] md:w-[39px] md:h-[39px] mt-[40px] md:mt-[30px]">
               <img src="/images/climate.svg" alt="image" />
@@ -58,7 +58,7 @@ const Section5 = () => {
               </span>
             </p>
           </div>
-          <div className="md:max-w-[370px]">
+          <div className="lapS:max-w-[370px]">
             <hr className="border-divider-a border-[.5px] mt-[40px] md:mt-[0px]" />
             <div className="w-[29.25px] h-[26.86px] md:w-[39px] md:h-[35.81px] mt-[40px] md:mt-[30px]">
               <img src="/images/ambience.svg" alt="image" />
@@ -71,7 +71,7 @@ const Section5 = () => {
               </span>
             </p>
           </div>
-          <div className="md:max-w-[370px] md:mt-[80px]">
+          <div className="lapS:max-w-[370px] lapS:mt-[80px]">
             <hr className="border-divider-a border-[.5px] mt-[40px] md:mt-[0px]" />
             <div className="w-[31.41px] h-[28.56px] md:w-[41.88px] md:h-[38.08px] mt-[40px] md:mt-[30px]">
               <img src="/images/weather-map.svg" alt="image" />
@@ -84,7 +84,7 @@ const Section5 = () => {
               </span>
             </p>
           </div>
-          <div className="md:max-w-[370px] md:mt-[80px]">
+          <div className="lapS:max-w-[370px] lapS:mt-[80px]">
             <hr className="border-divider-a border-[.5px] mt-[40px] md:mt-[0px]" />
             <div className="w-[32.84px] h-[16.5px] md:w-[43.79px] md:h-[22px] mt-[40px] md:mt-[30px]">
               <img src="/images/guest-access.svg" alt="image" />
@@ -97,7 +97,7 @@ const Section5 = () => {
               </span>
             </p>
           </div>
-          <div className="md:max-w-[370px] md:mt-[80px]">
+          <div className="lapS:max-w-[370px] lapS:mt-[80px]">
             <hr className="border-divider-a border-[.5px] mt-[40px] md:mt-[0px]" />
             <div className="w-[25.47px] h-[25.5px] md:w-[33.96px] md:h-[34px] mt-[40px] md:mt-[30px]">
               <img src="/images/ota-updates.svg" alt="image" />
