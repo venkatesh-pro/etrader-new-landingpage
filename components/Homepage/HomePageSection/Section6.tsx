@@ -375,7 +375,7 @@ const Section6 = () => {
                 </div>
 
                 <div>
-                  <button className="text-[16px]  h-[51px] w-[156px] border-[2px] rounded-[35px]  mt-[25px]  bg-button-a text-white flex  items-center text-">
+                  <button className="text-[16px]  h-[51px] w-[156px] rounded-[35px]  mt-[25px]  bg-button-a text-white flex  items-center hover:bg-button-a-hover transition-all duration-300 ease-in-out">
                     <span className="ml-[21px]">Design Yours</span>{" "}
                     <img
                       src="/images/arrow-right-btn.svg"
@@ -425,7 +425,7 @@ const Section6 = () => {
                 </div>
 
                 <div>
-                  <button className="text-[16px]  h-[51px] w-[156px] border-[2px] mt-[25px] rounded-[35px] bg-button-a text-white flex  items-center text-">
+                  <button className="text-[16px]  h-[51px] w-[156px] mt-[25px] rounded-[35px] bg-button-a text-white flex  items-center hover:bg-button-a-hover transition-all duration-300 ease-in-out">
                     <span className="ml-[21px]">Design Yours</span>{" "}
                     <img
                       src="/images/arrow-right-btn.svg"
