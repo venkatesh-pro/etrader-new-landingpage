@@ -3,7 +3,7 @@ import React from "react";
 const Section1 = () => {
   return (
     <div>
-      <div className="mx-[20px] md:mx-[48px]">
+      <div className="mx-[20px] md:mx-[30px] desktop:mx-[48px]">
         <h1 className="text-mobile-header-xl md:text-desktop-header-xl text-header-b mt-[60px] md:mt-[207px] ">
           Space One
         </h1>
@@ -13,7 +13,7 @@ const Section1 = () => {
               Two sizes. Tons of possibilities.
             </p>
             <p className="text-mobile-body-md md:text-desktop-body-xl text-color-dark">
-              From $56,990 or $495/wk for 12 mo. <sup>1</sup>
+              From $56,990 or $495/wk for 12 mo.<sup>1</sup>
             </p>
           </div>
           <div className="flex mt-[30px] md:mt-[0px]">
@@ -29,7 +29,7 @@ const Section1 = () => {
           </div>
         </div>
       </div>
-      <div className="mx-[0px] md:mx-[48px] mt-[40px] md:mt-[100px] ">
+      <div className="mx-[0px] md:mx-[30px] desktop:mx-[48px] mt-[40px] md:mt-[100px] ">
         <div className="h-[380px] md:h-full">
           <img
             src="/homepageImages/section-1.png"

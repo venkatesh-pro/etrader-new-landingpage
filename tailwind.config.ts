@@ -16,6 +16,8 @@ export default {
         tabS: "713px",
         lapS: "1083px",
         lapL: "1440px",
+        desktop: "1680px",
+        custom1209: "1209px",
       },
 
       fontSize: {

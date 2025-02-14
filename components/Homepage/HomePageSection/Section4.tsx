@@ -16,7 +16,7 @@ const Section4 = () => {
   return (
     <div className="mt-[80px] md:mt-[180px] ">
       <div className="">
-        <div className="mx-[20px] md:mx-[0px] flex flex-col  md:items-center md:justify-center">
+        <div className="mx-[20px] md:mx-[30px] flex flex-col  md:items-center md:justify-center">
           <button className="text-[12px] md:text-[18px] w-[69px] h-[36px] md:h-[53px] md:w-[98px] border-[2px] border-black rounded-[35px]">
             Interior
           </button>
@@ -32,7 +32,7 @@ const Section4 = () => {
           </p>
         </div>
 
-        <div className="mt-[60px] md:mt-[100px] md:mx-[48px]">
+        <div className="mt-[60px] md:mt-[100px] md:mx-[30px] desktop:mx-[48px]">
           <div className="h-[260px] md:h-full">
             <img
               src="/homepageImages/section-4.png"
@@ -44,10 +44,10 @@ const Section4 = () => {
         <div className="mt-[40px] md:mt-[140px] ">
           <div className="flex flex-col md:items-center">
             <div>
-              <h3 className="text-mobile-header-sm md:text-desktop-header-lg mx-[20px] md:mx-[0px] ">
+              <h3 className=" text-mobile-header-sm md:text-desktop-header-lg mx-[20px] lapS:mx-[30px] desktop:mt-[0px] ">
                 Expansive architecture.
               </h3>
-              <p className="text-desktop-body-lg max-w-[840px] mt-[30px] md:mt-[40px] mx-[20px] md:mx-[0px] ">
+              <p className="text-mobile-body-md md:text-desktop-body-lg max-w-[840px] mt-[30px] md:mt-[40px] mx-[20px] lapS:mx-[30px] desktop:mt-[0px] ">
                 Space One models feature an undercover canopy, a spacious deck,
                 and floor-to-ceiling glass that captures expansive views.{" "}
                 <span className="text-color-dark">
@@ -70,7 +70,7 @@ const Section4 = () => {
                   alt="image"
                 />
               </div>
-              <div className="md:flex hidden justify-between max-w-[920px] mt-[100px] ">
+              <div className="md:flex lapS:flex-row flex-col hidden justify-between max-w-[920px] mt-[100px] mx-[20px] lapS:mx-[30px] desktop:mt-[0px] ">
                 <div className="min-w-[260px]">
                   <hr className="border-divider-a border-[.5px]" />
                   <p className="text-desktop-header-lg mt-[30px]">2x</p>
@@ -78,14 +78,14 @@ const Section4 = () => {
                     More Deck Area<sup>6</sup>
                   </p>
                 </div>
-                <div className="min-w-[260px] ml-[119px]">
+                <div className="min-w-[260px] lapS:ml-[119px]  mt-[30px] lapS:mt-[0px]">
                   <hr className="border-divider-a border-[.5px]" />
                   <p className="text-desktop-header-lg mt-[30px]">33%</p>
                   <p className="text-desktop-body-lg text-color-dark mt-[-10px]">
                     Increased Depth<sup>6</sup>
                   </p>
                 </div>
-                <div className="min-w-[260px] ml-[119px]">
+                <div className="min-w-[260px] lapS:ml-[119px] mt-[30px] lapS:mt-[0px]">
                   <hr className="border-divider-a border-[.5px]" />
                   <p className="text-desktop-header-lg mt-[30px]">25%</p>
                   <p className="text-desktop-body-lg text-color-dark mt-[-10px]">
@@ -96,8 +96,8 @@ const Section4 = () => {
             </div>
           </div>
         </div>
-        <div className=" md:mx-[210px]  ">
-          <div className="md:block hidden mt-[180px] mb-[140px]">
+        <div className=" mx-[20px] md:mx-[30px] lapL:mx-[70px] desktop:mx-[210px] ">
+          <div className="md:block hidden mt-[180px] mb-[140px] h-full">
             <img
               src="/homepageImages/section-4.1.png"
               className="h-full w-full object-contain "
