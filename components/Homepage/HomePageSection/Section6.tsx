@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
 
 const Section6 = () => {
@@ -375,14 +376,17 @@ const Section6 = () => {
                 </div>
 
                 <div>
-                  <button className="text-[16px]  h-[51px] w-[156px] rounded-[35px]  mt-[25px]  bg-button-a text-white flex  items-center hover:bg-button-a-hover transition-all duration-300 ease-in-out">
+                  <Link
+                    href={"/configurator"}
+                    className="text-[16px]  h-[51px] w-[156px] rounded-[35px]  mt-[25px]  bg-button-a text-white flex  items-center hover:bg-button-a-hover transition-all duration-300 ease-in-out"
+                  >
                     <span className="ml-[21px]">Design Yours</span>{" "}
                     <img
                       src="/images/arrow-right-btn.svg"
                       alt="icon"
                       className="w-[14px] h-[13.73px] ml-[9px]"
                     />
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -425,14 +429,17 @@ const Section6 = () => {
                 </div>
 
                 <div>
-                  <button className="text-[16px]  h-[51px] w-[156px] mt-[25px] rounded-[35px] bg-button-a text-white flex  items-center hover:bg-button-a-hover transition-all duration-300 ease-in-out">
+                  <Link
+                    href={"/configurator"}
+                    className="text-[16px]  h-[51px] w-[156px] mt-[25px] rounded-[35px] bg-button-a text-white flex  items-center hover:bg-button-a-hover transition-all duration-300 ease-in-out"
+                  >
                     <span className="ml-[21px]">Design Yours</span>{" "}
                     <img
                       src="/images/arrow-right-btn.svg"
                       alt="icon"
                       className="w-[14px] h-[13.73px] ml-[9px]"
                     />
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
