@@ -190,8 +190,8 @@ const Section4 = () => {
             </div>
           </div>
 
-          <div className="my-[80px] md:my-[180px] flex flex-col-reverse md:flex-row md:items-center">
-            <div className="mx-[20px] md:mx-[0px] mr-[40px]">
+          <div className="my-[80px] md:my-[180px] flex flex-col-reverse custom1209:flex-row custom1209:items-center">
+            <div className=" mr-[40px] md:mr-[40px] custom1209:max-w-[360px]">
               <p className="text-desktop-body-xl md:text-desktop-header-sm">
                 Space that makes you feel good.
               </p>
@@ -202,15 +202,13 @@ const Section4 = () => {
                 private sound studio. <sup>3</sup>
               </p>
             </div>
-            <div className="md:min-w-[860px]">
-              <div className="h-[240px] mb-[40px] md:mb-[0px] md:h-full">
-                {" "}
-                <img
-                  src="/homepageImages/section-4.2.png"
-                  className="h-full w-full object-cover md:object-contain "
-                  alt="image"
-                />
-              </div>
+            <div className="h-[260px] mb-[40px] custom1209:mb-[0px] md:h-full w-full">
+              {" "}
+              <img
+                src="/homepageImages/section-4.2.png"
+                className="h-full w-full object-cover md:object-contain "
+                alt="image"
+              />
             </div>
           </div>
         </div>
