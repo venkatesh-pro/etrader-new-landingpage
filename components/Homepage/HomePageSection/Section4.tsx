@@ -70,7 +70,7 @@ const Section4 = () => {
                   alt="image"
                 />
               </div>
-              <div className="md:flex lapS:flex-row flex-col hidden justify-between max-w-[920px] mt-[100px] mx-[20px] lapS:mx-[30px] desktop:mt-[0px] ">
+              <div className="md:flex lapS:flex-row flex-col hidden justify-between max-w-[920px] mt-[100px] mx-[20px] lapS:mx-[30px] desktop:mt-[100px]">
                 <div className="min-w-[260px]">
                   <hr className="border-divider-a border-[.5px]" />
                   <p className="text-desktop-header-lg mt-[30px]">2x</p>
@@ -105,7 +105,7 @@ const Section4 = () => {
             />
           </div>
           {/* this is repeated two time for responsivness */}
-          <div className="mx-[20px] md:mx-[0px] md:hidden flex flex-col justify-between md:mt-[100px] ">
+          <div className=" md:hidden flex flex-col justify-between md:mt-[100px] ">
             <div className="md:min-w-[260px]">
               <hr className="border-divider-a border-[.5px]" />
               <p className="text-desktop-header-md md:text-desktop-header-lg mt-[30px]">
@@ -138,19 +138,19 @@ const Section4 = () => {
             Amenities for every occasion.
           </h3>
 
-          <div className="mt-[60px] flex flex-col md:flex-row justify-between md:items-center">
+          <div className="mt-[60px] custom1209:flex justify-between md:items-center">
             <div className="">
-              <div className="max-w-[850px] overflow-hidden ">
+              <div className="custom1209:max-w-[850px] bg-red-500 overflow-hidden ">
                 <Carousel images={images} />
               </div>
               <h3 className="mx-[20px] md:mx-[0px] md:hidden block text-mobile-header-sm md:text-desktop-header-lg mt-[40px] md:mt-[0px]">
                 Amenities for every occasion.
               </h3>
             </div>
-            <div className="mx-[20px] md:mx-[0px] flex flex-col md:justify-between md:h-[519px]">
-              <div className="md:ml-[89px]">
-                <hr className="block mt-[40px] md:mt-[0px] md:hidden border-divider-b" />
-                <div className="w-[31.5px] h-[24.09px] md:w-[42px] md:h-[32.12px] mt-[40px] md:mt-[0px]">
+            <div className="mx-[20px] md:mx-[0px] flex flex-col ">
+              <div className="custom1209:ml-[30px] desktop:ml-[89px]">
+                <hr className="block mt-[40px] custom1209:hidden border-divider-a" />
+                <div className="w-[31.5px] h-[24.09px] md:w-[42px] md:h-[32.12px] mt-[40px] custom1209:mt-[0px]">
                   <img src="/images/open-plan.svg" alt="image" />
                 </div>
                 <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] md:mt-[0px]">
@@ -161,9 +161,9 @@ const Section4 = () => {
                   </span>
                 </p>
               </div>
-              <div className="md:ml-[89px]">
-                <hr className="block mt-[40px] md:mt-[0px] md:hidden border-divider-b" />
-                <div className="w-[21.35px] h-[29.58px] md:w-[28.46px] md:h-[39.44px] mt-[40px] md:mt-[0px]">
+              <div className="custom1209:ml-[30px] desktop:ml-[89px] custom1209:mt-[30px] desktop:mt-[59px]">
+                <hr className="block mt-[40px] custom1209:hidden border-divider-a" />
+                <div className="w-[21.35px] h-[29.58px] md:w-[28.46px] md:h-[39.44px] mt-[40px] custom1209:mt-[0px]">
                   <img src="/images/wardrobe.svg" alt="image" />
                 </div>
                 <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] md:mt-[0px]">
@@ -174,9 +174,9 @@ const Section4 = () => {
                   </span>
                 </p>
               </div>
-              <div className="md:ml-[89px]">
-                <hr className="block mt-[40px] md:mt-[0px] md:hidden border-divider-b" />
-                <div className="w-[28.5px] h-[27px] md:w-[38px] md:h-[36px] mt-[40px] md:mt-[0px]">
+              <div className="custom1209:ml-[30px] desktop:ml-[89px] custom1209:mt-[30px] desktop:mt-[59px]">
+                <hr className="block mt-[40px] custom1209:hidden border-divider-a" />
+                <div className="w-[28.5px] h-[27px] md:w-[38px] md:h-[36px] mt-[40px] custom1209:mt-[0px]">
                   <img src="/images/kitchen.svg" alt="image" />
                 </div>
                 <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] md:mt-[0px]">

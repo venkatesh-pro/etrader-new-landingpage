@@ -116,7 +116,7 @@ const Section3 = () => {
                   </span>
                 </p>
               </div>
-              <div className="custom1209:ml-[30px] desktop:ml-[89px]">
+              <div className="custom1209:ml-[30px] desktop:ml-[89px] custom1209:mt-[30px] desktop:mt-[59px]">
                 <hr className="block mt-[40px] custom1209:mt-[0px] custom1209:hidden border-divider-b" />
                 <div className="w-[31.46px] h-[28.5px] md:w-[41.95px] md:h-[38px] mt-[40px] custom1209:mt-[0px]">
                   <img src="/images/subframe.svg" alt="image" />
@@ -129,7 +129,7 @@ const Section3 = () => {
                   </span>
                 </p>
               </div>
-              <div className="custom1209:ml-[30px] desktop:ml-[89px]">
+              <div className="custom1209:ml-[30px] desktop:ml-[89px] custom1209:mt-[30px] desktop:mt-[59px]">
                 <hr className="block mt-[40px] custom1209:mt-[0px] custom1209:hidden border-divider-b" />
                 <div className="w-[28.17px] h-[28.49px] md:w-[37.56px] md:h-[37.98px] mt-[40px] custom1209:mt-[0px]">
                   <img src="/images/net-zero.svg" alt="image" />
@@ -188,7 +188,7 @@ const Section3 = () => {
             </div>
           </div>
 
-          <div className="mx-[20px] md:mx-[0px]">
+          <div className="">
             <h3 className="mt-[120px] md:mt-[180px] text-mobile-header-sm md:text-desktop-header-lg">
               Adding value to growing industries.
             </h3>
