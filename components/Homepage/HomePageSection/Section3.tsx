@@ -199,7 +199,7 @@ const Section3 = () => {
                 <div className="mt-[40px] custom1209:mt-[30px]">
                   <img src="/images/retail.svg" alt="image" />
                 </div>
-                <p className="text-desktop-body-lg mt-[10px] custom1209:max-w-[320px]">
+                <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] custom1209:max-w-[320px]">
                   <span>Retail.</span>{" "}
                   <span className="text-color-dark">
                     Food outlets and popups, ideal for maximizing exposure in
@@ -212,7 +212,7 @@ const Section3 = () => {
                 <div className="mt-[40px] custom1209:mt-[30px]">
                   <img src="/images/accommodation.svg" alt="image" />
                 </div>
-                <p className="text-desktop-body-lg mt-[10px] custom1209:max-w-[320px]">
+                <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] custom1209:max-w-[320px]">
                   <span>Accommodation.</span>{" "}
                   <span className="text-color-dark">
                     Extra living spaces or hospitality designed for rentals and
@@ -225,7 +225,7 @@ const Section3 = () => {
                 <div className="mt-[40px] custom1209:mt-[30px]">
                   <img src="/images/commercial.svg" alt="image" />
                 </div>
-                <p className="text-desktop-body-lg mt-[10px] custom1209:max-w-[320px]">
+                <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] custom1209:max-w-[320px]">
                   <span>Commercial.</span>{" "}
                   <span className="text-color-dark">
                     Secluded space for special events, exhibitions, brand

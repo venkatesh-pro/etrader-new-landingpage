@@ -37,7 +37,7 @@ const Section5 = () => {
             <div className="w-[28.64px] h-[22.71px] md:w-[38.19px] md:h-[30.28px] mt-[40px] md:mt-[30px]">
               <img src="/images/speakers.svg" alt="image" />
             </div>
-            <p className="text-desktop-body-lg mt-[10px] md:max-w-[320px]">
+            <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] md:max-w-[320px]">
               <span>Retail.</span>
               <span className="text-color-dark">
                 Food outlets and popups, ideal for maximizing exposure in
@@ -50,7 +50,7 @@ const Section5 = () => {
             <div className="w-[29.25px] h-[29.25px] md:w-[39px] md:h-[39px] mt-[40px] md:mt-[30px]">
               <img src="/images/climate.svg" alt="image" />
             </div>
-            <p className="text-desktop-body-lg mt-[10px] md:max-w-[320px]">
+            <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] md:max-w-[320px]">
               <span>Accommodation.</span>
               <span className="text-color-dark">
                 Extra living spaces or hospitality designed for rentals and
@@ -63,7 +63,7 @@ const Section5 = () => {
             <div className="w-[29.25px] h-[26.86px] md:w-[39px] md:h-[35.81px] mt-[40px] md:mt-[30px]">
               <img src="/images/ambience.svg" alt="image" />
             </div>
-            <p className="text-desktop-body-lg mt-[10px] md:max-w-[320px]">
+            <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] md:max-w-[320px]">
               <span>Commercial.</span>
               <span className="text-color-dark">
                 Secluded space for special events, exhibitions, brand
@@ -76,7 +76,7 @@ const Section5 = () => {
             <div className="w-[31.41px] h-[28.56px] md:w-[41.88px] md:h-[38.08px] mt-[40px] md:mt-[30px]">
               <img src="/images/weather-map.svg" alt="image" />
             </div>
-            <p className="text-desktop-body-lg mt-[10px] md:max-w-[320px]">
+            <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] md:max-w-[320px]">
               <span>Commercial.</span>
               <span className="text-color-dark">
                 Secluded space for special events, exhibitions, brand
@@ -89,7 +89,7 @@ const Section5 = () => {
             <div className="w-[32.84px] h-[16.5px] md:w-[43.79px] md:h-[22px] mt-[40px] md:mt-[30px]">
               <img src="/images/guest-access.svg" alt="image" />
             </div>
-            <p className="text-desktop-body-lg mt-[10px] md:max-w-[320px]">
+            <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] md:max-w-[320px]">
               <span>Commercial.</span>
               <span className="text-color-dark">
                 Secluded space for special events, exhibitions, brand
@@ -102,7 +102,7 @@ const Section5 = () => {
             <div className="w-[25.47px] h-[25.5px] md:w-[33.96px] md:h-[34px] mt-[40px] md:mt-[30px]">
               <img src="/images/ota-updates.svg" alt="image" />
             </div>
-            <p className="text-desktop-body-lg mt-[10px] md:max-w-[320px]">
+            <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] md:max-w-[320px]">
               <span>Commercial.</span>
               <span className="text-color-dark">
                 Secluded space for special events, exhibitions, brand

@@ -37,7 +37,7 @@ const Section2 = () => {
                   alt=""
                 />
               </div>
-              <p className="w-full md:max-w-[320px] mt-[10px] text-desktop-body-lg">
+              <p className="w-full md:max-w-[320px] mt-[10px] text-mobile-body-md md:text-desktop-body-lg">
                 <span>Design. </span>
                 <span className="text-color-dark">
                   Customize your Space One. Choose your exterior color, layout,
@@ -55,7 +55,7 @@ const Section2 = () => {
                   className="w-full h-full object-cover md:object-contain"
                 />
               </div>
-              <p className="w-full md:max-w-[320px] mt-[10px] text-desktop-body-lg">
+              <p className="w-full md:max-w-[320px] mt-[10px] text-mobile-body-md md:text-desktop-body-lg">
                 <span>Manufacturing. </span>
                 <span className="text-color-dark">
                   Prefabricated off-site to reduce assembly time and enhance
@@ -72,7 +72,7 @@ const Section2 = () => {
                   className="object-cover md:object-contain"
                 />
               </div>
-              <p className="w-full md:max-w-[320px] mt-[10px] text-desktop-body-lg">
+              <p className="w-full md:max-w-[320px] mt-[10px] text-mobile-body-md md:text-desktop-body-lg">
                 <span>Delivery. </span>
                 <span className="text-color-dark">
                   Your new Space One begins its journey from factory to site,
