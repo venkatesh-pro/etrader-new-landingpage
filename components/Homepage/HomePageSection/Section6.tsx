@@ -294,7 +294,7 @@ const Section6 = () => {
   console.log("ss", isMdPoint, currentModel);
 
   return (
-    <div className="mt-[60px] mb-[100px] md:my-[180px] desktop:mx-[210px] ">
+    <div className="my-[60px] md:my-[180px] desktop:mx-[210px] ">
       <div className="mx-[20px] custom927:mx-[0px]">
         <div className="flex flex-col custom927:items-center">
           <div className="custom927:text-center">
@@ -436,7 +436,7 @@ const Section6 = () => {
               </div>
             </div>
           </div>
-          <div className=" md:min-w-[800px] md:max-w-[800px] mb-[100px]">
+          <div className=" md:min-w-[800px] md:max-w-[800px]">
             <Section6TitleDescription
               title={"Dimensions"}
               data={section6TitleDescriptionData}

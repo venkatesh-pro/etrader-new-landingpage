@@ -113,7 +113,7 @@ const Section5 = () => {
         </div>
       </div>
       <div className="mt-[80px] md:mt-[180px]">
-        <div className="h-[340px] mb-[40px] md:mb-[0px] md:h-full">
+        <div className="h-[340px] md:h-full">
           <img
             src="/homepageImages/section-5.1.png"
             className="h-full w-full object-cover md:object-contain "
