@@ -140,14 +140,14 @@ const Section4 = () => {
 
           <div className="mt-[60px] custom1209:flex justify-between md:items-center">
             <div className="">
-              <div className="custom1209:max-w-[850px] bg-red-500 overflow-hidden ">
+              <div className="custom1209:max-w-[850px] bg-red-500 overflow-hidden mx-[-20px] md:mx-[0px] ">
                 <Carousel images={images} />
               </div>
-              <h3 className="mx-[20px] md:mx-[0px] md:hidden block text-mobile-header-sm md:text-desktop-header-lg mt-[40px] md:mt-[0px]">
+              <h3 className="md:hidden block text-mobile-header-sm md:text-desktop-header-lg mt-[40px] md:mt-[0px]">
                 Amenities for every occasion.
               </h3>
             </div>
-            <div className="mx-[20px] md:mx-[0px] flex flex-col ">
+            <div className=" flex flex-col ">
               <div className="custom1209:ml-[30px] desktop:ml-[89px]">
                 <hr className="block mt-[40px] custom1209:hidden border-divider-a" />
                 <div className="w-[31.5px] h-[24.09px] md:w-[42px] md:h-[32.12px] mt-[40px] custom1209:mt-[0px]">
@@ -190,8 +190,8 @@ const Section4 = () => {
             </div>
           </div>
 
-          <div className="my-[80px] md:my-[180px] flex flex-col-reverse custom1209:flex-row custom1209:items-center">
-            <div className=" mr-[40px] md:mr-[40px] custom1209:max-w-[360px]">
+          <div className="my-[80px] md:my-[180px] flex flex-col-reverse custom1209:flex-row custom1209:items-center mx-[-20px] md:mx-[0px]">
+            <div className="mx-[20px] md:mx-[0px] mr-[40px] md:mr-[40px] custom1209:max-w-[360px]">
               <p className="text-desktop-body-xl md:text-desktop-header-sm">
                 Space that makes you feel good.
               </p>

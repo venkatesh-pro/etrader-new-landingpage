@@ -15,7 +15,7 @@ const ConfiguratorNavbar: React.FC<ConfiguratorNavbarProps> = ({
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobileView(window.innerWidth < 768);
+      setIsMobileView(global.innerWidth < 768);
     };
 
     handleResize();

@@ -80,7 +80,7 @@ const Section3 = () => {
           </div>
         </div>
         <div className="mx-[20px] md:mx-[30px] lapL:mx-[70px] desktop:mx-[210px]">
-          <div className="h-[340px] md:h-full my-[60px] md:my-[180px]">
+          <div className="h-[340px] md:h-full my-[60px] md:my-[180px] mx-[-20px] md:mx-[0px]">
             <img
               src="/homepageImages/section-3.1.png"
               className="h-full w-full object-cover desktop:object-contain"
@@ -145,8 +145,8 @@ const Section3 = () => {
             </div>
           </div>
 
-          <div className="mt-[80px] md:my-[180px] flex custom1209:flex-row flex-col-reverse  custom1209:items-center">
-            <div className=" md:mr-[40px] custom1209:max-w-[360px]">
+          <div className="mt-[80px] md:my-[180px] flex custom1209:flex-row flex-col-reverse  custom1209:items-center mx-[-20px] md:mx-[0px]">
+            <div className="mx-[20px] md:mx-[0px] md:mr-[40px] custom1209:max-w-[360px]">
               <p className="text-desktop-body-xl md:text-desktop-header-sm">
                 Crane in and connect.
               </p>
@@ -166,7 +166,7 @@ const Section3 = () => {
               />
             </div>
           </div>
-          <div className="mt-[80px] md:mt-[0px] flex flex-col custom1209:flex-row custom1209:items-center">
+          <div className="mt-[80px] md:mt-[0px] flex flex-col custom1209:flex-row custom1209:items-center mx-[-20px] md:mx-[0px]">
             <div className="h-[260px] mb-[40px] custom1209:mb-[0px] md:h-full w-full">
               <img
                 src="/homepageImages/section-3.3.png"
@@ -174,7 +174,7 @@ const Section3 = () => {
                 alt="image"
               />
             </div>
-            <div className=" custom1209:mr-[0px] custom1209:ml-[40px] custom1209:max-w-[360px]">
+            <div className="mx-[20px] md:mx-[0px] custom1209:mr-[0px] custom1209:ml-[40px] custom1209:max-w-[360px]">
               <p className="text-desktop-body-xl md:text-desktop-header-sm">
                 Built for safety.
               </p>

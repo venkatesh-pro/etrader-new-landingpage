@@ -290,7 +290,8 @@ const Section6 = () => {
 
   const [currentModel, setCurrentModel] = useState("Space One");
 
-  const isMdPoint = window.innerWidth <= 927;
+  const isMdPoint = global.innerWidth <= 927;
+  console.log("ss", isMdPoint, currentModel);
 
   return (
     <div className="mt-[60px] mb-[100px] md:my-[180px] desktop:mx-[210px] ">
@@ -338,6 +339,13 @@ const Section6 = () => {
             >
               {/* section 1.1 */}
               <div className="md:w-[350px]">
+                <pre className="hidden">
+                  {JSON.stringify(
+                    isMdPoint && currentModel === "Space One"
+                      ? "block"
+                      : "hidden"
+                  )}
+                </pre>
                 <div className="h-[144px] md:h-full">
                   <img
                     src="/homepageImages/section-6.1.png"
@@ -383,7 +391,7 @@ const Section6 = () => {
                 isMdPoint && currentModel === "Space One Plus"
                   ? "block"
                   : "hidden"
-              } md:ml-[100px]`}
+              } custom927:ml-[100px]`}
             >
               {/* section 2.1 */}
               <div className="md:w-[350px]">
@@ -521,9 +529,53 @@ const Section6 = () => {
 };
 
 export default Section6;
+// Define valid keys for section categories
+type SectionCategory =
+  | "Dimensions"
+  | "Layouts"
+  | "Orientation"
+  | "Structure"
+  | "Cladding"
+  | "Roof"
+  | "Canopy"
+  | "Glass"
+  | "Interior"
+  | "Kitchen"
+  | "Bathroom"
+  | "Insulation"
+  | "Mechanical"
+  | "Tech";
 
-const Section6TitleDescription = ({ title, data, isMdPoint, currentModel }) => {
-  console.log("ifif", data, data[title]);
+// Define the structure of a section item
+type SectionItem = {
+  title: string | null;
+  description?: string;
+};
+
+// Define the main data structure
+type Section6TitleDescriptionData = {
+  [key: string]: {
+    [K in SectionCategory]: SectionItem[];
+  };
+};
+
+// Define component props
+type Section6TitleDescriptionProps = {
+  title: SectionCategory; // Ensures only valid keys are used
+  data: Section6TitleDescriptionData;
+  isMdPoint: boolean;
+  currentModel: string;
+};
+
+const Section6TitleDescription: React.FC<Section6TitleDescriptionProps> = ({
+  title,
+  data,
+  isMdPoint,
+  currentModel,
+}) => {
+  console.log({
+    sss: isMdPoint && currentModel === "Space One" ? "block" : "hidden",
+  });
 
   return (
     <div className="mt-[80px] md:mt-[100px]">
