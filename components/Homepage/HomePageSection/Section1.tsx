@@ -4,7 +4,7 @@ const Section1 = () => {
   return (
     <div>
       <div className="mx-[20px] md:mx-[30px] desktop:mx-[48px]">
-        <h1 className="text-mobile-header-xl md:text-desktop-header-xl text-header-b mt-[60px] md:mt-[207px] ">
+        <h1 className="text-mobile-header-xl md:text-desktop-header-xl text-header-b mt-[60px] md:mt-[150px] desktop:mt-[227px] ">
           Space One
         </h1>
         <div className="mt-[30px] flex flex-col md:flex-row justify-between">
