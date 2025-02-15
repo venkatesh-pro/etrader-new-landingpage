@@ -121,6 +121,7 @@ const Section5 = () => {
           />
         </div>
       </div>
+      <div id="tech-specs"></div>
     </div>
   );
 };

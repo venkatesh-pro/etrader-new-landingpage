@@ -136,7 +136,7 @@ const Section6 = () => {
     spaceOnePlus: {
       Dimensions: [
         {
-          title: "Lenght",
+          title: "Length",
           description: "8000 mm (26.24 foot)",
         },
         {
@@ -295,7 +295,7 @@ const Section6 = () => {
   console.log("ss", isMdPoint, currentModel);
 
   return (
-    <div className="my-[60px] md:my-[180px] desktop:mx-[210px] ">
+    <div className="my-[60px] md:my-[180px] desktop:mx-[210px] " >
       <div className="mx-[20px] custom927:mx-[0px]">
         <div className="flex flex-col custom927:items-center">
           <div className="custom927:text-center">

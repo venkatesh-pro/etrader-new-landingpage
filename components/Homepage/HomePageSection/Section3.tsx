@@ -2,7 +2,7 @@ import React from "react";
 
 const Section3 = () => {
   return (
-    <div className="mt-[80px] md:mt-[180px]">
+    <div className="mt-[80px] md:mt-[180px]" id="design">
       <div className="bg-background-b text-white ">
         <div className="pt-[80px] md:pt-[180px] md:flex flex-col justify-center items-center w-full">
           <div className="mx-[20px] md:mx-[30px] desktop:mx-[0px] md:flex items-center flex-col">
@@ -35,7 +35,7 @@ const Section3 = () => {
               An evolution in prefab.
             </h3>
             <p className=" text-mobile-body-md md:text-desktop-body-lg max-w-[840px] mt-[30px] md:mt-[40px]">
-              Space’s advanced modular buildings allow for a multitude of uses.
+              Space’s advanced modular buildings allow for a multitude of uses.{" "}
               <span className="text-color-dark">
                 Unlike traditional construction methods with intensive on-site
                 labor and lengthy timelines, Space modular buildings are
@@ -246,6 +246,7 @@ const Section3 = () => {
           </div>
         </div>
       </div>
+      <div id="interior"></div>
     </div>
   );
 };

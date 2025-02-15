@@ -1,3 +1,5 @@
+'use client'
+
 import React from "react";
 
 const Section1 = () => {
@@ -17,13 +19,34 @@ const Section1 = () => {
             </p>
           </div>
           <div className="flex mt-[30px] md:mt-[0px]">
-            <button className="text-[13px] md:text-[18px] w-[72px] h-[37px] md:h-[53px] md:w-[97px] bg-[#F2F2F3] rounded-[40px]">
+            <button
+              className="text-[13px] md:text-[18px] w-[72px] h-[37px] md:h-[53px] md:w-[97px] bg-[#F2F2F3] rounded-[40px]"
+              onClick={() => {
+                document
+                  .getElementById("design")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
               Design
             </button>
-            <button className="text-[13px] md:text-[18px] h-[37px] w-[72px] md:h-[53px] md:w-[98px] bg-[#F2F2F3] ml-[15px] rounded-[40px]">
+            <button
+              className="text-[13px] md:text-[18px] h-[37px] w-[72px] md:h-[53px] md:w-[98px] bg-[#F2F2F3] ml-[15px] rounded-[40px]"
+              onClick={() => {
+                document
+                  .getElementById("interior")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
               Interior
             </button>
-            <button className="text-[13px] md:text-[18px] h-[37px] w-[98px] md:h-[53px] md:w-[134px] bg-[#F2F2F3] ml-[15px] rounded-[40px]">
+            <button
+              className="text-[13px] md:text-[18px] h-[37px] w-[98px] md:h-[53px] md:w-[134px] bg-[#F2F2F3] ml-[15px] rounded-[40px]"
+              onClick={() => {
+                document
+                  .getElementById("tech-specs")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
               Tech Specs
             </button>
           </div>
