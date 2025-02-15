@@ -153,7 +153,7 @@ const Section4 = () => {
                 <div className="w-[31.5px] h-[24.09px] md:w-[42px] md:h-[32.12px] mt-[40px] custom1209:mt-[0px]">
                   <img src="/images/open-plan.svg" alt="image" />
                 </div>
-                <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] md:mt-[0px]">
+                <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] md:mt-[10px]">
                   Open Plan.{" "}
                   <span className="text-color-dark">
                     A seamless, elegant, and versatile canvas for personalized
@@ -166,7 +166,7 @@ const Section4 = () => {
                 <div className="w-[21.35px] h-[29.58px] md:w-[28.46px] md:h-[39.44px] mt-[40px] custom1209:mt-[0px]">
                   <img src="/images/wardrobe.svg" alt="image" />
                 </div>
-                <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] md:mt-[0px]">
+                <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] md:mt-[10px]">
                   Wardrobe.{" "}
                   <span className="text-color-dark">
                     High-quality open shelving, hanging space, and smart
@@ -179,7 +179,7 @@ const Section4 = () => {
                 <div className="w-[28.5px] h-[27px] md:w-[38px] md:h-[36px] mt-[40px] custom1209:mt-[0px]">
                   <img src="/images/kitchen.svg" alt="image" />
                 </div>
-                <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] md:mt-[0px]">
+                <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] md:mt-[10px]">
                   Kitchen.{" "}
                   <span className="text-color-dark">
                     Spacious, flowing design with seamless cooking, dining, and
