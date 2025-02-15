@@ -67,7 +67,7 @@
 /* Custom navigation styles */
 .swiper-button-next,
 .swiper-button-prev {
-  background: rgba(0, 0, 0, 0.3);/* Optional: remove background */
+  background: rgba(0, 0, 0, 0.3); /* Optional: remove background */
   color: red !important; /* Set your custom arrow color */
   font-size: 0; /* Remove text */
   width: 60px !important; /* Set size of the arrow buttons */
@@ -90,6 +90,9 @@
   .swiper-button-prev {
     margin-left: 0px;
     margin-right: 0px;
+    height: 40px !important;
+    width: 40px !important;
+    padding: 0px !important;
   }
 }
 

@@ -3,7 +3,17 @@
 /* Custom navigation styles */
 .swiper-button-next,
 .swiper-button-prev {
-
   margin-left: 41px;
   margin-right: 41px;
+}
+
+@media (max-width: 768px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    margin-left: 0px;
+    margin-right: 0px;
+    height: 40px !important;
+    width: 40px !important; 
+    padding: 0px !important;
+  }
 }
