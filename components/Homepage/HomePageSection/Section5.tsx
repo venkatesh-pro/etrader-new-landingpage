@@ -38,10 +38,10 @@ const Section5 = () => {
               <img src="/images/speakers.svg" alt="image" />
             </div>
             <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] md:max-w-[320px]">
-              <span>Retail.</span>
+              <span>Speakers.</span>{" "}
               <span className="text-color-dark">
-                Food outlets and popups, ideal for maximizing exposure in
-                high-traffic locations.
+                Enjoy your favorite music, media, and handsfree calls with 2
+                built-in speakers.<sup>3</sup>
               </span>
             </p>
           </div>
@@ -51,10 +51,10 @@ const Section5 = () => {
               <img src="/images/climate.svg" alt="image" />
             </div>
             <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] md:max-w-[320px]">
-              <span>Accommodation.</span>
+              <span>Climate.</span>{" "}
               <span className="text-color-dark">
-                Extra living spaces or hospitality designed for rentals and
-                tourism retreats.{" "}
+                Air inside your space is pure and just the way you like it with
+                a smart HVAC system.4
               </span>
             </p>
           </div>
@@ -64,10 +64,10 @@ const Section5 = () => {
               <img src="/images/ambience.svg" alt="image" />
             </div>
             <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] md:max-w-[320px]">
-              <span>Commercial.</span>
+              <span>Ambience.</span>{" "}
               <span className="text-color-dark">
-                Secluded space for special events, exhibitions, brand
-                activations, and functions.{" "}
+                Adjust intensity of the lights from super bright to dim with
+                dynamic fade after dusk.4
               </span>
             </p>
           </div>
@@ -77,10 +77,10 @@ const Section5 = () => {
               <img src="/images/weather-map.svg" alt="image" />
             </div>
             <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] md:max-w-[320px]">
-              <span>Commercial.</span>
+              <span>Weather Map.</span>{" "}
               <span className="text-color-dark">
-                Secluded space for special events, exhibitions, brand
-                activations, and functions.{" "}
+                Check the live weather where you are to better plan your daily
+                schedule.4
               </span>
             </p>
           </div>
@@ -90,10 +90,10 @@ const Section5 = () => {
               <img src="/images/guest-access.svg" alt="image" />
             </div>
             <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] md:max-w-[320px]">
-              <span>Commercial.</span>
+              <span>Guest Access.</span>{" "}
               <span className="text-color-dark">
-                Secluded space for special events, exhibitions, brand
-                activations, and functions.{" "}
+                Securely issue digital keys with a set expiry date and option to
+                limit access.4
               </span>
             </p>
           </div>
@@ -103,10 +103,10 @@ const Section5 = () => {
               <img src="/images/ota-updates.svg" alt="image" />
             </div>
             <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] md:max-w-[320px]">
-              <span>Commercial.</span>
+              <span>OTA Updates.</span>{" "}
               <span className="text-color-dark">
-                Secluded space for special events, exhibitions, brand
-                activations, and functions.{" "}
+                New features and updates making your space safer and more
+                capable over time.4
               </span>
             </p>
           </div>

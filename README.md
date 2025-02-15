@@ -1,3 +1,3 @@
 - fix the slider
 - video
-- space after Retail.
+- content change 
