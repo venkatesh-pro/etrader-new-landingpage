@@ -196,7 +196,7 @@ const Section3 = () => {
             <div className="flex flex-col custom1209:flex-row justify-between mt-[40px] md:mt-[80px]">
               <div className="custom1209:max-w-[370px]">
                 <hr className="border-divider-b border-[.5px]" />
-                <div className="mt-[40px] custom1209:mt-[30px]">
+                <div className="w-[29.42px] h-[26.25px] md:w-[39.23px] md:h-[35px] mt-[40px] custom1209:mt-[30px]">
                   <img src="/images/retail.svg" alt="image" />
                 </div>
                 <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] custom1209:max-w-[320px]">
@@ -209,7 +209,7 @@ const Section3 = () => {
               </div>
               <div className="custom1209:max-w-[370px]">
                 <hr className="border-divider-b border-[.5px] mt-[40px] custom1209:mt-[0px]" />
-                <div className="mt-[40px] custom1209:mt-[30px]">
+                <div className="w-[28.5px] h-[28.5px] md:w-[38px] md:h-[38px] mt-[40px] custom1209:mt-[30px]">
                   <img src="/images/accommodation.svg" alt="image" />
                 </div>
                 <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] custom1209:max-w-[320px]">
@@ -222,7 +222,7 @@ const Section3 = () => {
               </div>
               <div className="custom1209:max-w-[370px]">
                 <hr className="border-divider-b border-[.5px] mt-[40px] custom1209:mt-[0px]" />
-                <div className="mt-[40px] custom1209:mt-[30px]">
+                <div className="w-[28.5px] h-[30.35px] md:w-[38px] md:h-[40.46px] mt-[40px] custom1209:mt-[30px]">
                   <img src="/images/commercial.svg" alt="image" />
                 </div>
                 <p className="text-mobile-body-md md:text-desktop-body-lg mt-[10px] custom1209:max-w-[320px]">
