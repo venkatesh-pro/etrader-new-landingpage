@@ -2,7 +2,7 @@ import React from "react";
 
 const Section5 = () => {
   return (
-    <div className="bg-background-alt-a">
+    <div className="">
       <div className="mx-[20px] md:mx-[30px] desktop:mx-[0px] pt-[80px]  md:pt-[180px] md:flex items-center justify-center flex-col">
         <h2 className="text-mobile-header-lg md:text-desktop-header-xl mb-[20px] md:my-[40px]">
           Introducing SpaceOS
