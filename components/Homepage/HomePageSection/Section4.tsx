@@ -17,7 +17,7 @@ const Section4 = () => {
     <div className="mt-[80px] md:mt-[180px] ">
       <div className="">
         <div className="mx-[20px] md:mx-[30px] flex flex-col  md:items-center md:justify-center">
-          <button className="text-[12px] md:text-[18px] w-[69px] h-[36px] md:h-[53px] md:w-[98px] border-[2px] border-black rounded-[35px]">
+          <button className="text-[12px] md:text-[18px] w-[69px] h-[36px] md:h-[53px] md:w-[98px] border-[2px] border-black rounded-[35px] cursor-default">
             Interior
           </button>
           <h2 className="text-mobile-header-lg md:text-desktop-header-xl my-[20px] md:my-[40px]">

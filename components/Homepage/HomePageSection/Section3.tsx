@@ -6,7 +6,7 @@ const Section3 = () => {
       <div className="bg-background-b text-white ">
         <div className="pt-[80px] md:pt-[180px] md:flex flex-col justify-center items-center w-full">
           <div className="mx-[20px] md:mx-[30px] desktop:mx-[0px] md:flex items-center flex-col">
-            <button className="text-[12px] md:text-[18px] h-[36px] w-[69px] md:h-[53px] md:w-[97px] border-[2px] border-white rounded-[35px]">
+            <button className="text-[12px] md:text-[18px] h-[36px] w-[69px] md:h-[53px] md:w-[97px] border-[2px] border-white rounded-[35px] cursor-default">
               Design
             </button>
             <h2 className="text-mobile-header-lg md:text-desktop-header-xl mt-[20px] md:mt-[40px]">

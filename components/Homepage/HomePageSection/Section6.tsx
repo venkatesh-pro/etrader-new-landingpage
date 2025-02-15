@@ -295,11 +295,11 @@ const Section6 = () => {
   console.log("ss", isMdPoint, currentModel);
 
   return (
-    <div className="my-[60px] md:my-[180px] desktop:mx-[210px] " >
+    <div className="my-[60px] md:my-[180px] desktop:mx-[210px] ">
       <div className="mx-[20px] custom927:mx-[0px]">
         <div className="flex flex-col custom927:items-center">
           <div className="custom927:text-center">
-            <button className="text-[12px] md:text-[18px] w-[93px] h-[36px] md:h-[53px] md:w-[134px] border-[2px] border-black rounded-[35px]">
+            <button className="text-[12px] md:text-[18px] w-[93px] h-[36px] md:h-[53px] md:w-[134px] border-[2px] border-black rounded-[35px] cursor-default">
               Tech Specs
             </button>
           </div>
