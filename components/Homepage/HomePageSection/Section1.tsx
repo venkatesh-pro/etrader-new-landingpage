@@ -1,16 +1,43 @@
-'use client'
+"use client";
+import { gsap } from "gsap";
+import React, { useLayoutEffect } from "react";
 
-import React from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const Section1 = () => {
+  useLayoutEffect(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#section1",
+        // markers: true,
+        start: "top bottom-=200",
+        toggleActions: "play none none reset",
+      },
+    });
+
+    tl.fromTo(
+      "#section1-text-1",
+      { y: 5, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+      }
+    );
+
+    return () => {
+      tl.kill();
+    };
+  }, []);
   return (
-    <div>
+    <div id="section1">
       <div className="mx-[20px] md:mx-[30px] desktop:mx-[48px]">
         <h1 className="text-mobile-header-xl md:text-desktop-header-xl text-header-b mt-[60px] md:mt-[150px] desktop:mt-[227px] ">
           Space One
         </h1>
         <div className="mt-[30px] flex flex-col md:flex-row justify-between">
-          <div>
+          <div id="section1-text-1">
             <p className="text-mobile-body-md md:text-desktop-body-xl">
               Two sizes. Tons of possibilities.
             </p>
