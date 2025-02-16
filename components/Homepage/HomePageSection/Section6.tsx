@@ -1,4 +1,5 @@
 "use client";
+import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -295,7 +296,10 @@ const Section6 = () => {
   console.log("ss", isMdPoint, currentModel);
 
   return (
-    <div className="my-[60px] md:my-[180px] desktop:mx-[210px] ">
+    <div
+      className="mt-[60px] mb-[100px] md:mt-[180px] md:mb-[340px] desktop:mx-[210px] "
+      id="scrollToTopTechSpecs"
+    >
       <div className="mx-[20px] custom927:mx-[0px]">
         <div className="flex flex-col custom927:items-center">
           <div className="custom927:text-center">
@@ -533,18 +537,7 @@ const Section6 = () => {
         </div>
       </div>
       {/* top icon */}
-      <div
-        className="mt-[19px] md:mt-[100px]  flex items-center justify-center cursor-pointer"
-        onClick={() => {
-          document
-            .getElementById("scrolling-place")
-            ?.scrollIntoView({ behavior: "smooth" });
-        }}
-      >
-        <div className="w-[34px] h-[34px] md:w-[60px] md:h-[60px] text-center flex items-center justify-center bg-button-b-o30 rounded-[50%] p-[11px]">
-          <img src="/images/arrow-up.svg" alt="image" />
-        </div>
-      </div>
+      <ScrollToTop />
     </div>
   );
 };

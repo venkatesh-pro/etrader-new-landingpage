@@ -16,6 +16,7 @@ const Homepage = () => {
       <Section4 />
       <Section5 />
       <Section6 />
+      <div id="endScrollToIcon"></div>
     </div>
   );
 };
