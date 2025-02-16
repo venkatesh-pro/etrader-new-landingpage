@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const ScrollToTopButton = () => {
   const [showButton, setShowButton] = useState(false);
   const [isFixed, setIsFixed] = useState(true);
-  const [finalPosition, setFinalPosition] = useState(null);
+const [finalPosition, setFinalPosition] = useState<number | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
