@@ -1,6 +1,53 @@
-import React from "react";
+"use client";
+import React, { useLayoutEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Section3 = () => {
+  useLayoutEffect(() => {
+    if (typeof window === "undefined") return;
+    gsap.utils
+      .toArray([
+        "#section3-text-1",
+        "#section3-text-2",
+        "#section3-text-3",
+        "#section3-text-4",
+        "#section3-text-5",
+        "#section3-text-6",
+      ])
+      .forEach((el) => {
+        const target = el as HTMLElement;
+
+        gsap.fromTo(
+          target,
+          { y: 5, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            scrollTrigger: {
+              trigger: target,
+              // markers: true,
+              start: "top bottom-=150",
+              toggleActions: "play none none reset",
+            },
+          }
+        );
+      });
+
+    return () => {
+      gsap.killTweensOf([
+        "#section3-text-1",
+        "#section3-text-2",
+        "#section3-text-3",
+        "#section3-text-4",
+        "#section3-text-5",
+        "#section3-text-6",
+      ]);
+    };
+  }, []);
   return (
     <div className="mt-[80px] md:mt-[180px]" id="design">
       <div className="bg-background-b text-white ">
@@ -12,7 +59,10 @@ const Section3 = () => {
             <h2 className="text-mobile-header-lg md:text-desktop-header-xl mt-[20px] md:mt-[40px]">
               Building of the future.
             </h2>
-            <p className="text-mobile-body-md md:text-desktop-body-xl max-w-[920px] md:text-center mt-[20px] md:mt-[40px]">
+            <p
+              id="section3-text-1"
+              className="text-mobile-body-md md:text-desktop-body-xl max-w-[920px] md:text-center mt-[20px] md:mt-[40px]"
+            >
               Space One is Space’s most advanced modular building ever.{" "}
               <span className="text-color-dark">
                 Available in two sizes and five stunning finishes. It promises
@@ -34,7 +84,10 @@ const Section3 = () => {
             <h3 className="text-mobile-header-sm md:text-desktop-header-lg">
               An evolution in prefab.
             </h3>
-            <p className=" text-mobile-body-md md:text-desktop-body-lg max-w-[840px] mt-[30px] md:mt-[40px]">
+            <p
+              id="section3-text-2"
+              className=" text-mobile-body-md md:text-desktop-body-lg max-w-[840px] mt-[30px] md:mt-[40px]"
+            >
               Space’s advanced modular buildings allow for a multitude of uses.{" "}
               <span className="text-color-dark">
                 Unlike traditional construction methods with intensive on-site
@@ -48,7 +101,10 @@ const Section3 = () => {
               </span>
             </p>
 
-            <div className="flex flex-col lapS:flex-row justify-between desktop:max-w-[920px] mt-[60px] md:mt-[100px]">
+            <div
+              id="section3-text-3"
+              className="flex flex-col lapS:flex-row justify-between desktop:max-w-[920px] mt-[60px] md:mt-[100px]"
+            >
               <div className="min-w-[260px]">
                 <hr className="border-divider-b border-[.5px]" />
                 <p className="text-desktop-header-md md:text-desktop-header-lg mt-[30px]">
@@ -150,7 +206,10 @@ const Section3 = () => {
               <p className="text-desktop-body-xl md:text-desktop-header-sm">
                 Crane in and connect.
               </p>
-              <p className="text-mobile-body-md md:text-desktop-body-lg text-color-dark">
+              <p
+                id="section3-text-4"
+                className="text-mobile-body-md md:text-desktop-body-lg text-color-dark"
+              >
                 Space One is designed to move with you. Its precision-engineered
                 steel structure is lightweight yet incredibly strong, allowing
                 for seamless crane placement on most terrains, flat or sloped.
@@ -178,7 +237,10 @@ const Section3 = () => {
               <p className="text-desktop-body-xl md:text-desktop-header-sm">
                 Built for safety.
               </p>
-              <p className="text-mobile-body-md md:text-desktop-body-lg text-color-dark mt-[15px] md:mt-[0px]">
+              <p
+                id="section3-text-5"
+                className="text-mobile-body-md md:text-desktop-body-lg text-color-dark mt-[15px] md:mt-[0px]"
+              >
                 Engineered from the ground up for safety and durability, Space
                 One features a precision-engineered light-gauge steel frame for
                 superior stability and fire-resilience. Its elevated floor
@@ -193,7 +255,10 @@ const Section3 = () => {
               Adding value to growing industries.
             </h3>
 
-            <div className="flex flex-col custom1209:flex-row justify-between mt-[40px] md:mt-[80px]">
+            <div
+              id="section3-text-6"
+              className="flex flex-col custom1209:flex-row justify-between mt-[40px] md:mt-[80px]"
+            >
               <div className="custom1209:max-w-[370px]">
                 <hr className="border-divider-b border-[.5px]" />
                 <div className="w-[29.42px] h-[26.25px] md:w-[39.23px] md:h-[35px] mt-[40px] custom1209:mt-[30px]">

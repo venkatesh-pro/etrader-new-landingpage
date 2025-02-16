@@ -1,5 +1,11 @@
+"use client";
+
 import Carousel from "@/components/Carousel/Carousel";
-import React from "react";
+import React, { useLayoutEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Section4 = () => {
   const images = [
@@ -13,6 +19,44 @@ const Section4 = () => {
     },
   ];
 
+  useLayoutEffect(() => {
+    if (typeof window === "undefined") return;
+    gsap.utils
+      .toArray([
+        "#section4-text-1",
+        "#section4-text-2",
+        "#section4-text-3",
+        "#section4-text-4",
+      ])
+      .forEach((el) => {
+        const target = el as HTMLElement;
+
+        gsap.fromTo(
+          target,
+          { y: 5, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            scrollTrigger: {
+              trigger: target,
+              // markers: true,
+              start: "top bottom-=150",
+              toggleActions: "play none none reset",
+            },
+          }
+        );
+      });
+
+    return () => {
+      gsap.killTweensOf([
+        "#section4-text-1",
+        "#section4-text-2",
+        "#section4-text-3",
+        "#section4-text-4",
+      ]);
+    };
+  }, []);
   return (
     <div className="mt-[80px] md:mt-[180px] ">
       <div className="">
@@ -23,7 +67,10 @@ const Section4 = () => {
           <h2 className="text-mobile-header-lg md:text-desktop-header-xl my-[20px] md:my-[40px]">
             All-new interior.
           </h2>
-          <p className="text-mobile-body-md md:text-desktop-body-xl max-w-[920px]">
+          <p
+            id="section4-text-1"
+            className="text-mobile-body-md md:text-desktop-body-xl max-w-[920px]"
+          >
             Refined materials integrate seamlessly with smart automation{" "}
             <span className="text-color-dark">
               to create a reimagined environment that changes your perception of
@@ -47,7 +94,10 @@ const Section4 = () => {
               <h3 className=" text-mobile-header-sm md:text-desktop-header-lg mx-[20px] lapS:mx-[30px] desktop:mt-[0px] ">
                 Expansive architecture.
               </h3>
-              <p className="text-mobile-body-md md:text-desktop-body-lg max-w-[840px] mt-[30px] md:mt-[40px] mx-[20px] lapS:mx-[30px] desktop:mt-[0px] ">
+              <p
+                id="section4-text-2"
+                className="text-mobile-body-md md:text-desktop-body-lg max-w-[840px] mt-[30px] md:mt-[40px] mx-[20px] lapS:mx-[30px] desktop:mt-[0px] "
+              >
                 Space One models feature an undercover canopy, a spacious deck,
                 and floor-to-ceiling glass that captures expansive views.{" "}
                 <span className="text-color-dark">
@@ -70,7 +120,10 @@ const Section4 = () => {
                   alt="image"
                 />
               </div>
-              <div className="md:flex lapS:flex-row flex-col hidden justify-between max-w-[920px] mt-[100px] mx-[20px] lapS:mx-[30px] desktop:mt-[100px]">
+              <div
+                id="section4-text-3"
+                className="md:flex lapS:flex-row flex-col hidden justify-between max-w-[920px] mt-[100px] mx-[20px] lapS:mx-[30px] desktop:mt-[100px]"
+              >
                 <div className="min-w-[260px]">
                   <hr className="border-divider-a border-[.5px]" />
                   <p className="text-desktop-header-lg mt-[30px]">2x</p>
@@ -195,7 +248,10 @@ const Section4 = () => {
               <p className="text-desktop-body-xl md:text-desktop-header-sm">
                 Space that makes you feel good.
               </p>
-              <p className="text-mobile-body-md md:text-desktop-body-lg text-color-dark mt-[10px] md:mt-[0px]">
+              <p
+                id="section4-text-4"
+                className="text-mobile-body-md md:text-desktop-body-lg text-color-dark mt-[10px] md:mt-[0px]"
+              >
                 Step inside, close the sliding door and experience the vast
                 silence offered by double glazed toughened glass. Queue up your
                 favorite songs and listen as your space turns into your own

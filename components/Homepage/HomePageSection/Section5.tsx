@@ -1,13 +1,61 @@
-import React from "react";
+"use client";
+
+import React, { useLayoutEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Section5 = () => {
+  useLayoutEffect(() => {
+    if (typeof window === "undefined") return;
+    gsap.utils
+      .toArray([
+        "#section5-text-1",
+        "#section5-text-2",
+        "#section5-text-3",
+        "#section5-text-4",
+      ])
+      .forEach((el) => {
+        const target = el as HTMLElement;
+
+        gsap.fromTo(
+          target,
+          { y: 5, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            scrollTrigger: {
+              trigger: target,
+              // markers: true,
+              start: "top bottom-=200",
+              toggleActions: "play none none reset",
+            },
+          }
+        );
+      });
+
+    return () => {
+      gsap.killTweensOf([
+        "#section5-text-1",
+        "#section5-text-2",
+        "#section5-text-3",
+        "#section5-text-4",
+      ]);
+    };
+  }, []);
+
   return (
     <div className="">
       <div className="mx-[20px] md:mx-[30px] desktop:mx-[0px] pt-[80px]  md:pt-[180px] md:flex items-center justify-center flex-col">
         <h2 className="text-mobile-header-lg md:text-desktop-header-xl mb-[20px] md:my-[40px]">
           Introducing SpaceOS
         </h2>
-        <p className="text-mobile-body-md md:text-desktop-body-lg max-w-[920px] md:text-center">
+        <p
+          id="section5-text-1"
+          className="text-mobile-body-md md:text-desktop-body-lg max-w-[920px] md:text-center"
+        >
           Customize your space in more ways than ever,{" "}
           <span className="text-color-dark">
             set your climate, adjust the lights, and play your favorite songs.
@@ -31,7 +79,10 @@ const Section5 = () => {
           The keys to even more control.
         </h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lapS:grid-cols-3 mt-[30px] md:mt-[80px] md:gap-[30px] lapS:gap-[30px]">
+        <div
+          id="section5-text-2"
+          className="grid grid-cols-1 md:grid-cols-2 lapS:grid-cols-3 mt-[30px] md:mt-[80px] md:gap-[30px] lapS:gap-[30px]"
+        >
           <div className="lapS:max-w-[370px]">
             <hr className="border-divider-a border-[.5px]" />
             <div className="w-[28.64px] h-[22.71px] md:w-[38.19px] md:h-[30.28px] mt-[40px] md:mt-[30px]">
