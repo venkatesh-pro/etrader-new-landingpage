@@ -30,7 +30,7 @@ const Carousel = ({ images }: CarouselProps) => {
     >
       {images.map((photo, index) => (
         <SwiperSlide key={index}>
-          <img src={photo.url} alt={photo.alt} />
+          <img src={photo.url} alt={photo.alt}  className="w-full"/>
         </SwiperSlide>
       ))}
     </Swiper>

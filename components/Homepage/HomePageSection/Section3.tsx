@@ -149,7 +149,7 @@ const Section3 = () => {
 
           {/* need to work on video responsive */}
           <div className="mt-[60px]  custom1209:flex justify-between items-center">
-            <div className="custom1209:min-w-[850px] w-full md:h-[700px] bg-red-500 overflow-auto">
+            <div className="custom1209:min-w-[850px] w-full md:h-[700px] overflow-auto">
               <video
                 controls
                 autoPlay

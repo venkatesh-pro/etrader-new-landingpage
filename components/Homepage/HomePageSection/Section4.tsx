@@ -193,7 +193,7 @@ const Section4 = () => {
 
           <div className="mt-[60px] custom1209:flex justify-between md:items-center">
             <div className="">
-              <div className="custom1209:max-w-[850px] bg-red-500 overflow-hidden mx-[-20px] md:mx-[0px] ">
+              <div className="custom1209:max-w-[850px] overflow-hidden mx-[-20px] md:mx-[0px] ">
                 <Carousel images={images} />
               </div>
               <h3 className="md:hidden block text-mobile-header-sm md:text-desktop-header-lg mt-[40px] md:mt-[0px]">
