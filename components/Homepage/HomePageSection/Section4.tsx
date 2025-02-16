@@ -250,7 +250,7 @@ const Section4 = () => {
               </p>
               <p
                 id="section4-text-4"
-                className="text-mobile-body-md md:text-desktop-body-lg text-color-dark mt-[10px] md:mt-[0px]"
+                className="text-mobile-body-md md:text-desktop-body-lg text-color-dark mt-[15px] "
               >
                 Step inside, close the sliding door and experience the vast
                 silence offered by double glazed toughened glass. Queue up your
