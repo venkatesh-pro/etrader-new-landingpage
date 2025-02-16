@@ -208,7 +208,7 @@ const Section3 = () => {
               </p>
               <p
                 id="section3-text-4"
-                className="text-mobile-body-md md:text-desktop-body-lg text-color-dark"
+                className="text-mobile-body-md md:text-desktop-body-lg text-color-dark mt-[15px] "
               >
                 Space One is designed to move with you. Its precision-engineered
                 steel structure is lightweight yet incredibly strong, allowing
@@ -239,7 +239,7 @@ const Section3 = () => {
               </p>
               <p
                 id="section3-text-5"
-                className="text-mobile-body-md md:text-desktop-body-lg text-color-dark mt-[15px] md:mt-[0px]"
+                className="text-mobile-body-md md:text-desktop-body-lg text-color-dark mt-[15px] "
               >
                 Engineered from the ground up for safety and durability, Space
                 One features a precision-engineered light-gauge steel frame for
