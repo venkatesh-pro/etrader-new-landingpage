@@ -382,13 +382,13 @@ const Section6 = () => {
                 <div>
                   <Link
                     href={"/configurator"}
-                    className="text-[16px]  h-[51px] w-[156px] rounded-[35px]  mt-[25px]  bg-button-a text-white flex  items-center hover:bg-button-a-hover transition-all duration-300 ease-in-out"
+                    className="text-[12px] md:text-[16px] w-[118px] h-[36px] md:h-[51px] md:w-[156px] rounded-[35px]  mt-[25px]  bg-button-a text-white flex  items-center hover:bg-button-a-hover transition-all duration-300 ease-in-out"
                   >
                     <span className="ml-[21px]">Design Yours</span>{" "}
                     <img
                       src="/images/arrow-right-btn.svg"
                       alt="icon"
-                      className="w-[14px] h-[13.73px] ml-[9px]"
+                      className="w-[10px] h-[9.81px] md:w-[14px] md:h-[13.73px] ml-[7px] md:ml-[9px]"
                     />
                   </Link>
                 </div>
@@ -427,7 +427,7 @@ const Section6 = () => {
                   <p className="text-mobile-body-md md:text-desktop-body-md">
                     25.6 square meters
                   </p>
-                  <p className="text-mobile-body-md md:text-desktop-body-md mt-[5px]">
+                  <p className="text-mobile-body-md md:text-desktop-body-md mt-[8px] md:mt-[5px]">
                     From $74,990 or $725/wk for 12 mo.1
                   </p>
                 </div>
@@ -435,13 +435,13 @@ const Section6 = () => {
                 <div>
                   <Link
                     href={"/configurator"}
-                    className="text-[16px]  h-[51px] w-[156px] mt-[25px] rounded-[35px] bg-button-a text-white flex  items-center hover:bg-button-a-hover transition-all duration-300 ease-in-out"
+                    className="text-[12px] md:text-[16px] w-[118px] h-[36px] md:h-[51px] md:w-[156px] rounded-[35px]  mt-[25px]  bg-button-a text-white flex  items-center hover:bg-button-a-hover transition-all duration-300 ease-in-out"
                   >
                     <span className="ml-[21px]">Design Yours</span>{" "}
                     <img
                       src="/images/arrow-right-btn.svg"
                       alt="icon"
-                      className="w-[14px] h-[13.73px] ml-[9px]"
+                      className="w-[10px] h-[9.81px] md:w-[14px] md:h-[13.73px] ml-[7px] md:ml-[9px]"
                     />
                   </Link>
                 </div>
@@ -647,7 +647,7 @@ const Section6TitleDescription: React.FC<Section6TitleDescriptionProps> = ({
                 key={i}
                 className={title === "Dimensions" ? "mt-[20px]" : "mt-[10px]"}
               >
-                <p className="text-desktop-body-md">
+                <p className="text-mobile-body-md  md:text-desktop-body-md">
                   {d.title === null ? (
                     <span className="text-[30px] leading-[30px]">-</span>
                   ) : match ? (
@@ -659,7 +659,9 @@ const Section6TitleDescription: React.FC<Section6TitleDescriptionProps> = ({
                     d.title
                   )}
                 </p>
-                <p className="text-desktop-body-md mt-[5px]">{d.description}</p>
+                <p className="text-mobile-body-md  md:text-desktop-body-md mt-[5px]">
+                  {d.description}
+                </p>
               </div>
             );
           })}
