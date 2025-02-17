@@ -44,7 +44,7 @@ const [finalPosition, setFinalPosition] = useState<number | null>(null);
 
   return (
     <button
-      className={`w-[34px] h-[34px] md:w-[60px] rounded-[50%] p-[11px] md:h-[60px] text-center flex items-center justify-center bg-button-b-o30 text-green-600 shadow-md transition-all duration-300 ${
+      className={`w-[34px] h-[34px] md:w-[60px] rounded-[50%] p-[11px] md:h-[60px] text-center flex items-center justify-center bg-button-b-o30 text-green-600  transition-all duration-300 ${
         showButton ? "opacity-100" : "opacity-0"
       }`}
       style={{
@@ -56,7 +56,11 @@ const [finalPosition, setFinalPosition] = useState<number | null>(null);
       }}
       onClick={scrollToTop}
     >
-      <img src="/images/arrow-up.svg" alt="image" />
+      <img
+        src="/images/arrow-up.svg"
+        alt="image"
+        className="h-[11.43px] w-[15.7px] md:h-[21.76px] md:w-[29.44px]"
+      />
     </button>
   );
 };
