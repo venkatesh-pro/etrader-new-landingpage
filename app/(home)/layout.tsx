@@ -25,16 +25,17 @@ export default function RootLayout({
       <body className={`${geistSans.className} antialiased`}>
         {children}
 
+        {/* Chatbot Script */}
         <Script
-          id="openwidget-script"
+          id="chatbot-script"
           strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               window.__ow = window.__ow || {};
               window.__ow.organizationId = "da59421c-7f39-4052-88cf-7b7eebfdc8cd";
-              window.__ow.template_id = "573d9bcf-30ec-49f6-b03b-b1006c3ff8e7";
+              window.__ow.template_id = "ebae263a-5f08-4dcf-b3aa-2923c3288c71";
               window.__ow.integration_name = "manual_settings";
-              window.__ow.product_name = "chatbot";
+              window.__ow.product_name = "chatbot";   
               (function(n,t,c){
                 function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}
                 var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},
@@ -53,7 +54,7 @@ export default function RootLayout({
           }}
         />
 
-        {/* Fallback for NoScript */}
+        {/* NoScript Fallback */}
         <noscript>
           You need to{" "}
           <a
@@ -61,8 +62,8 @@ export default function RootLayout({
             rel="noopener nofollow"
           >
             enable JavaScript
-          </a>{" "}
-          in order to use the AI chatbot tool powered by{" "}
+          </a>
+          in order to use the AI chatbot tool powered by
           <a
             href="https://www.chatbot.com/"
             rel="noopener nofollow"
