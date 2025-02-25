@@ -131,7 +131,7 @@ const ConfiguratorParent = () => {
   // new
   const scrollAreaRef = useRef<HTMLDivElement | null>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
-  // only cursor scroll 
+  // only cursor scroll
   // useEffect(() => {
   //   const handleScroll = (e: WheelEvent) => {
   //     if (scrollAreaRef.current) {
@@ -234,7 +234,7 @@ const ConfiguratorParent = () => {
       <div className="flex flex-col justify-between">
         {/* Slider Section */}
         <div
-          className="sticky z-30 bg-white top-0 w-full md:w-[72%] sm:h-[40vh] h-[280px] md:h-[100vh]"
+          className="sticky z-30 bg-white top-0 w-full desktop:min-w-[1242px] md:w-[72%] sm:h-[40vh] h-[280px] md:h-[100vh]"
           ref={sliderRef}
         >
           <Slider sliderImages={sliderImages} />
