@@ -1,4 +1,4 @@
-import ConfiguratorParent from "@/components/ConfiguratorPage/Configurator/ConfiguratorParent";
+import ConfiguratorParent from "@/components/ConfiguratorPageOld/Configurator/ConfiguratorParent";
 import React from "react";
 
 const page = () => {
