@@ -242,7 +242,7 @@ const ConfiguratorParent = () => {
 
         {/* Configurator Section */}
         <div
-          className="md:mt-[0px] mt-[50px] overflow-y-auto h-[100vh] pt-[290px] md:pt-[50px] absolute z-20 w-full md:w-[28%] right-0 px-[28px] md:px-[48px] left-scroll-area"
+          className="md:mt-[0px] mt-[50px] overflow-y-auto h-[100vh] pt-[290px] md:pt-[50px] absolute z-20 desktop:w-[438px] desktopG:w-[28%] md:w-[28%] right-0 px-[28px] md:px-[48px] left-scroll-area"
           ref={scrollAreaRef}
         >
           <Configurator
