@@ -1,3 +1,1 @@
-- fix the slider
-- video
-- content change 
+- add the feature of if bathroom selected only they can select the bathroom feature

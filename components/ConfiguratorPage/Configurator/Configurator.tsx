@@ -1015,154 +1015,260 @@ const Configurator: React.FC<ConfiguratorProps> = ({
       </section>
       {/*  section 5 */}
       <section className="section" id="section5">
-        <p className="mt-[120px] md:mt-[120px] text-[38px] leading-[30px]">
+        <p className="font-[450] mt-[120px] md:mt-[120px] text-[40px] leading-[30px]">
           Summary
         </p>
-        <p className="mt-[27px] text-[18px] text-[#808080] md:leading-[50px]">
-          Review your configuration below.
+        <p className="text-desktop-body-xl leading-[20px] font-[450] mt-[40px]">
+          <span>Your new Space One.</span>
         </p>
-        <div className="mt-[60px] md:mt-[66px]">
-          <p className="text-[18px] text-[#808080]">Space One</p>
+        <p className="text-desktop-body-xl font-[450] ">
+          <span className="text-light-silver"> Just the way you want it. </span>
+        </p>
+
+        <p className="mt-[20px] text-[14px] font-[400] text-light-silver">
+          Review your configuration below. You’ll be able to finalize your order
+          once it’s time for production.
+        </p>
+
+        {/* 1 */}
+        <div className="mt-[60px] md:mt-[60px] flex justify-between">
+          <div>
+            <p className="text-[14px] font-[400]  text-silver">
+              {configuratorData.chooseYourModel.find((d) => d.isSelected)
+                ?.name === "Space One"
+                ? "Space One 16 Square Meters"
+                : "Space One Plus 25 Square Meters"}
+            </p>
+          </div>
           <div className="flex justify-between">
-            <p className="text-[18px]">
-              {
-                configuratorData.chooseYourModel.find((d) => d.isSelected)
-                  ?.length
-              }
-            </p>
-            <p
-              className="cursor-pointer text-[#0071e3]"
-              onClick={() => scrollToSection("section1")}
-            >
-              Change
+            <p className="font-[400] text-[14px]">
+              {(() => {
+                const selectedModel = configuratorData.chooseYourModel.find(
+                  (d) => d.isSelected
+                );
+                const price = selectedModel?.price;
+
+                return price === 0
+                  ? "Included"
+                  : price && formatNumberToCurrency(price);
+              })()}
             </p>
           </div>
         </div>
-        <hr className="mt-[13px] h-[1.5px] bg-[#CCCCCCCC]" />
-        <div className="mt-[15px] flex justify-between items-center">
+
+        {/* 2 */}
+        <div className="mt-[15px] flex justify-between">
           <div>
-            <p className="text-[18px] text-[#808080]">Color</p>
-            <p className="text-[18px]">
-              {`${configuratorData.chooseYourFinish
-                .find((d) => d.isSelected)
-                ?.name.charAt(0)
-                .toUpperCase()}${configuratorData.chooseYourFinish
-                .find((d) => d.isSelected)
-                ?.name.slice(1)
-                .toLowerCase()}
-                `}
+            <p className="text-[14px] font-[400]  text-silver">
+              {`${
+                configuratorData.chooseYourFinish.find((d) => d.isSelected)
+                  ?.name
+              } Base Color`}
             </p>
           </div>
-          <div>
-            <div
-              className={` flex items-center justify-center p-1 border-2 border-transparent`}
-            >
-              <div
-                className={` w-[38.89px] h-[38.89px] rounded-full`}
-                style={{
-                  background: configuratorData.chooseYourFinish.find(
-                    (d) => d.isSelected
-                  )?.color,
-                }}
-              ></div>
-            </div>
+          <div className="flex justify-between">
+            <p className="text-[14px] font-[400]  text-silver">Included</p>
           </div>
         </div>
-        <hr className="mt-[13px] h-[1.5px] bg-[#CCCCCCCC]" />
-        {/* orientation */}
-        <div className="mt-[15px] flex justify-between items-center">
+
+        {/* 3 */}
+        <div className="mt-[15px] flex justify-between">
           <div>
-            <p className="text-[18px] text-[#808080]">Orientation</p>
-            <p className="text-[18px]">
-              {
+            <p className="text-[14px] font-[400]  text-silver">
+              {`${
+                configuratorData.chooseYourFinishDeck.find((d) => d.isSelected)
+                  ?.name
+              } Deck Color`}
+            </p>
+          </div>
+          <div className="flex justify-between">
+            <p className="text-[14px] font-[400]  text-silver">Included</p>
+          </div>
+        </div>
+
+        {/* 4 */}
+        <div className="mt-[15px] flex justify-between">
+          <div>
+            <p className="text-[14px] font-[400]  text-silver">
+              {`${
                 configuratorData.chooseYourOrientation.find((d) => d.isSelected)
                   ?.name
-              }
+              }`}
+            </p>
+          </div>
+          <div className="flex justify-between">
+            <p className="text-[14px] font-[400]  text-silver">Included</p>
+          </div>
+        </div>
+
+        {/* 5 */}
+        <div className="mt-[15px] flex justify-between">
+          <div>
+            <p className="text-[14px] font-[400]  text-silver">
+              {`${
+                configuratorData.chooseYourGlass.find((d) => d.isSelected)?.name
+              }`}
+            </p>
+          </div>
+          <div className="flex justify-between">
+            <p className="text-[14px] font-[400]  text-silver">
+              {(() => {
+                const selectedModel = configuratorData.chooseYourGlass.find(
+                  (d) => d.isSelected
+                );
+                const price = selectedModel?.price;
+
+                return price === 0
+                  ? "Included"
+                  : price && formatNumberToCurrency(price);
+              })()}
             </p>
           </div>
         </div>
-        <hr className="mt-[13px] h-[1.5px] bg-[#CCCCCCCC]" />
-        {/* interior */}
-        <div className="mt-[15px] flex justify-between items-center">
+
+        {/* 6 */}
+        <div className="mt-[15px] flex justify-between">
           <div>
-            <p className="text-[18px] text-[#808080]">Interior</p>
-            <p className="text-[18px]">
-              {
+            <p className="text-[14px] font-[400]  text-silver">
+              {`${
                 configuratorData.chooseYourLayoutFor16.find((d) => d.isSelected)
                   ?.name
-              }
+              } Interior`}
+            </p>
+          </div>
+          <div className="flex justify-between">
+            <p className="text-[14px] font-[400]  text-silver">
+              {(() => {
+                const selectedModel =
+                  configuratorData.chooseYourLayoutFor16.find(
+                    (d) => d.isSelected
+                  );
+                const price = selectedModel?.price;
+
+                return price === 0
+                  ? "Included"
+                  : price && formatNumberToCurrency(price);
+              })()}
             </p>
           </div>
         </div>
-        {/* Upgrades */}
-        {(configuratorData.optionalUpgradesForLayout.some(
-          (d) => d.isSelected
-        ) ||
-          configuratorData.optionalUpgradesForEnergy.some(
-            (d) => d.isSelected
-          )) && (
-          <>
-            <hr className="mt-[13px] h-[1.5px] bg-[#CCCCCCCC]" />
-            <div className="mt-[15px] flex justify-between items-center">
-              <div>
-                <p className="text-[14px] text-[#808080]">Accessories</p>
-                <p className="">
-                  {configuratorData.optionalUpgradesForLayout
-                    .filter((d) => d.isSelected)
-                    .map((value, i) => {
-                      return (
-                        <span className="block" key={i}>
-                          {value.name}
-                        </span>
-                      );
-                    })}
-                </p>
-                <p>
-                  {
-                    configuratorData.optionalUpgradesForEnergy.find(
-                      (d) => d.isSelected
-                    )?.name
-                  }
-                </p>
+
+        {/* 7 */}
+        <div className="">
+          {configuratorData.optionalUpgradesForLayout.map((d, i) => {
+            return (
+              d.isSelected && (
+                <div key={i} className={`flex justify-between mt-[15px]`}>
+                  <div>
+                    <p className="text-[14px] font-[400]  text-silver">
+                      {d?.name}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-[14px] font-[400]  text-silver">
+                      {formatNumberToCurrency(d?.price)}
+                    </p>
+                  </div>
+                </div>
+              )
+            );
+          })}
+        </div>
+
+        {/* 8 */}
+        <div className="">
+          {(() => {
+            const selectedBathroom = configuratorData.bathroom.find(
+              (d) => d.isSelected
+            );
+
+            return selectedBathroom?.name === "Bathroom" ? (
+              <div className="mt-[15px] flex justify-between">
+                <div>
+                  <p className="text-[14px] font-[400] text-silver">
+                    {selectedBathroom.name}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-[14px] font-[400] text-silver">
+                    {selectedBathroom.price &&
+                      formatNumberToCurrency(selectedBathroom.price)}
+                  </p>
+                </div>
               </div>
-            </div>
-          </>
-        )}
-        {/* unit configured */}
-        <hr className="mt-[54px] h-[1.5px] bg-[#CCCCCCCC]" />
-        <div className="mt-[16px] flex items-center justify-between">
-          <div className="w-[65%]">
-            <p className="text-[22px]">Est. Rent Payment</p>
-          </div>
-          <div>
-            <p className="text-[22px]">
-              {formatNumberToCurrency(calculateTotalPrice())}/wk
-            </p>
-          </div>
+            ) : null;
+          })()}
         </div>
-        <div className="mt-[40px]">
-          <p className="text-[18px]">Save for later</p>
-          <p className="text-[18px] text-[#20A2F8]">Copy configuration link</p>
-          <p className="text-[14px] text-[#808080] mt-[40px]">
-            Estimated Space One price does not include installation. Price does
-            not include destination fees or any submission to local town
-            planning. Final pricing subject to change.{" "}
-          </p>
+
+        {/* 9 */}
+        <div className="">
+          {configuratorData.bathroomUpgrades.map((d, i) => {
+            return (
+              d.isSelected && (
+                <div key={i} className={`flex justify-between mt-[15px]`}>
+                  <div>
+                    <p className="text-[14px] font-[400]  text-silver">
+                      {d?.name}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-[14px] font-[400]  text-silver">
+                      {formatNumberToCurrency(d?.price)}
+                    </p>
+                  </div>
+                </div>
+              )
+            );
+          })}
         </div>
-        {!isContinue && (
-          <>
-            <button
-              className={`mt-[40px] ${
-                isContinue ? "mb-[0px]" : "mb-[50px] md:mb-[200px]"
-              } w-full min-h-[60px] p-4 text-white rounded-xl bg-[#0071e3]`}
-              onClick={() => setIsContinue(true)}
-            >
-              Continue
-            </button>
-            {/* extra space */}
-            <div className="block h-[120px] md:hidden"></div>
-          </>
-        )}
+
+        {/* 10 */}
+        <div className="">
+          {(() => {
+            const selectedSolar = configuratorData.solar.find(
+              (d) => d.isSelected
+            );
+
+            return selectedSolar?.name === "Solar Package" ? (
+              <div className="mt-[15px] flex justify-between">
+                <div>
+                  <p className="text-[14px] font-[400] text-silver">
+                    {selectedSolar.name}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-[14px] font-[400] text-silver">
+                    {selectedSolar.price &&
+                      formatNumberToCurrency(selectedSolar.price)}
+                  </p>
+                </div>
+              </div>
+            ) : null;
+          })()}
+        </div>
+
+        {/* 11 */}
+        <div className="">
+          {configuratorData.essentials.map((d, i) => {
+            return (
+              d.isSelected && (
+                <div key={i} className={`flex justify-between mt-[15px]`}>
+                  <div>
+                    <p className="text-[14px] font-[400]  text-silver">
+                      {d?.name}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-[14px] font-[400]  text-silver">
+                      {formatNumberToCurrency(d?.price)}
+                    </p>
+                  </div>
+                </div>
+              )
+            );
+          })}
+        </div>
+        {/* TODO: */}
       </section>
       {/* main section */}
       {isContinue && (

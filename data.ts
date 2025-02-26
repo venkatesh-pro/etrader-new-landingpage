@@ -125,7 +125,7 @@ export const data = {
       image: "/ConfiguratorImages/popup/SO-FD-IV-min.jpg",
     },
     {
-      name: "Roller blinds",
+      name: "Roller Blinds",
       description: "",
       price: 1950,
       priceCycle: "week",
