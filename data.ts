@@ -17,22 +17,41 @@ export const data = {
   ],
 
   chooseYourFinish: [
-    { color: "#000000", name: "BLACK", isSelected: true },
-    { color: "#E8E8E8", name: "WHITE", isSelected: false },
-    // { color: "#BCB7AD", name: "DESERT", isSelected: false },
-    // { color: "#565656", name: "SPACE", isSelected: false },
-    // { color: "#344C3F", name: "SAGE", isSelected: false },
+    { color: "#000000", name: "Space Black", isSelected: true }, // to image work you need to change to Black, remame the folder
+    { color: "#ECECE7", name: "Cloud White", isSelected: false },
+    { color: "#343C3D", name: "Midnight Silver", isSelected: false },
+    { color: "#CAC1AF", name: "Desert Mist", isSelected: false },
+    { color: "#3E4B41", name: "Sage Green", isSelected: false },
+  ],
+
+  chooseYourFinishDeck: [
+    { color: "#876F57", name: "Golden Teak", isSelected: true }, // to image work you need to change to Black, remame the folder
+    { color: "#594C35", name: "Walnut Ember", isSelected: false },
   ],
   chooseYourOrientation: [
     {
-      name: "Standard",
+      name: "Standard layout",
       description: "Canopy eave on the left",
       isSelected: true,
     },
     {
-      name: "Mirrored",
+      name: "Mirrored layout",
       description: "Canopy eave on the right",
       isSelected: false,
+    },
+  ],
+  chooseYourGlass: [
+    {
+      name: "Single Glazed Glass",
+      description: "Canopy eave on the left",
+      isSelected: true,
+      price: 0,
+    },
+    {
+      name: "Double Glazed Glass",
+      description: "Canopy eave on the right",
+      isSelected: false,
+      price: 3500,
     },
   ],
 
@@ -191,10 +210,21 @@ export interface ConfiguratorData {
     name: string;
     isSelected: boolean;
   }>;
+  chooseYourFinishDeck: Array<{
+    color: string;
+    name: string;
+    isSelected: boolean;
+  }>;
   chooseYourOrientation: Array<{
     name: string;
     description: string;
     isSelected: boolean;
+  }>;
+  chooseYourGlass: Array<{
+    name: string;
+    description: string;
+    isSelected: boolean;
+    price: number;
   }>;
   chooseYourLayoutFor16: Array<{
     name: string;

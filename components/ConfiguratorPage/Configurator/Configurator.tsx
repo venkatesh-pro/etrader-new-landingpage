@@ -255,7 +255,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
           })}
         </div>
         <div
-          className="bg-[#f4f4f4] flex mt-[16px] px-[16px] items-center h-[94px] rounded-xl"
+          className="bg-[#f4f4f4] flex mt-[16px] px-[16px] items-center h-[94px] rounded-xl cursor-pointer"
           onClick={() => {
             setIsModalOpen(true);
           }}
@@ -281,12 +281,51 @@ const Configurator: React.FC<ConfiguratorProps> = ({
       </section>
       {/* section 2 */}
       <section className="section" id="section2">
-        <p className="text-[22px] mt-[60px] md:mt-[120px]">Pick your finish </p>
+        {/* Choose your orientation */}
+        <p className="text-desktop-body-xl mt-[60px] md:mt-[100px]">Layout</p>
+        {configuratorData.chooseYourOrientation.map((d, i) => {
+          return (
+            <div
+              key={i}
+              style={{
+                borderColor: `${d.isSelected ? "#0071e3" : ""}`,
+                outline: d.isSelected ? "1px solid #0071e3" : "none",
+                border: d.isSelected
+                  ? "1px solid #0071e3"
+                  : "1px solid #c4c4c4",
+              }}
+              className={`p-[18px] min-h-[64px] rounded-xl  cursor-pointer mt-[16px]`}
+              onClick={() => {
+                const updatedData: ConfiguratorData = {
+                  ...configuratorData,
+                  chooseYourOrientation:
+                    configuratorData.chooseYourOrientation.map((model) =>
+                      model.name === d.name
+                        ? { ...model, isSelected: true }
+                        : { ...model, isSelected: false }
+                    ),
+                };
+
+                setConfiguratorData(updatedData);
+              }}
+            >
+              <p className="font-[450] text-[17px]">{d.name}</p>
+              {/* <p className="text-[#808080] text-[14px]">{d.description}</p> */}
+            </div>
+          );
+        })}
+
+        <p className="text-[17px] mt-[60px] md:mt-[160px] font-[450]">
+          Base Color
+        </p>
         <div>
           {configuratorData.chooseYourFinish.map((d, i) => {
             return (
               d.isSelected && (
-                <p className="mt-2 text-[18px] capitalize" key={i}>
+                <p
+                  className="mt-[10px] font-[450] text-[24px] capitalize"
+                  key={i}
+                >
                   {d.name.charAt(0).toUpperCase() +
                     d.name.slice(1).toLowerCase()}
                 </p>
@@ -294,7 +333,8 @@ const Configurator: React.FC<ConfiguratorProps> = ({
             );
           })}
         </div>
-        <div className={`flex max-w-[290px] mt-[10px]`}>
+        <p className="text-[17px] text-silver mt-[10px] font-[450]">Included</p>
+        <div className={`flex max-w-[290px] mt-[20px]`}>
           {configuratorData.chooseYourFinish.map((d, i) => {
             return (
               <div
@@ -343,43 +383,127 @@ const Configurator: React.FC<ConfiguratorProps> = ({
           })}
         </div>
 
-        {/* Choose your orientation */}
-        <p className="text-[22px] mt-[60px] md:mt-[120px]">
-          Select your orientation
-        </p>
-        {configuratorData.chooseYourOrientation.map((d, i) => {
-          return (
-            <div
-              key={i}
-              style={{
-                borderColor: `${d.isSelected ? "#0071e3" : ""}`,
-                outline: d.isSelected ? "1px solid #0071e3" : "none",
-                border: d.isSelected
-                  ? "1px solid #0071e3"
-                  : "1px solid #c4c4c4",
-              }}
-              className={`p-[18px] min-h-[82px] rounded-xl  cursor-pointer ${
-                i === 0 ? "mt-[16px]" : "mt-[14px]"
-              }`}
-              onClick={() => {
-                const updatedData: ConfiguratorData = {
-                  ...configuratorData,
-                  chooseYourOrientation:
-                    configuratorData.chooseYourOrientation.map((model) =>
-                      model.name === d.name
-                        ? { ...model, isSelected: true }
-                        : { ...model, isSelected: false }
-                    ),
-                };
+        {/* deck color */}
 
-                setConfiguratorData(updatedData);
-              }}
-            >
-              <p className="font-bold  text-[20px]">{d.name}</p>
-              <p className="text-[#808080] text-[14px]">{d.description}</p>
-            </div>
-          );
-        })}
+        <p className="text-[17px] mt-[60px] md:mt-[160px] font-[450]">
+          Deck Color
+        </p>
+        <div>
+          {configuratorData.chooseYourFinishDeck.map((d, i) => {
+            return (
+              d.isSelected && (
+                <p
+                  className="mt-[10px] font-[450] text-[24px] capitalize"
+                  key={i}
+                >
+                  {d.name.charAt(0).toUpperCase() +
+                    d.name.slice(1).toLowerCase()}
+                </p>
+              )
+            );
+          })}
+        </div>
+        <p className="text-[17px] text-silver mt-[10px] font-[450]">Included</p>
+        <div className={`flex max-w-[290px] mt-[20px]`}>
+          {configuratorData.chooseYourFinishDeck.map((d, i) => {
+            return (
+              <div
+                key={i}
+                className={`cursor-pointer ${
+                  i === 0 ? "ml-[0px]" : "ml-[7px] "
+                }`}
+                onClick={() => {
+                  const updatedData: ConfiguratorData = {
+                    ...configuratorData,
+                    chooseYourFinishDeck:
+                      configuratorData.chooseYourFinishDeck.map((model) =>
+                        model.name === d.name
+                          ? { ...model, isSelected: true }
+                          : { ...model, isSelected: false }
+                      ),
+                  };
+
+                  setConfiguratorData(updatedData);
+                }}
+              >
+                <div
+                  className={` flex items-center justify-center p-1 border-2 border-transparent  ${
+                    d.isSelected ? "border-2 rounded-full border-black" : ""
+                  }`}
+                  style={{
+                    border: `${
+                      d.isSelected
+                        ? "2px solid #0071e3"
+                        : "2px solid transparent"
+                    }`,
+                  }}
+                >
+                  <div
+                    className={` w-[38px] h-[38px] rounded-full`}
+                    style={{
+                      background: d.color,
+                    }}
+                  ></div>
+                </div>
+
+                {/* <p className="mt-2 text-sm text-center capitalize">{d.name}</p> */}
+                {/* <p className="text-sm text-center">${data.price}</p> */}
+              </div>
+            );
+          })}
+        </div>
+
+        {/* glass */}
+        <p className="text-desktop-body-xl mt-[60px] md:mt-[160px]">Glass</p>
+        <div>
+          {configuratorData.chooseYourGlass.map((d, i) => {
+            return (
+              <div
+                key={i}
+                style={{
+                  borderColor: `${d.isSelected ? "#0071e3" : ""}`,
+                  outline: d.isSelected ? "1px solid #0071e3" : "none",
+                  border: d.isSelected
+                    ? "1px solid #0071e3"
+                    : "1px solid #c4c4c4",
+                }}
+                className={`flex justify-between p-[18px] min-h-[64px] rounded-xl  cursor-pointer mt-[16px]`}
+                onClick={() => {
+                  const updatedData: ConfiguratorData = {
+                    ...configuratorData,
+                    chooseYourGlass: configuratorData.chooseYourGlass.map(
+                      (model) =>
+                        model.name === d.name
+                          ? { ...model, isSelected: true }
+                          : { ...model, isSelected: false }
+                    ),
+                  };
+
+                  setConfiguratorData(updatedData);
+                }}
+              >
+                <div>
+                  <p className="text-black font-[450] text-[17px]">{d.name}</p>
+                </div>
+                <div>
+                  {d.price > 0 ? (
+                    <p className="font-[400]">
+                      <span className="text-[14px] text-silver font-[400]">
+                        {d.price > 0 && formatNumberToCurrency(d.price)}
+                      </span>
+                    </p>
+                  ) : (
+                    <p className="font-[400]">
+                      <span className="text-[14px] text-silver font-[400]">
+                        Included
+                      </span>
+                    </p>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </section>
       {/* section 3 */}
       <section className="section" id="section3">
