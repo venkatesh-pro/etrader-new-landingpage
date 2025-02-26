@@ -58,7 +58,7 @@ export const data = {
   // for interiors
   chooseYourLayoutFor16: [
     {
-      name: "Open",
+      name: "Open Plan",
       description: "Mesa décor",
       price: 0,
       priceCycle: "week",
@@ -68,7 +68,12 @@ export const data = {
     {
       name: "Wardrobe",
       description: "Mesa Oak décor",
-      price: 125,
+      details: [
+        "Natural light oak finish",
+        "Top shelve",
+        "Satin black handles",
+      ],
+      price: 6200,
       priceCycle: "week",
       image: "SO-I-II-min.jpg",
       isSelected: false,
@@ -76,7 +81,15 @@ export const data = {
     {
       name: "Kitchen",
       description: "Mesa Oak décor",
-      price: 195,
+      details: [
+        "Natural light oak finish",
+        "Satin black handles",
+        "2 burner electric cooktop",
+        "Stone splash back",
+        "Undermount sink",
+        "Satin black faucet",
+      ],
+      price: 9500,
       priceCycle: "week",
       image: "SO-I-III-min.jpg",
       isSelected: false,
@@ -104,25 +117,17 @@ export const data = {
   // ],
   optionalUpgradesForLayout: [
     {
-      name: "Guest key",
-      description: "Invite more people",
-      price: 10,
-      priceCycle: "week",
-      isSelected: false,
-      image: "/ConfiguratorImages/popup/SO-FD-V-min.jpg",
-    },
-    {
-      name: "Privacy screen",
-      description: "",
-      price: 25,
-      priceCycle: "week",
-      isSelected: false,
-      image: "/ConfiguratorImages/popup/SO-FD-III-min.jpg",
-    },
-    {
       name: "Ceiling fan",
       description: "",
-      price: 25,
+      price: 550,
+      priceCycle: "week",
+      isSelected: false,
+      image: "/ConfiguratorImages/popup/SO-FD-IV-min.jpg",
+    },
+    {
+      name: "Roller blinds",
+      description: "",
+      price: 1950,
       priceCycle: "week",
       isSelected: false,
       image: "/ConfiguratorImages/popup/SO-FD-IV-min.jpg",
@@ -130,17 +135,103 @@ export const data = {
   ],
   chooseYourEnergy: [
     {
-      name: "No solar",
-      description: "Power with existing utilities",
+      name: "Sound System",
+      description: "Tesla Powerwall 3 and solar array",
+      details: [
+        "Immersive audio and bass",
+        "2 in-ceiling speakers",
+        "Signature aluminum grill",
+      ],
+      price: 3750,
       isSelected: true,
     },
     {
-      name: "Full solar",
-      description: "Tesla Powerwall 3 and solar array",
-      price: 28000,
+      name: "No Sound System",
+      description: "Power with existing utilities",
+      isSelected: false,
+      price: 0,
+    },
+  ],
+
+  solar: [
+    {
+      name: "Solar Package",
+      details: ["Tesla Powerwall 3", "Solar roof array"],
+      price: 32000,
+      isSelected: true,
+    },
+    {
+      name: "No Solar Package",
+      isSelected: false,
+      price: 0,
+    },
+  ],
+
+  bathroom: [
+    {
+      name: "Bathroom",
+
+      details: [
+        "Shower",
+        "Floating vanity",
+        "Round basin",
+        "Panoramic mirror",
+        "Water closet suite",
+        "Privacy glass louvers",
+        "Towel rail",
+        "Robe hook",
+      ],
+      price: 9200,
+      isSelected: true,
+    },
+    {
+      name: "No Bathroom",
+      isSelected: false,
+      price: 0,
+    },
+  ],
+
+  bathroomUpgrades: [
+    {
+      name: "Accessibility rails",
+      description: "",
+      price: 450,
+      priceCycle: "week",
+      isSelected: false,
+    },
+    {
+      name: "Dyson Airblade V",
+      description: "",
+      price: 1450,
+      priceCycle: "week",
       isSelected: false,
     },
   ],
+
+  essentials: [
+    {
+      name: "Guest key",
+      description: "",
+      price: 65,
+      priceCycle: "week",
+      isSelected: false,
+    },
+    {
+      name: "Translucent glass",
+      description: "",
+      price: 850,
+      priceCycle: "week",
+      isSelected: false,
+    },
+    {
+      name: "Sliding door insect screen",
+      description: "",
+      price: 1050,
+      priceCycle: "week",
+      isSelected: false,
+    },
+  ],
+
   optionalUpgradesForEnergy: [
     {
       name: "Security screens",
@@ -229,6 +320,7 @@ export interface ConfiguratorData {
   chooseYourLayoutFor16: Array<{
     name: string;
     description: string;
+    details: string[];
     price: number;
     priceCycle: string;
     isSelected: boolean;
@@ -248,9 +340,36 @@ export interface ConfiguratorData {
     isSelected: boolean;
     image: string;
   }>;
+  bathroomUpgrades: Array<{
+    name: string;
+    description: string;
+    price: number;
+    priceCycle: string;
+    isSelected: boolean;
+  }>;
+  essentials: Array<{
+    name: string;
+    description: string;
+    price: number;
+    priceCycle: string;
+    isSelected: boolean;
+  }>;
   chooseYourEnergy: Array<{
     name: string;
     description: string;
+    details: string[];
+    price?: number | undefined; // Optional since "No solar" doesn't have a price
+    isSelected: boolean;
+  }>;
+  solar: Array<{
+    name: string;
+    details: string[];
+    price?: number | undefined; // Optional since "No solar" doesn't have a price
+    isSelected: boolean;
+  }>;
+  bathroom: Array<{
+    name: string;
+    details: string[];
     price?: number | undefined; // Optional since "No solar" doesn't have a price
     isSelected: boolean;
   }>;
