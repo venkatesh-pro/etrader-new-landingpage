@@ -176,32 +176,52 @@ const Configurator: React.FC<ConfiguratorProps> = ({
   return (
     <>
       {/* section 1 */}
-      <section className="section section1" id="section1">
-        <h1 className="text-[48px]">Space One</h1>
-        <p className="text-[18px] text-[#808080] mt-[32px] md:mt-[40px]">
-          Configure your design. Choose a layout, pick your cladding colour, and
-          optional accessories.
+      <section className="section section1 mt-[140px]" id="section1">
+        <span className="text-dark-red text-[17px]">New</span>
+        <h1 className="text-mobile-header-lg font-[450] leading-[50px] mt-[10px]">
+          Customize your Space One
+        </h1>
+        <p className="text-desktop-body-xl font-[450] mt-[30px]">
+          <span>Make it yours.</span>
+          <span className="text-light-silver">
+            {" "}
+            Configure your exterior and interior layout.
+          </span>
         </p>
-        <p className="text-[18px] text-[#808080] mt-[20px]">
-          Rent from $495/week (min 12-months). Incentives for long-term rentals
-          may apply. Rent purchase option available soon.
-        </p>
-        <p className="text-[22px] mt-[60px] md:mt-[100px]">Choose your model</p>
+        <div>
+          <p className="text-[18px] font-[400] text-silver mt-[20px]">
+            Available now in the following states:
+          </p>
+
+          <ul className="list-disc font-[400] text-silver list-inside mt-[10px]">
+            <li>
+              <span className="ml-[-4px]">New South Wales</span>
+            </li>
+            <li>
+              <span className="ml-[-4px]">Victoria</span>
+            </li>
+            <li>
+              <span className="ml-[-4px]">Queensland</span>
+            </li>
+            <li>
+              <span className="ml-[-4px]">South Australia</span>
+            </li>
+          </ul>
+        </div>
+        <p className="text-desktop-body-xl font-[450] mt-[100px]">Model</p>
         <div>
           {configuratorData.chooseYourModel.map((d, i) => {
             return (
               <div
                 key={i}
                 style={{
-                  borderColor: `${d.isSelected ? "#0096F7" : ""}`,
-                  outline: d.isSelected ? "1px solid #0096F7" : "none",
+                  borderColor: `${d.isSelected ? "#0071e3" : ""}`,
+                  outline: d.isSelected ? "1px solid #0071e3" : "none",
                   border: d.isSelected
-                    ? "1px solid #0096F7"
-                    : "1px solid #E4E7EB",
+                    ? "1px solid #0071e3"
+                    : "1px solid #c4c4c4",
                 }}
-                className={`flex justify-between p-[18px] min-h-[82px] rounded-xl  cursor-pointer ${
-                  i === 0 ? "mt-[16px]" : "mt-[14px]"
-                }`}
+                className={`flex justify-between p-[18px] min-h-[64px] rounded-xl  cursor-pointer mt-[16px]`}
                 onClick={() => {
                   const updatedData: ConfiguratorData = {
                     ...configuratorData,
@@ -217,17 +237,15 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                 }}
               >
                 <div>
-                  <p className="font-bold text-[20px]">{d.name}</p>
-                  <p className="text-[#808080] text-[14px]">{d.length}</p>
+                  <p className="text-black font-[450] text-[17px]">
+                    {d.length}
+                  </p>
                 </div>
                 <div>
                   {d.price > 0 && (
                     <p className="">
-                      <span className="text-[18px]">
+                      <span className="text-[14px] text-silver font-[400]">
                         {d.price > 0 && formatNumberToCurrency(d.price)}
-                      </span>
-                      <span className="text-[14px]">
-                        /{d.priceCycle === "week" ? "wk" : ""}
                       </span>
                     </p>
                   )}
@@ -236,14 +254,30 @@ const Configurator: React.FC<ConfiguratorProps> = ({
             );
           })}
         </div>
-        <button
-          className=" flex items-center bg-[#F4F4F4] text-[#808080] rounded-[12px] mt-[20px] px-[20px] py-[12px] h-[44px] text-[16px]"
+        <div
+          className="bg-[#f4f4f4] flex mt-[16px] px-[16px] items-center h-[94px] rounded-xl"
           onClick={() => {
             setIsModalOpen(true);
           }}
         >
-          Feature Details
-        </button>
+          <div className="flex w-full justify-between">
+            <div className="">
+              <p className="text-[17px] font-[450]">Feature Details</p>
+              <p className="text-[14px] font-[400] max-w-[250px] mt-[8px] pr-[20px] text-silver">
+                Get a better understanding of how much space you’ll need
+              </p>
+            </div>
+            <div className="mt-[4px]">
+              <div>
+                <img
+                  src="/circle-plus-icon.svg"
+                  className=""
+                  alt="circle-plus-icon"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
       {/* section 2 */}
       <section className="section" id="section2">
@@ -289,7 +323,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                   style={{
                     border: `${
                       d.isSelected
-                        ? "2px solid #0096F7"
+                        ? "2px solid #0071e3"
                         : "2px solid transparent"
                     }`,
                   }}
@@ -318,11 +352,11 @@ const Configurator: React.FC<ConfiguratorProps> = ({
             <div
               key={i}
               style={{
-                borderColor: `${d.isSelected ? "#0096F7" : ""}`,
-                outline: d.isSelected ? "1px solid #0096F7" : "none",
+                borderColor: `${d.isSelected ? "#0071e3" : ""}`,
+                outline: d.isSelected ? "1px solid #0071e3" : "none",
                 border: d.isSelected
-                  ? "1px solid #0096F7"
-                  : "1px solid #E4E7EB",
+                  ? "1px solid #0071e3"
+                  : "1px solid #c4c4c4",
               }}
               className={`p-[18px] min-h-[82px] rounded-xl  cursor-pointer ${
                 i === 0 ? "mt-[16px]" : "mt-[14px]"
@@ -371,11 +405,11 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               key={i}
               className={`flex justify-between p-4 min-h-[60px] rounded-xl mt-3 cursor-pointer`}
               style={{
-                borderColor: `${d.isSelected ? "#0096F7" : ""}`,
-                outline: d.isSelected ? "1px solid #0096F7" : "none",
+                borderColor: `${d.isSelected ? "#0071e3" : ""}`,
+                outline: d.isSelected ? "1px solid #0071e3" : "none",
                 border: d.isSelected
-                  ? "1px solid #0096F7"
-                  : "1px solid #E4E7EB",
+                  ? "1px solid #0071e3"
+                  : "1px solid #c4c4c4",
               }}
             >
               <div>
@@ -407,11 +441,11 @@ const Configurator: React.FC<ConfiguratorProps> = ({
           return (
             <div
               style={{
-                borderColor: `${d.isSelected ? "#0096F7" : ""}`,
-                outline: d.isSelected ? "1px solid #0096F7" : "none",
+                borderColor: `${d.isSelected ? "#0071e3" : ""}`,
+                outline: d.isSelected ? "1px solid #0071e3" : "none",
                 border: d.isSelected
-                  ? "1px solid #0096F7"
-                  : "1px solid #E4E7EB",
+                  ? "1px solid #0071e3"
+                  : "1px solid #c4c4c4",
               }}
               onClick={() => {
                 // const updatedData: ConfiguratorData = {
@@ -489,7 +523,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               }
             </p>
             <p
-              className="cursor-pointer text-[#0096F7]"
+              className="cursor-pointer text-[#0071e3]"
               onClick={() => scrollToSection("section1")}
             >
               Change
@@ -612,7 +646,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
             <button
               className={`mt-[40px] ${
                 isContinue ? "mb-[0px]" : "mb-[50px] md:mb-[200px]"
-              } w-full min-h-[60px] p-4 text-white rounded-xl bg-[#0096F7]`}
+              } w-full min-h-[60px] p-4 text-white rounded-xl bg-[#0071e3]`}
               onClick={() => setIsContinue(true)}
             >
               Continue
@@ -656,11 +690,11 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                     key={i}
                     className={`flex justify-between p-4 min-h-[60px] rounded-xl mt-3 cursor-pointer`}
                     style={{
-                      borderColor: `${d.isSelected ? "#0096F7" : ""}`,
-                      outline: d.isSelected ? "1px solid #0096F7" : "none",
+                      borderColor: `${d.isSelected ? "#0071e3" : ""}`,
+                      outline: d.isSelected ? "1px solid #0071e3" : "none",
                       border: d.isSelected
-                        ? "1px solid #0096F7"
-                        : "1px solid #E4E7EB",
+                        ? "1px solid #0071e3"
+                        : "1px solid #c4c4c4",
                     }}
                   >
                     <div className="flex justify-between items-center w-full">
@@ -701,11 +735,11 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                     key={i}
                     className={`flex justify-between p-4 min-h-[60px] rounded-xl mt-3 cursor-pointer`}
                     style={{
-                      borderColor: `${d.isSelected ? "#0096F7" : ""}`,
-                      outline: d.isSelected ? "1px solid #0096F7" : "none",
+                      borderColor: `${d.isSelected ? "#0071e3" : ""}`,
+                      outline: d.isSelected ? "1px solid #0071e3" : "none",
                       border: d.isSelected
-                        ? "1px solid #0096F7"
-                        : "1px solid #E4E7EB",
+                        ? "1px solid #0071e3"
+                        : "1px solid #c4c4c4",
                     }}
                   >
                     <div className="flex justify-between items-center w-full">
@@ -738,11 +772,11 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                     key={i}
                     className={`flex justify-between p-4 min-h-[60px] rounded-xl mt-3 cursor-pointer`}
                     style={{
-                      borderColor: `${d.isSelected ? "#0096F7" : ""}`,
-                      outline: d.isSelected ? "1px solid #0096F7" : "none",
+                      borderColor: `${d.isSelected ? "#0071e3" : ""}`,
+                      outline: d.isSelected ? "1px solid #0071e3" : "none",
                       border: d.isSelected
-                        ? "1px solid #0096F7"
-                        : "1px solid #E4E7EB",
+                        ? "1px solid #0071e3"
+                        : "1px solid #c4c4c4",
                     }}
                   >
                     <div className="flex justify-between items-center w-full">
@@ -758,42 +792,42 @@ const Configurator: React.FC<ConfiguratorProps> = ({
             <p className="text-[22px] mt-[66px]">Enter account details</p>
             <div className="mt-[20px]">
               <input
-                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0096F7] focus:outline-none"
+                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
                 type="text"
                 placeholder="First Name"
               />
             </div>
             <div className="mt-[16px]">
               <input
-                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0096F7] focus:outline-none"
+                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
                 type="text"
                 placeholder="Last Name"
               />
             </div>
             <div className="mt-[16px]">
               <input
-                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0096F7] focus:outline-none"
+                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
                 type="text"
                 placeholder="Company"
               />
             </div>
             <div className="mt-[16px]">
               <input
-                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0096F7] focus:outline-none"
+                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
                 type="email"
                 placeholder="Email Address"
               />
             </div>
             <div className="mt-[16px]">
               <input
-                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0096F7] focus:outline-none"
+                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
                 type="email"
                 placeholder="Confirm Email Address"
               />
             </div>
             <div className="mt-[16px]">
               <input
-                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0096F7] focus:outline-none"
+                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
                 type="number"
                 placeholder="Phone Number"
               />
@@ -802,35 +836,35 @@ const Configurator: React.FC<ConfiguratorProps> = ({
             <p className="text-[22px] mt-[80px]">Enter delivery details</p>
             <div className="mt-[20px]">
               <input
-                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0096F7] focus:outline-none"
+                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
                 type="text"
                 placeholder="Address Line 1"
               />
             </div>
             <div className="mt-[16px]">
               <input
-                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0096F7] focus:outline-none"
+                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
                 type="text"
                 placeholder="Address Line 2"
               />
             </div>
             <div className="mt-[16px]">
               <input
-                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0096F7] focus:outline-none"
+                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
                 type="text"
                 placeholder="Suburb"
               />
             </div>
             <div className="mt-[16px]">
               <input
-                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0096F7] focus:outline-none"
+                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
                 type="text"
                 placeholder="State"
               />
             </div>
             <div className="mt-[16px]">
               <input
-                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0096F7] focus:outline-none"
+                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
                 type="number"
                 placeholder="Postal Code"
               />
@@ -846,7 +880,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
             onClick={() => {
               window.location.href = "/configurator/confirmed";
             }}
-            className="mt-[40px] w-full p-4 min-h-[60px] text-white rounded-xl bg-[#0096F7]"
+            className="mt-[40px] w-full p-4 min-h-[60px] text-white rounded-xl bg-[#0071e3]"
           >
             Submit
           </button>

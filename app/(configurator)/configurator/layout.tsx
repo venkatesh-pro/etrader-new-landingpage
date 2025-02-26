@@ -4,9 +4,28 @@ import localFont from "next/font/local";
 import "../../globals.css";
 
 const geistSans = localFont({
-  src: "../../fonts/Universal-Sans-Display-350.ttf",
+  // src: "../../fonts/Universal-Sans-Display-350.ttf",
+  // variable: "--font-geist-sans",
+  // weight: "100 900",
+  src: [
+    {
+      path: "../../fonts/Universal-Sans-Display-350.ttf",
+      weight: "350",
+    },
+    {
+      path: "../../fonts/Universal-Sans-Display-400.ttf",
+      weight: "400",
+    },
+    {
+      path: "../../fonts/Universal-Sans-Display-450.ttf",
+      weight: "450",
+    },
+    {
+      path: "../../fonts/Universal-Sans-Display-500.ttf",
+      weight: "500",
+    },
+  ],
   variable: "--font-geist-sans",
-  weight: "100 900",
 });
 
 export const metadata: Metadata = {

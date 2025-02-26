@@ -44,6 +44,11 @@ export default {
         "mobile-body-sm": "var(--mobile-body-sm)",
       },
       colors: {
+        "dark-red": "var(--dark-red)",
+        silver: "var(--silver)",
+        blue: "var(--blue)",
+
+        "light-silver": "var(--light-silver)",
         background: {
           a: "var(--background-a)",
           b: "var(--background-b)",

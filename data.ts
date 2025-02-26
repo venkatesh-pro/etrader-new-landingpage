@@ -2,15 +2,15 @@ export const data = {
   chooseYourModel: [
     {
       name: "Space One",
-      length: "16 sqm footprint",
-      price: 495,
+      length: "16 Square Meters",
+      price: 59990,
       priceCycle: "week",
       isSelected: true,
     },
     {
       name: "Space One Plus",
-      length: "25 sqm footprint",
-      price: 725,
+      length: "25 Square Meters",
+      price: 89990,
       priceCycle: "week",
       isSelected: false,
     },
