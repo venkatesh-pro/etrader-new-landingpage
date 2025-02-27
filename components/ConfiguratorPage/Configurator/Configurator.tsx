@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 import { useGSAP } from "@gsap/react";
 import InputField from "@/components/InputField/InputField";
+import { useForm } from "react-hook-form";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(useGSAP);
@@ -38,6 +39,19 @@ const Configurator: React.FC<ConfiguratorProps> = ({
 }) => {
   const [isContinue, setIsContinue] = useState(true);
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const handleSubmitFunction = async (data) => {
+    try {
+      console.log("data", data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const fadeOutImages = (onComplete?: () => void) => {
     gsap.to(".slider .list .item img", {
       duration: 0.2,
@@ -1309,34 +1323,102 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               </p>
 
               <div className="mt-[20px] ">
-                <InputField id="1" type="text" placeholder="Street Address" />
+                <InputField
+                  id="1"
+                  type="text"
+                  label="streetAddress"
+                  placeholder="Street Address"
+                  register={register}
+                  errors={errors}
+                />
               </div>
+              {errors.streetAddress && (
+                <p className="text-[12px] mt-[8px] text-[400] text-red-500">
+                  {errors.streetAddress.message}
+                </p>
+              )}
 
               <div className="mt-[16px]">
                 <InputField
                   id="2"
                   type="text"
+                  label="apt"
                   placeholder="Apt, Suite, Building (Optional)"
+                  register={register}
+                  errors={errors}
+                />
+                {errors.apt && (
+                  <p className="text-[12px] mt-[8px] text-[400] text-red-500">
+                    {errors.apt.message}
+                  </p>
+                )}
+              </div>
+
+              <div className="mt-[16px]">
+                <InputField
+                  id="3"
+                  type="text"
+                  label="suburb"
+                  placeholder="Suburb"
+                  register={register}
+                  errors={errors}
                 />
               </div>
+
+              {errors.suburb && (
+                <p className="text-[12px] mt-[8px] text-[400] text-red-500">
+                  {errors.suburb.message}
+                </p>
+              )}
               <div className="mt-[16px]">
-                <InputField id="3" type="text" placeholder="Suburb" />
+                <InputField
+                  id="4"
+                  type="text"
+                  label="state"
+                  placeholder="State"
+                  register={register}
+                  errors={errors}
+                />
               </div>
+              {errors.state && (
+                <p className="text-[12px] mt-[8px] text-[400] text-red-500">
+                  {errors.state.message}
+                </p>
+              )}
+
               <div className="mt-[16px]">
-                <InputField id="4" type="text" placeholder="State" />
+                <InputField
+                  id="5"
+                  type="number"
+                  label="postalCode"
+                  placeholder="Postal Code"
+                  register={register}
+                  errors={errors}
+                />
               </div>
-              <div className="mt-[16px]">
-                <InputField id="5" type="number" placeholder="Postal Code" />
-              </div>
+
+              {errors.postalCode && (
+                <p className="text-[12px] mt-[8px] text-[400] text-red-500">
+                  {errors.postalCode.message}
+                </p>
+              )}
               <div className="mt-[16px]">
                 <InputField
                   id="6"
                   type="text"
+                  label="country"
                   placeholder="Country"
                   isFixed={true}
                   fixedValue={"Australia"}
+                  register={register}
+                  errors={errors}
                 />
               </div>
+              {errors.country && (
+                <p className="text-[12px] mt-[8px] text-[400] text-red-500">
+                  {errors.country.message}
+                </p>
+              )}
             </div>
 
             <div>
@@ -1347,44 +1429,108 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                 <InputField
                   id="contact-info-1"
                   type="text"
+                  label="firstName"
                   placeholder="First Name"
+                  register={register}
+                  errors={errors}
                 />
               </div>
+              {errors.firstName && (
+                <p className="text-[12px] mt-[8px] text-[400] text-red-500">
+                  {errors.firstName.message}
+                </p>
+              )}
               <div className="mt-[16px]">
                 <InputField
                   id="contact-info-2"
                   type="text"
+                  label="lastName"
                   placeholder="Last Name"
+                  register={register}
+                  errors={errors}
                 />
               </div>
+              {errors.lastName && (
+                <p className="text-[12px] mt-[8px] text-[400] text-red-500">
+                  {errors.lastName.message}
+                </p>
+              )}
               <div className="mt-[16px]">
                 <InputField
                   id="contact-info-3"
                   type="text"
+                  label="company"
                   placeholder="Company"
+                  register={register}
+                  errors={errors}
                 />
               </div>
+              {errors.company && (
+                <p className="text-[12px] mt-[8px] text-[400] text-red-500">
+                  {errors.company.message}
+                </p>
+              )}
+
               <div className="mt-[16px]">
                 <InputField
                   id="contact-info-4"
-                  type="email"
-                  placeholder="Email Address"
+                  type="text"
+                  label="role"
+                  placeholder="Role"
+                  register={register}
+                  errors={errors}
                 />
               </div>
+              {errors.role && (
+                <p className="text-[12px] mt-[8px] text-[400] text-red-500">
+                  {errors.role.message}
+                </p>
+              )}
               <div className="mt-[16px]">
                 <InputField
                   id="contact-info-5"
                   type="email"
-                  placeholder="Confirm Email Address"
+                  label="email"
+                  placeholder="Email Address"
+                  register={register}
+                  errors={errors}
                 />
               </div>
+              {errors.email && (
+                <p className="text-[12px] mt-[8px] text-[400] text-red-500">
+                  {errors.email.message}
+                </p>
+              )}
               <div className="mt-[16px]">
                 <InputField
                   id="contact-info-6"
-                  type="number"
-                  placeholder="Phone Number"
+                  type="email"
+                  label="confirmEmail"
+                  placeholder="Confirm Email Address"
+                  register={register}
+                  errors={errors}
                 />
               </div>
+              {errors.confirmEmail && (
+                <p className="text-[12px] mt-[8px] text-[400] text-red-500">
+                  {errors.confirmEmail.message}
+                </p>
+              )}
+              <div className="mt-[16px]">
+                <InputField
+                  id="contact-info-7"
+                  type="number"
+                  label="phoneNumber"
+                  placeholder="Phone Number"
+                  register={register}
+                  errors={errors}
+                />
+              </div>
+              {errors.phoneNumber && (
+                <p className="text-[12px] mt-[8px] text-[400] text-red-500">
+                  {errors.phoneNumber.message}
+                </p>
+              )}
             </div>
           </section>
           <p className="text-[12px] text-light-silver mt-[40px]">
@@ -1394,9 +1540,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
             This is not a purchase requirement.
           </p>
           <button
-            onClick={() => {
-              window.location.href = "/configurator/confirmed";
-            }}
+            onClick={handleSubmit(handleSubmitFunction)}
             className="mt-[40px] w-full p-4 min-h-[60px] text-white rounded-xl bg-[#0071e3]"
           >
             Submit

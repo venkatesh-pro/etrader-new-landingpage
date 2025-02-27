@@ -56,6 +56,7 @@
   --divider-b: #4a4a4a;
 
   /* colors */
+  --light-red: rgba(237, 78, 59, 0.1);
   --dark-red: rgba(183, 65, 52, 1);
   --silver: rgba(57, 60, 65, 1);
   --light-silver: rgba(92, 94, 98, 1);

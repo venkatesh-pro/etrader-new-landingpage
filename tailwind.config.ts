@@ -45,6 +45,7 @@ export default {
       },
       colors: {
         "dark-red": "var(--dark-red)",
+        "light-red": "var(--light-red)",
         silver: "var(--silver)",
         blue: "var(--blue)",
 
