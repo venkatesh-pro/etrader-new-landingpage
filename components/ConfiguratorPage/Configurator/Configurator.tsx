@@ -1268,6 +1268,32 @@ const Configurator: React.FC<ConfiguratorProps> = ({
             );
           })}
         </div>
+
+        <div>
+          <hr className="my-[20px] h-[1.5px] bg-[#C4C4C4]" />
+        </div>
+
+        <div className="flex items-center justify-between">
+          <p className="text-[14px] font-[400]  text-silver">Est. Price</p>
+          <p className="text-[14px] font-[400]  text-silver">
+            {formatNumberToCurrency(calculateTotalPrice())}
+          </p>
+        </div>
+
+        <div className="mt-[40px] flex items-center justify-between">
+          <p className="text-[24px] font-[450]  text-silver">Est. Price</p>
+          <p className="text-[24px] font-[450]  text-silver">
+            {formatNumberToCurrency(calculateTotalPrice())}
+          </p>
+        </div>
+
+        <div>
+          <p className="text-[12px] mt-[20px] font-[400]  text-light-silver">
+            Illustrative model shown. Pricing does not include on-site
+            installation or groundworks. Delivery schedule and final pricing are
+            subject to local permits and delivery location.
+          </p>
+        </div>
         {/* TODO: */}
       </section>
       {/* main section */}
