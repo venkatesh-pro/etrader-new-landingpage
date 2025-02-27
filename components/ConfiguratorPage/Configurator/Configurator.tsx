@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 // import { ScrollSmoother } from "gsap/dist/ScrollSmoother";
 
 import { useGSAP } from "@gsap/react";
+import InputField from "@/components/InputField/InputField";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(useGSAP);
@@ -1306,103 +1307,91 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               <p className="text-[24px] font-[450] mt-[80px]">
                 Enter your delivery address:
               </p>
-              <div className="mt-[20px]">
-                <input
-                  className="h-[54px] w-full p-4 rounded-[12px] border-[1.5px] border-[#c4c4c4] placeholder:text-light-silver focus:border-[#0071e3] focus:outline-none"
-                  type="text"
-                  placeholder="Street Address"
-                />
+
+              <div className="mt-[20px] ">
+                <InputField id="1" type="text" placeholder="Street Address" />
               </div>
+
               <div className="mt-[16px]">
-                <input
-                  className="h-[56px] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
+                <InputField
+                  id="2"
                   type="text"
                   placeholder="Apt, Suite, Building (Optional)"
                 />
               </div>
               <div className="mt-[16px]">
-                <input
-                  className="h-[54px] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
-                  type="text"
-                  placeholder="Suburb"
-                />
+                <InputField id="3" type="text" placeholder="Suburb" />
               </div>
               <div className="mt-[16px]">
-                <input
-                  className="h-[54px] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
-                  type="text"
-                  placeholder="State"
-                />
+                <InputField id="4" type="text" placeholder="State" />
               </div>
               <div className="mt-[16px]">
-                <input
-                  className="h-[54px] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
-                  type="number"
-                  placeholder="Postal Code"
-                />
+                <InputField id="5" type="number" placeholder="Postal Code" />
               </div>
               <div className="mt-[16px]">
-                <input
-                  className="h-[54px] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
+                <InputField
+                  id="6"
                   type="text"
                   placeholder="Country"
+                  isFixed={true}
+                  fixedValue={"Australia"}
                 />
               </div>
             </div>
 
             <div>
-              <p className="text-[22px] mt-[66px]">
+              <p className="text-[22px] mt-[80px]">
                 What is your contact information?
               </p>
               <div className="mt-[20px]">
-                <input
-                  className="h-[54px] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
+                <InputField
+                  id="contact-info-1"
                   type="text"
                   placeholder="First Name"
                 />
               </div>
               <div className="mt-[16px]">
-                <input
-                  className="h-[54px] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
+                <InputField
+                  id="contact-info-2"
                   type="text"
                   placeholder="Last Name"
                 />
               </div>
               <div className="mt-[16px]">
-                <input
-                  className="h-[54px] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
+                <InputField
+                  id="contact-info-3"
                   type="text"
                   placeholder="Company"
                 />
               </div>
               <div className="mt-[16px]">
-                <input
-                  className="h-[54px] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
+                <InputField
+                  id="contact-info-4"
                   type="email"
                   placeholder="Email Address"
                 />
               </div>
               <div className="mt-[16px]">
-                <input
-                  className="h-[54px] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
+                <InputField
+                  id="contact-info-5"
                   type="email"
                   placeholder="Confirm Email Address"
                 />
               </div>
               <div className="mt-[16px]">
-                <input
-                  className="h-[54px] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
+                <InputField
+                  id="contact-info-6"
                   type="number"
                   placeholder="Phone Number"
                 />
               </div>
             </div>
           </section>
-          <p className="text-[14px] text-[#808080] mt-[40px]">
-            By entering my contact information above, I authorise Space Haven to
-            contact me about this request and Space Haven Updates including
-            other Space Haven products, services and events. I can opt out by
-            unsubscribing.
+          <p className="text-[12px] text-light-silver mt-[40px]">
+            By entering my contact information above, I authorize Space to
+            contact me about this request and Space Updates including other
+            Space products, services and events. I can opt out by unsubscribing.
+            This is not a purchase requirement.
           </p>
           <button
             onClick={() => {
