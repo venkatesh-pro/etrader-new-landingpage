@@ -35,7 +35,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
   setIsModalOpen,
   setIsModalOpenCarousel,
 }) => {
-  const [isContinue, setIsContinue] = useState(false);
+  const [isContinue, setIsContinue] = useState(true);
 
   const fadeOutImages = (onComplete?: () => void) => {
     gsap.to(".slider .list .item img", {
@@ -1301,213 +1301,101 @@ const Configurator: React.FC<ConfiguratorProps> = ({
         <section className={`${isContinue ? "animate-fadeInSection" : ""}`}>
           {/* section 6 */}
           <section className="section" id="section5">
-            <p className="mt-[60px] md:mt-[120px] text-[38px] ">
-              Confirm Availability
-            </p>
-            <p className="mt-[32px] text-[18px] text-[#808080]">
-              Share your details to verify availability and refine your delivery
-              estimate.{" "}
-            </p>
-
-            <p className="text-[22px] mt-[66px]">Term</p>
-
-            <div>
-              {configuratorData.terms.map((d, i) => {
-                return (
-                  <div
-                    onClick={() => {
-                      const updatedData: ConfiguratorData = {
-                        ...configuratorData,
-                        terms: configuratorData.terms.map((model) =>
-                          model.name === d.name
-                            ? { ...model, isSelected: true }
-                            : { ...model, isSelected: false }
-                        ),
-                      };
-
-                      setConfiguratorData(updatedData);
-                    }}
-                    key={i}
-                    className={`flex justify-between p-4 min-h-[60px] rounded-xl mt-3 cursor-pointer`}
-                    style={{
-                      borderColor: `${d.isSelected ? "#0071e3" : ""}`,
-                      outline: d.isSelected ? "1px solid #0071e3" : "none",
-                      border: d.isSelected
-                        ? "1px solid #0071e3"
-                        : "1px solid #c4c4c4",
-                    }}
-                  >
-                    <div className="flex justify-between items-center w-full">
-                      <p className="font-bold text-[20px]">{d.name}</p>
-                      <p className="text-[#808080] text-[12px]">
-                        {d.description}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            <p className="text-[#808080] text-[14px] mt-[16px]">
-              Subject to location and availability.
-            </p>
-          </section>
-          {/* section 7 */}
-          <section className="section" id="section5">
-            <p className="text-[22px] mt-[66px]">Quantity of units</p>
-            <div>
-              {configuratorData.quantityOfUnit.map((d, i) => {
-                return (
-                  <div
-                    onClick={() => {
-                      const updatedData: ConfiguratorData = {
-                        ...configuratorData,
-                        quantityOfUnit: configuratorData.quantityOfUnit.map(
-                          (model) =>
-                            model.name === d.name
-                              ? { ...model, isSelected: true }
-                              : { ...model, isSelected: false }
-                        ),
-                      };
-
-                      setConfiguratorData(updatedData);
-                    }}
-                    key={i}
-                    className={`flex justify-between p-4 min-h-[60px] rounded-xl mt-3 cursor-pointer`}
-                    style={{
-                      borderColor: `${d.isSelected ? "#0071e3" : ""}`,
-                      outline: d.isSelected ? "1px solid #0071e3" : "none",
-                      border: d.isSelected
-                        ? "1px solid #0071e3"
-                        : "1px solid #c4c4c4",
-                    }}
-                  >
-                    <div className="flex justify-between items-center w-full">
-                      <p className="font-bold text-[20px]">{d.name}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-          {/* section 8 */}
-          <section className="section" id="section5">
-            <p className="text-[22px] mt-[66px]">Parcel type</p>
-            <div>
-              {configuratorData.parcelType.map((d, i) => {
-                return (
-                  <div
-                    onClick={() => {
-                      const updatedData: ConfiguratorData = {
-                        ...configuratorData,
-                        parcelType: configuratorData.parcelType.map((model) =>
-                          model.name === d.name
-                            ? { ...model, isSelected: true }
-                            : { ...model, isSelected: false }
-                        ),
-                      };
-
-                      setConfiguratorData(updatedData);
-                    }}
-                    key={i}
-                    className={`flex justify-between p-4 min-h-[60px] rounded-xl mt-3 cursor-pointer`}
-                    style={{
-                      borderColor: `${d.isSelected ? "#0071e3" : ""}`,
-                      outline: d.isSelected ? "1px solid #0071e3" : "none",
-                      border: d.isSelected
-                        ? "1px solid #0071e3"
-                        : "1px solid #c4c4c4",
-                    }}
-                  >
-                    <div className="flex justify-between items-center w-full">
-                      <p className="font-bold text-[20px]">{d.name}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-          {/* section 9 */}
-          <section className="section" id="section5">
-            <p className="text-[22px] mt-[66px]">Enter account details</p>
-            <div className="mt-[20px]">
-              <input
-                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
-                type="text"
-                placeholder="First Name"
-              />
-            </div>
-            <div className="mt-[16px]">
-              <input
-                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
-                type="text"
-                placeholder="Last Name"
-              />
-            </div>
-            <div className="mt-[16px]">
-              <input
-                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
-                type="text"
-                placeholder="Company"
-              />
-            </div>
-            <div className="mt-[16px]">
-              <input
-                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
-                type="email"
-                placeholder="Email Address"
-              />
-            </div>
-            <div className="mt-[16px]">
-              <input
-                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
-                type="email"
-                placeholder="Confirm Email Address"
-              />
-            </div>
-            <div className="mt-[16px]">
-              <input
-                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
-                type="number"
-                placeholder="Phone Number"
-              />
-            </div>
             {/* delivery details */}
-            <p className="text-[22px] mt-[80px]">Enter delivery details</p>
-            <div className="mt-[20px]">
-              <input
-                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
-                type="text"
-                placeholder="Address Line 1"
-              />
+            <div>
+              <p className="text-[24px] font-[450] mt-[80px]">
+                Enter your delivery address:
+              </p>
+              <div className="mt-[20px]">
+                <input
+                  className="h-[54px] w-full p-4 rounded-[12px] border-[1.5px] border-[#c4c4c4] placeholder:text-light-silver focus:border-[#0071e3] focus:outline-none"
+                  type="text"
+                  placeholder="Street Address"
+                />
+              </div>
+              <div className="mt-[16px]">
+                <input
+                  className="h-[56px] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
+                  type="text"
+                  placeholder="Apt, Suite, Building (Optional)"
+                />
+              </div>
+              <div className="mt-[16px]">
+                <input
+                  className="h-[54px] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
+                  type="text"
+                  placeholder="Suburb"
+                />
+              </div>
+              <div className="mt-[16px]">
+                <input
+                  className="h-[54px] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
+                  type="text"
+                  placeholder="State"
+                />
+              </div>
+              <div className="mt-[16px]">
+                <input
+                  className="h-[54px] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
+                  type="number"
+                  placeholder="Postal Code"
+                />
+              </div>
+              <div className="mt-[16px]">
+                <input
+                  className="h-[54px] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
+                  type="text"
+                  placeholder="Country"
+                />
+              </div>
             </div>
-            <div className="mt-[16px]">
-              <input
-                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
-                type="text"
-                placeholder="Address Line 2"
-              />
-            </div>
-            <div className="mt-[16px]">
-              <input
-                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
-                type="text"
-                placeholder="Suburb"
-              />
-            </div>
-            <div className="mt-[16px]">
-              <input
-                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
-                type="text"
-                placeholder="State"
-              />
-            </div>
-            <div className="mt-[16px]">
-              <input
-                className="h-[54px] bg-[#F4F4F4] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
-                type="number"
-                placeholder="Postal Code"
-              />
+
+            <div>
+              <p className="text-[22px] mt-[66px]">
+                What is your contact information?
+              </p>
+              <div className="mt-[20px]">
+                <input
+                  className="h-[54px] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
+                  type="text"
+                  placeholder="First Name"
+                />
+              </div>
+              <div className="mt-[16px]">
+                <input
+                  className="h-[54px] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
+                  type="text"
+                  placeholder="Last Name"
+                />
+              </div>
+              <div className="mt-[16px]">
+                <input
+                  className="h-[54px] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
+                  type="text"
+                  placeholder="Company"
+                />
+              </div>
+              <div className="mt-[16px]">
+                <input
+                  className="h-[54px] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
+                  type="email"
+                  placeholder="Email Address"
+                />
+              </div>
+              <div className="mt-[16px]">
+                <input
+                  className="h-[54px] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
+                  type="email"
+                  placeholder="Confirm Email Address"
+                />
+              </div>
+              <div className="mt-[16px]">
+                <input
+                  className="h-[54px] w-full p-4 rounded-[12px] border-2 border-transparent focus:border-[#0071e3] focus:outline-none"
+                  type="number"
+                  placeholder="Phone Number"
+                />
+              </div>
             </div>
           </section>
           <p className="text-[14px] text-[#808080] mt-[40px]">
