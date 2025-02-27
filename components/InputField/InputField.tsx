@@ -9,6 +9,8 @@ const InputField = ({
   register,
   label,
   errors,
+  pattern,
+  isRequired,
 }: {
   id: string;
   type: "text" | "number" | "email";
@@ -16,6 +18,7 @@ const InputField = ({
   isFixed?: boolean;
   fixedValue?: string;
   label: string;
+  pattern?: string;
 }) => {
   return (
     <div className="relative">
@@ -36,14 +39,19 @@ const InputField = ({
         }}
         disabled={isFixed}
         {...register(label, {
-          required: "Required",
+          required: isRequired ? "Required" : false,
+          pattern: pattern
+            ? {
+                value: new RegExp(pattern),
+                message: "Invalid format",
+              }
+            : undefined,
         })}
       />
       <label
         htmlFor={id}
         className={`absolute left-4 transition-all duration-200 ease-in-out top-3.5 text-[17px] text-light-silver peer-focus:top-2 peer-focus:text-[10px] peer-focus:text-blue-500 ${
-          errors[label] &&
-          "!text-dark-red"
+          errors[label] && "!text-dark-red"
         }`}
         data-filled="false"
       >

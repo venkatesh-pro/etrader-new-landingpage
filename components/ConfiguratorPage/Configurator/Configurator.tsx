@@ -1330,6 +1330,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                   placeholder="Street Address"
                   register={register}
                   errors={errors}
+                  isRequired={true}
                 />
               </div>
               {errors.streetAddress && (
@@ -1346,6 +1347,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                   placeholder="Apt, Suite, Building (Optional)"
                   register={register}
                   errors={errors}
+                  isRequired={false}
                 />
                 {errors.apt && (
                   <p className="text-[12px] mt-[8px] text-[400] text-red-500">
@@ -1362,6 +1364,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                   placeholder="Suburb"
                   register={register}
                   errors={errors}
+                  isRequired={true}
                 />
               </div>
 
@@ -1378,6 +1381,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                   placeholder="State"
                   register={register}
                   errors={errors}
+                  isRequired={true}
                 />
               </div>
               {errors.state && (
@@ -1394,6 +1398,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                   placeholder="Postal Code"
                   register={register}
                   errors={errors}
+                  isRequired={true}
                 />
               </div>
 
@@ -1412,6 +1417,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                   fixedValue={"Australia"}
                   register={register}
                   errors={errors}
+                  isRequired={true}
                 />
               </div>
               {errors.country && (
@@ -1433,6 +1439,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                   placeholder="First Name"
                   register={register}
                   errors={errors}
+                  isRequired={true}
                 />
               </div>
               {errors.firstName && (
@@ -1448,6 +1455,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                   placeholder="Last Name"
                   register={register}
                   errors={errors}
+                  isRequired={true}
                 />
               </div>
               {errors.lastName && (
@@ -1463,6 +1471,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                   placeholder="Company"
                   register={register}
                   errors={errors}
+                  isRequired={true}
                 />
               </div>
               {errors.company && (
@@ -1479,6 +1488,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                   placeholder="Role"
                   register={register}
                   errors={errors}
+                  isRequired={true}
                 />
               </div>
               {errors.role && (
@@ -1491,9 +1501,11 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                   id="contact-info-5"
                   type="email"
                   label="email"
+                  pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                   placeholder="Email Address"
                   register={register}
                   errors={errors}
+                  isRequired={true}
                 />
               </div>
               {errors.email && (
@@ -1507,8 +1519,10 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                   type="email"
                   label="confirmEmail"
                   placeholder="Confirm Email Address"
+                  pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                   register={register}
                   errors={errors}
+                  isRequired={true}
                 />
               </div>
               {errors.confirmEmail && (
@@ -1524,6 +1538,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                   placeholder="Phone Number"
                   register={register}
                   errors={errors}
+                  isRequired={true}
                 />
               </div>
               {errors.phoneNumber && (
@@ -1546,7 +1561,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
             Submit
           </button>
           {/* extra space */}
-          <div className="block h-[170px] md:h-[170px]"></div>
+          <div className="block h-[170px] md:h-[251px]"></div>
         </section>
       )}
     </>
