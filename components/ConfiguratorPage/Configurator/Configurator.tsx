@@ -48,6 +48,8 @@ const Configurator: React.FC<ConfiguratorProps> = ({
   const handleSubmitFunction = async (data) => {
     try {
       console.log("data", data);
+
+      window.location.href = "/configurator/confirmed";
     } catch (error) {
       console.log(error);
     }

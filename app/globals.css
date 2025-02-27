@@ -63,6 +63,12 @@
   --blue: rgba(0, 113, 227, 1);
 }
 
+/* for input fields component */
+input[data-filled="true"] + label {
+  top: 0.5rem;
+  font-size: 10px;
+}
+
 /* for feature modal animation */
 
 @keyframes fadeIn {

@@ -57,14 +57,6 @@ const InputField = ({
       >
         {placeholder}
       </label>
-      <style>
-        {`
-          input[data-filled="true"] + label {
-            top: 0.5rem;
-            font-size: 10px;
-          }
-        `}
-      </style>
     </div>
   );
 };
