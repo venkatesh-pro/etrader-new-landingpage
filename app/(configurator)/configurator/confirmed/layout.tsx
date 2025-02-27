@@ -28,7 +28,6 @@ const geistSans = localFont({
   variable: "--font-geist-sans",
 });
 
-
 export const metadata: Metadata = {
   title: "confirmed",
   description: "confirmed",
