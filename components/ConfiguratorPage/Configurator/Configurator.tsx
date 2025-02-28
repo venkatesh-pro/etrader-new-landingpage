@@ -157,9 +157,12 @@ const Configurator: React.FC<ConfiguratorProps> = ({
     const tl2 = gsap.timeline({
       scrollTrigger: {
         trigger: "#section5tl2",
-        start: "top+=50% center+=45%",
+        // start: "top+=50% center+=45%",
+        // end: "bottom bottom-=10%",
+        start: "top+=50% bottom",
         end: "bottom bottom",
-        markers: true,
+
+        // markers: true,
         scroller: ".left-scroll-area",
         onEnter: () => {
           const tl = gsap.timeline();
@@ -191,7 +194,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
         trigger: "#section5tl3",
         start: "center-=30% center",
         end: "bottom bottom",
-        markers: true,
+        // markers: true,
         scroller: ".left-scroll-area",
         onEnter: () => {
           const tl = gsap.timeline();
