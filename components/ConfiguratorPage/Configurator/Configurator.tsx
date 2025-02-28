@@ -10,6 +10,7 @@ import { useGSAP } from "@gsap/react";
 import InputField from "@/components/InputField/InputField";
 import { useForm } from "react-hook-form";
 import ScrollPricing from "@/components/ScrollPricing/ScrollPricing";
+import LoadingSpinner from "@/components/LoadingSpinner/LoadingSpinner";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(useGSAP);
@@ -81,7 +82,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
       scrollTrigger: {
         trigger: "#section3",
         start: "top center",
-        end: "bottom center",
+        end: "top+=35% center",
         scrub: true,
         // markers: true,
         scroller: ".left-scroll-area",
@@ -153,8 +154,74 @@ const Configurator: React.FC<ConfiguratorProps> = ({
       },
     });
 
+    const tl2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#section5tl2",
+        start: "top+=50% center+=45%",
+        end: "bottom bottom",
+        markers: true,
+        scroller: ".left-scroll-area",
+        onEnter: () => {
+          const tl = gsap.timeline();
+
+          // Show loading spinner for 0.5s
+          tl.to("#section5tl2-loader-container", {
+            display: "block",
+          });
+          tl.to("#loading-spinner-1", {
+            opacity: 1,
+            duration: 0.5,
+          });
+          tl.to("#loading-spinner-1", {
+            opacity: 0,
+            display: "none",
+          });
+          tl.to("#section5", {
+            display: "block",
+            opacity: 1,
+            duration: 0.5,
+            delay: 0.5,
+          }); // Fade in section
+        },
+      },
+    });
+
+    const tl3 = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#section5tl3",
+        start: "center-=30% center",
+        end: "bottom bottom",
+        markers: true,
+        scroller: ".left-scroll-area",
+        onEnter: () => {
+          const tl = gsap.timeline();
+
+          tl.to("#section5tl3-loader-container", {
+            display: "block",
+          });
+          tl.to("#loading-spinner-2", {
+            opacity: 1,
+            duration: 0.5,
+          });
+          tl.to("#loading-spinner-2", {
+            opacity: 0,
+            display: "none",
+          });
+
+          tl.to("#section5tl3", {
+            display: "block",
+            opacity: 1,
+            duration: 0.5,
+            // delay: 5.5,
+          });
+        },
+      },
+    });
+
     return () => {
       tl.kill();
+      tl2.kill();
+      tl3.kill();
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, [currentModel, isMirrored, configuratorData.chooseYourLayoutFor16]);
@@ -526,7 +593,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
         </div>
       </section>
       {/* section 3 */}
-      <section className="section" id="section3">
+      <section className="section mb-[160px]" id="section3">
         <p className="text-[22px] mt-[60px] md:mt-[120px]">Interior </p>
         {configuratorData.chooseYourLayoutFor16.map((d, i) => {
           return (
@@ -1034,8 +1101,14 @@ const Configurator: React.FC<ConfiguratorProps> = ({
         })}
       </section>
       {/*  section 5 */}
-      <section className="section" id="section5">
-        <p className="font-[450] mt-[120px] md:mt-[120px] text-[40px] leading-[30px]">
+
+      <div id="section5tl2-loader-container" className="hidden text-center">
+        <LoadingSpinner id={"1"} />
+      </div>
+      {/* make this effect */}
+      <div id="section5tl2"></div>
+      <section className="section hidden" id="section5">
+        <p className="font-[450] mt-[40px] text-[40px] leading-[30px]">
           Summary
         </p>
         <p className="text-desktop-body-xl leading-[20px] font-[450] mt-[40px]">
@@ -1307,7 +1380,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
           </p>
         </div>
 
-        <div>
+        <div className="mb-[100px] ">
           <p className="text-[12px] mt-[20px] font-[400]  text-light-silver">
             Illustrative model shown. Pricing does not include on-site
             installation or groundworks. Delivery schedule and final pricing are
@@ -1316,259 +1389,261 @@ const Configurator: React.FC<ConfiguratorProps> = ({
         </div>
         {/* TODO: */}
       </section>
+
       {/* main section */}
-      {isContinue && (
-        <section className={`${isContinue ? "animate-fadeInSection" : ""}`}>
-          {/* section 6 */}
-          <section className="section" id="section5">
-            {/* delivery details */}
-            <div>
-              <p className="text-[24px] font-[450] mt-[80px]">
-                Enter your delivery address:
+      <div id="section5tl3-loader-container" className="hidden text-center">
+        <LoadingSpinner id={"2"} />
+      </div>
+      <section id="section5tl3" className="hidden">
+        {/* section 6 */}
+        <section className="section" id="section6">
+          {/* delivery details */}
+          <div>
+            <p className="text-[24px] font-[450] mt-[80px]">
+              Enter your delivery address:
+            </p>
+
+            <div className="mt-[20px] ">
+              <InputField
+                id="1"
+                type="text"
+                label="streetAddress"
+                placeholder="Street Address"
+                register={register}
+                errors={errors}
+                isRequired={true}
+              />
+            </div>
+            {errors.streetAddress && (
+              <p className="text-[12px] mt-[8px] text-[400] text-red-500">
+                {errors.streetAddress.message}
               </p>
+            )}
 
-              <div className="mt-[20px] ">
-                <InputField
-                  id="1"
-                  type="text"
-                  label="streetAddress"
-                  placeholder="Street Address"
-                  register={register}
-                  errors={errors}
-                  isRequired={true}
-                />
-              </div>
-              {errors.streetAddress && (
+            <div className="mt-[16px]">
+              <InputField
+                id="2"
+                type="text"
+                label="apt"
+                placeholder="Apt, Suite, Building (Optional)"
+                register={register}
+                errors={errors}
+                isRequired={false}
+              />
+              {errors.apt && (
                 <p className="text-[12px] mt-[8px] text-[400] text-red-500">
-                  {errors.streetAddress.message}
-                </p>
-              )}
-
-              <div className="mt-[16px]">
-                <InputField
-                  id="2"
-                  type="text"
-                  label="apt"
-                  placeholder="Apt, Suite, Building (Optional)"
-                  register={register}
-                  errors={errors}
-                  isRequired={false}
-                />
-                {errors.apt && (
-                  <p className="text-[12px] mt-[8px] text-[400] text-red-500">
-                    {errors.apt.message}
-                  </p>
-                )}
-              </div>
-
-              <div className="mt-[16px]">
-                <InputField
-                  id="3"
-                  type="text"
-                  label="suburb"
-                  placeholder="Suburb"
-                  register={register}
-                  errors={errors}
-                  isRequired={true}
-                />
-              </div>
-
-              {errors.suburb && (
-                <p className="text-[12px] mt-[8px] text-[400] text-red-500">
-                  {errors.suburb.message}
-                </p>
-              )}
-              <div className="mt-[16px]">
-                <InputField
-                  id="4"
-                  type="text"
-                  label="state"
-                  placeholder="State"
-                  register={register}
-                  errors={errors}
-                  isRequired={true}
-                />
-              </div>
-              {errors.state && (
-                <p className="text-[12px] mt-[8px] text-[400] text-red-500">
-                  {errors.state.message}
-                </p>
-              )}
-
-              <div className="mt-[16px]">
-                <InputField
-                  id="5"
-                  type="number"
-                  label="postalCode"
-                  placeholder="Postal Code"
-                  register={register}
-                  errors={errors}
-                  isRequired={true}
-                />
-              </div>
-
-              {errors.postalCode && (
-                <p className="text-[12px] mt-[8px] text-[400] text-red-500">
-                  {errors.postalCode.message}
-                </p>
-              )}
-              <div className="mt-[16px]">
-                <InputField
-                  id="6"
-                  type="text"
-                  label="country"
-                  placeholder="Country"
-                  isFixed={true}
-                  fixedValue={"Australia"}
-                  register={register}
-                  errors={errors}
-                  isRequired={true}
-                />
-              </div>
-              {errors.country && (
-                <p className="text-[12px] mt-[8px] text-[400] text-red-500">
-                  {errors.country.message}
+                  {errors.apt.message}
                 </p>
               )}
             </div>
 
-            <div>
-              <p className="text-[22px] mt-[80px]">
-                What is your contact information?
-              </p>
-              <div className="mt-[20px]">
-                <InputField
-                  id="contact-info-1"
-                  type="text"
-                  label="firstName"
-                  placeholder="First Name"
-                  register={register}
-                  errors={errors}
-                  isRequired={true}
-                />
-              </div>
-              {errors.firstName && (
-                <p className="text-[12px] mt-[8px] text-[400] text-red-500">
-                  {errors.firstName.message}
-                </p>
-              )}
-              <div className="mt-[16px]">
-                <InputField
-                  id="contact-info-2"
-                  type="text"
-                  label="lastName"
-                  placeholder="Last Name"
-                  register={register}
-                  errors={errors}
-                  isRequired={true}
-                />
-              </div>
-              {errors.lastName && (
-                <p className="text-[12px] mt-[8px] text-[400] text-red-500">
-                  {errors.lastName.message}
-                </p>
-              )}
-              <div className="mt-[16px]">
-                <InputField
-                  id="contact-info-3"
-                  type="text"
-                  label="company"
-                  placeholder="Company"
-                  register={register}
-                  errors={errors}
-                  isRequired={true}
-                />
-              </div>
-              {errors.company && (
-                <p className="text-[12px] mt-[8px] text-[400] text-red-500">
-                  {errors.company.message}
-                </p>
-              )}
-
-              <div className="mt-[16px]">
-                <InputField
-                  id="contact-info-4"
-                  type="text"
-                  label="role"
-                  placeholder="Role"
-                  register={register}
-                  errors={errors}
-                  isRequired={true}
-                />
-              </div>
-              {errors.role && (
-                <p className="text-[12px] mt-[8px] text-[400] text-red-500">
-                  {errors.role.message}
-                </p>
-              )}
-              <div className="mt-[16px]">
-                <InputField
-                  id="contact-info-5"
-                  type="email"
-                  label="email"
-                  pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-                  placeholder="Email Address"
-                  register={register}
-                  errors={errors}
-                  isRequired={true}
-                />
-              </div>
-              {errors.email && (
-                <p className="text-[12px] mt-[8px] text-[400] text-red-500">
-                  {errors.email.message}
-                </p>
-              )}
-              <div className="mt-[16px]">
-                <InputField
-                  id="contact-info-6"
-                  type="email"
-                  label="confirmEmail"
-                  placeholder="Confirm Email Address"
-                  pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-                  register={register}
-                  errors={errors}
-                  isRequired={true}
-                />
-              </div>
-              {errors.confirmEmail && (
-                <p className="text-[12px] mt-[8px] text-[400] text-red-500">
-                  {errors.confirmEmail.message}
-                </p>
-              )}
-              <div className="mt-[16px]">
-                <InputField
-                  id="contact-info-7"
-                  type="number"
-                  label="phoneNumber"
-                  placeholder="Phone Number"
-                  register={register}
-                  errors={errors}
-                  isRequired={true}
-                />
-              </div>
-              {errors.phoneNumber && (
-                <p className="text-[12px] mt-[8px] text-[400] text-red-500">
-                  {errors.phoneNumber.message}
-                </p>
-              )}
+            <div className="mt-[16px]">
+              <InputField
+                id="3"
+                type="text"
+                label="suburb"
+                placeholder="Suburb"
+                register={register}
+                errors={errors}
+                isRequired={true}
+              />
             </div>
-          </section>
-          <p className="text-[12px] text-light-silver mt-[40px]">
-            By entering my contact information above, I authorize Space to
-            contact me about this request and Space Updates including other
-            Space products, services and events. I can opt out by unsubscribing.
-            This is not a purchase requirement.
-          </p>
-          <button
-            onClick={handleSubmit(handleSubmitFunction)}
-            className="mt-[40px] w-full p-4 min-h-[60px] text-white rounded-xl bg-[#0071e3]"
-          >
-            Submit
-          </button>
-          {/* extra space */}
-          <div className="block h-[170px] md:h-[251px]"></div>
+
+            {errors.suburb && (
+              <p className="text-[12px] mt-[8px] text-[400] text-red-500">
+                {errors.suburb.message}
+              </p>
+            )}
+            <div className="mt-[16px]">
+              <InputField
+                id="4"
+                type="text"
+                label="state"
+                placeholder="State"
+                register={register}
+                errors={errors}
+                isRequired={true}
+              />
+            </div>
+            {errors.state && (
+              <p className="text-[12px] mt-[8px] text-[400] text-red-500">
+                {errors.state.message}
+              </p>
+            )}
+
+            <div className="mt-[16px]">
+              <InputField
+                id="5"
+                type="number"
+                label="postalCode"
+                placeholder="Postal Code"
+                register={register}
+                errors={errors}
+                isRequired={true}
+              />
+            </div>
+
+            {errors.postalCode && (
+              <p className="text-[12px] mt-[8px] text-[400] text-red-500">
+                {errors.postalCode.message}
+              </p>
+            )}
+            <div className="mt-[16px]">
+              <InputField
+                id="6"
+                type="text"
+                label="country"
+                placeholder="Country"
+                isFixed={true}
+                fixedValue={"Australia"}
+                register={register}
+                errors={errors}
+                isRequired={true}
+              />
+            </div>
+            {errors.country && (
+              <p className="text-[12px] mt-[8px] text-[400] text-red-500">
+                {errors.country.message}
+              </p>
+            )}
+          </div>
+
+          <div>
+            <p className="text-[22px] mt-[80px]">
+              What is your contact information?
+            </p>
+            <div className="mt-[20px]">
+              <InputField
+                id="contact-info-1"
+                type="text"
+                label="firstName"
+                placeholder="First Name"
+                register={register}
+                errors={errors}
+                isRequired={true}
+              />
+            </div>
+            {errors.firstName && (
+              <p className="text-[12px] mt-[8px] text-[400] text-red-500">
+                {errors.firstName.message}
+              </p>
+            )}
+            <div className="mt-[16px]">
+              <InputField
+                id="contact-info-2"
+                type="text"
+                label="lastName"
+                placeholder="Last Name"
+                register={register}
+                errors={errors}
+                isRequired={true}
+              />
+            </div>
+            {errors.lastName && (
+              <p className="text-[12px] mt-[8px] text-[400] text-red-500">
+                {errors.lastName.message}
+              </p>
+            )}
+            <div className="mt-[16px]">
+              <InputField
+                id="contact-info-3"
+                type="text"
+                label="company"
+                placeholder="Company"
+                register={register}
+                errors={errors}
+                isRequired={true}
+              />
+            </div>
+            {errors.company && (
+              <p className="text-[12px] mt-[8px] text-[400] text-red-500">
+                {errors.company.message}
+              </p>
+            )}
+
+            <div className="mt-[16px]">
+              <InputField
+                id="contact-info-4"
+                type="text"
+                label="role"
+                placeholder="Role"
+                register={register}
+                errors={errors}
+                isRequired={true}
+              />
+            </div>
+            {errors.role && (
+              <p className="text-[12px] mt-[8px] text-[400] text-red-500">
+                {errors.role.message}
+              </p>
+            )}
+            <div className="mt-[16px]">
+              <InputField
+                id="contact-info-5"
+                type="email"
+                label="email"
+                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                placeholder="Email Address"
+                register={register}
+                errors={errors}
+                isRequired={true}
+              />
+            </div>
+            {errors.email && (
+              <p className="text-[12px] mt-[8px] text-[400] text-red-500">
+                {errors.email.message}
+              </p>
+            )}
+            <div className="mt-[16px]">
+              <InputField
+                id="contact-info-6"
+                type="email"
+                label="confirmEmail"
+                placeholder="Confirm Email Address"
+                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                register={register}
+                errors={errors}
+                isRequired={true}
+              />
+            </div>
+            {errors.confirmEmail && (
+              <p className="text-[12px] mt-[8px] text-[400] text-red-500">
+                {errors.confirmEmail.message}
+              </p>
+            )}
+            <div className="mt-[16px]">
+              <InputField
+                id="contact-info-7"
+                type="number"
+                label="phoneNumber"
+                placeholder="Phone Number"
+                register={register}
+                errors={errors}
+                isRequired={true}
+              />
+            </div>
+            {errors.phoneNumber && (
+              <p className="text-[12px] mt-[8px] text-[400] text-red-500">
+                {errors.phoneNumber.message}
+              </p>
+            )}
+          </div>
         </section>
-      )}
+        <p className="text-[12px] text-light-silver mt-[40px]">
+          By entering my contact information above, I authorize Space to contact
+          me about this request and Space Updates including other Space
+          products, services and events. I can opt out by unsubscribing. This is
+          not a purchase requirement.
+        </p>
+        <button
+          onClick={handleSubmit(handleSubmitFunction)}
+          className="mt-[40px] w-full p-4 min-h-[60px] text-white rounded-xl bg-[#0071e3]"
+        >
+          Submit
+        </button>
+        {/* extra space */}
+        <div className="block h-[170px] md:h-[251px]"></div>
+      </section>
     </>
   );
 };

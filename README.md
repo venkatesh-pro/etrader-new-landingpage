@@ -3,3 +3,4 @@
 - check the overflow hidden in the parrent layout to work in confirmed page
 - responsive
 - fixed that chatmessage
+- loading animation ✅
