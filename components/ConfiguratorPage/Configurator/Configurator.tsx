@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import InputField from "@/components/InputField/InputField";
 import { useForm } from "react-hook-form";
+import ScrollPricing from "@/components/ScrollPricing/ScrollPricing";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(useGSAP);
@@ -192,6 +193,8 @@ const Configurator: React.FC<ConfiguratorProps> = ({
 
   return (
     <>
+      {/* overlay component */}
+      {/* <ScrollPricing></ScrollPricing> */}
       {/* section 1 */}
       <section className="section section1 mt-[140px]" id="section1">
         <span className="text-dark-red text-[17px]">New</span>
