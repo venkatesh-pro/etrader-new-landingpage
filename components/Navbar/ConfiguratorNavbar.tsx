@@ -58,12 +58,12 @@ const ConfiguratorNavbar: React.FC<ConfiguratorNavbarProps> = ({
     <div
       className={`w-full  md:h-[42px] h-[56px] flex items-center lg:px-[48px] px-[20px] transition-transform duration-300 ${
         isNavbarVisible || !isMobileView ? "translate-y-0" : "-translate-y-full"
-      } fixed top-0 left-0 z-40  bg-[#f4f4f4] bg-opacity-30`}
+      } fixed top-0 left-0 z-40  bg-[#FCFCFC]`}
     >
       <div className="flex items-center text-center justify-between w-full">
         <div>
           <Link href="/">
-            <img src="/logo.svg" className="" alt="Logo" />
+            <img src="/logo.png" className="w-[70px]" alt="Logo" />
           </Link>
         </div>
         <div className="flex items-center">
