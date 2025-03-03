@@ -1,4 +1,4 @@
-import { ConfiguratorData, data } from "@/data";
+import { ConfiguratorData } from "@/data";
 
 export const formatNumberToCurrency = (price: number) => {
   const formatter = new Intl.NumberFormat("en-US", {
@@ -12,25 +12,31 @@ export const formatNumberToCurrency = (price: number) => {
   return formatter.format(price);
 };
 
-export const calculateTotalPrice = () => {
+export const calculateTotalPrice = (configuratorData) => {
   let totalPrice = 0;
 
-  // Iterate through each key in the data object
-  for (const key of Object.keys(data) as Array<keyof ConfiguratorData>) {
-    if (Array.isArray(data[key])) {
-      // Filter for items where `isSelected` is true and have a `price` property
-      const selectedItems = data[key].filter(
-        (item) =>
-          item.isSelected && "price" in item && typeof item.price === "number"
-      );
+  if (configuratorData) {
+    // Iterate through each key in the data object
+    for (const key of Object.keys(configuratorData) as Array<
+      keyof ConfiguratorData
+    >) {
+      if (Array.isArray(configuratorData[key])) {
+        // Filter for items where `isSelected` is true and have a `price` property
+        const selectedItems = configuratorData[key].filter(
+          (item) =>
+            item.isSelected && "price" in item && typeof item.price === "number"
+        );
 
-      // Add their prices to the total
-      selectedItems.forEach((item) => {
-        // TODO: verify it
-        totalPrice += (item as unknown as { price: number }).price;
-      });
+        // Add their prices to the total
+        selectedItems.forEach((item) => {
+          // TODO: verify it
+          totalPrice += (item as unknown as { price: number }).price;
+        });
+      }
     }
-  }
 
-  return totalPrice;
+    return totalPrice;
+  } else {
+    return 0;
+  }
 };

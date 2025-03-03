@@ -1,5 +1,5 @@
 "use client";
-import { calculateTotalPrice, formatNumberToCurrency } from "@/utils/functions";
+import { formatNumberToCurrency } from "@/utils/functions";
 import React, { useState } from "react";
 import { gsap } from "gsap/dist/gsap";
 import { ConfiguratorData } from "@/data";
@@ -38,6 +38,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
   generateSliderImagesForInterior,
   setIsModalOpen,
   setIsModalOpenCarousel,
+  totalPrice,
 }) => {
   const [isContinue, setIsContinue] = useState(true);
 
@@ -1353,14 +1354,14 @@ const Configurator: React.FC<ConfiguratorProps> = ({
           <div className="flex items-center justify-between">
             <p className="text-[14px] font-[400]  text-silver">Est. Price</p>
             <p className="text-[14px] font-[400]  text-silver">
-              {formatNumberToCurrency(calculateTotalPrice())}
+              {formatNumberToCurrency(totalPrice)}
             </p>
           </div>
 
           <div className="mt-[40px] flex items-center justify-between">
             <p className="text-[24px] font-[450]  text-silver">Est. Price</p>
             <p className="text-[24px] font-[450]  text-silver">
-              {formatNumberToCurrency(calculateTotalPrice())}
+              {formatNumberToCurrency(totalPrice)}
             </p>
           </div>
 

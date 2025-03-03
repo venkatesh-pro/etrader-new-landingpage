@@ -1,7 +1,7 @@
 import { calculateTotalPrice, formatNumberToCurrency } from "@/utils/functions";
 import { useState, useEffect } from "react";
 
-const ScrollPricing = () => {
+const ScrollPricing = ({ totalPrice }) => {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const ScrollPricing = () => {
         <div className="flex justify-between">
           <div>
             <p className="text-[24px] font-[450]  text-silver">
-              {formatNumberToCurrency(calculateTotalPrice())}
+              {formatNumberToCurrency(totalPrice)}
             </p>
             <p className="text-[14px] font-[400]  text-light-silver">
               Est. Configuration Price

@@ -10,6 +10,7 @@ import FeatureModal from "../Modal/FeatureModal";
 import FeatureModalCarousel from "../Modal/FeatureModalCarousel";
 import ConfiguratorNavbar from "@/components/Navbar/ConfiguratorNavbar";
 import ScrollPricing from "@/components/ScrollPricing/ScrollPricing";
+import { calculateTotalPrice } from "@/utils/functions";
 
 type Model = { name: string };
 type Color = { name: string };
@@ -18,6 +19,8 @@ type Orientation = { name: string };
 const ConfiguratorParent = () => {
   const [configuratorData, setConfiguratorData] =
     useState<ConfiguratorData>(data);
+  const [totalPrice, setTotalPrice] = useState(0);
+
   const [isImageChangeScroll, setIsImageChangeScroll] =
     useState<boolean>(false);
   const [currentModel, setCurrentModel] = useState("");
@@ -224,11 +227,16 @@ const ConfiguratorParent = () => {
       window.removeEventListener("resize", fixSliderPosition);
     };
   }, []);
+  useEffect(() => {
+    console.log("changed=>>>");
 
+    const totalPrice = calculateTotalPrice(configuratorData);
+    setTotalPrice(totalPrice);
+  }, [configuratorData]);
   return (
     <>
       {/* overlay component */}
-      <ScrollPricing></ScrollPricing>
+      <ScrollPricing totalPrice={totalPrice}></ScrollPricing>
 
       {scrollAreaRef.current && (
         <ConfiguratorNavbar
@@ -259,6 +267,7 @@ const ConfiguratorParent = () => {
             generateSliderImagesForInterior={generateSliderImagesForInterior}
             setIsModalOpen={setIsModalOpen}
             setIsModalOpenCarousel={setIsModalOpenCarousel}
+            totalPrice={totalPrice}
           />
         </div>
       </div>
