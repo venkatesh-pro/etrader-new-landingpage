@@ -1109,7 +1109,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
         <LoadingSpinner id={"1"} />
       </div>
       {/* make this effect */}
-      <div id="section5tl2"></div>
+      <div id="section5tl2" className=""></div>
       <section className="section hidden" id="section5">
         <p className="font-[450] mt-[40px] text-[40px] leading-[30px]">
           Summary
@@ -1645,8 +1645,9 @@ const Configurator: React.FC<ConfiguratorProps> = ({
           Submit
         </button>
         {/* extra space */}
-        <div className="block h-[170px] md:h-[251px]"></div>
+        <div className="block h-[170px] md:h-[200px]"></div>
       </section>
+      <div className="h-[51px] "></div>
     </>
   );
 };

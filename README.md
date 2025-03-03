@@ -2,6 +2,6 @@
 - new logo update for both
 - check the overflow hidden in the parrent layout to work in confirmed page
 - responsive
-- fixed that chatmessage
+- fixed that chatmessage => need to work
 - image
 - loading animation ✅
