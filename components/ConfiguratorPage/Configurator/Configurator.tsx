@@ -183,7 +183,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
             display: "block",
             opacity: 1,
             duration: 0.5,
-            delay: 0.5,
+            // delay: 0.5,
           }); // Fade in section
         },
       },
