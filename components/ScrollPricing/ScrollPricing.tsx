@@ -1,10 +1,11 @@
+import { calculateTotalPrice, formatNumberToCurrency } from "@/utils/functions";
 import { useState, useEffect } from "react";
 
 const ScrollPricing = () => {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    const endSection = document.getElementById("section5");
+    const endSection = document.getElementById("endOfPricing");
     if (!endSection) return;
 
     const observer = new IntersectionObserver(
@@ -27,13 +28,23 @@ const ScrollPricing = () => {
 
   return (
     <div
-      className={`bg-[#f4f4f4] w-[390px] h-[91px] transition-opacity duration-500 fixed top-0 ${
+      className={`desktop:w-[438px] right-0 desktopG:w-[28%] md:w-[28%] z-[10001] transition-opacity duration-500 fixed bottom-0  ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo error
-      omnis necessitatibus asperiores sequi dolorum. Minus suscipit corporis
-      asperiores ad.
+      <div className="mx-[23px] bg-[#f4f4f4]  h-[91px] rounded-tl-[20px] rounded-tr-[20px]  px-[24px] py-[20px]">
+        <div className="flex justify-between">
+          <div>
+            <p className="text-[24px] font-[450]  text-silver">
+              {formatNumberToCurrency(calculateTotalPrice())}
+            </p>
+            <p className="text-[14px] font-[400]  text-light-silver">
+              Est. Configuration Price
+            </p>
+          </div>
+          <div></div>
+        </div>
+      </div>
     </div>
   );
 };

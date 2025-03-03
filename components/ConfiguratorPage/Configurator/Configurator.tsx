@@ -1,5 +1,5 @@
 "use client";
-import { formatNumberToCurrency } from "@/utils/functions";
+import { calculateTotalPrice, formatNumberToCurrency } from "@/utils/functions";
 import React, { useState } from "react";
 import { gsap } from "gsap/dist/gsap";
 import { ConfiguratorData } from "@/data";
@@ -229,31 +229,6 @@ const Configurator: React.FC<ConfiguratorProps> = ({
     };
   }, [currentModel, isMirrored, configuratorData.chooseYourLayoutFor16]);
 
-  const calculateTotalPrice = () => {
-    let totalPrice = 0;
-
-    // Iterate through each key in the data object
-    for (const key of Object.keys(configuratorData) as Array<
-      keyof ConfiguratorData
-    >) {
-      if (Array.isArray(configuratorData[key])) {
-        // Filter for items where `isSelected` is true and have a `price` property
-        const selectedItems = configuratorData[key].filter(
-          (item) =>
-            item.isSelected && "price" in item && typeof item.price === "number"
-        );
-
-        // Add their prices to the total
-        selectedItems.forEach((item) => {
-          // TODO: verify it
-          totalPrice += (item as unknown as { price: number }).price;
-        });
-      }
-    }
-
-    return totalPrice;
-  };
-
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -263,8 +238,6 @@ const Configurator: React.FC<ConfiguratorProps> = ({
 
   return (
     <>
-      {/* overlay component */}
-      {/* <ScrollPricing></ScrollPricing> */}
       {/* section 1 */}
       <section className="section section1 mt-[140px]" id="section1">
         <span className="text-dark-red text-[17px]">New</span>
@@ -1103,6 +1076,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
           );
         })}
       </section>
+      <div id="endOfPricing"></div>
       {/*  section 5 */}
 
       <div id="section5tl2-loader-container" className="hidden text-center">

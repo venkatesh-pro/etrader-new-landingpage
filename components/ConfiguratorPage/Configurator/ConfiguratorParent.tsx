@@ -9,6 +9,7 @@ import { gsap } from "gsap/dist/gsap";
 import FeatureModal from "../Modal/FeatureModal";
 import FeatureModalCarousel from "../Modal/FeatureModalCarousel";
 import ConfiguratorNavbar from "@/components/Navbar/ConfiguratorNavbar";
+import ScrollPricing from "@/components/ScrollPricing/ScrollPricing";
 
 type Model = { name: string };
 type Color = { name: string };
@@ -226,6 +227,9 @@ const ConfiguratorParent = () => {
 
   return (
     <>
+      {/* overlay component */}
+      <ScrollPricing></ScrollPricing>
+
       {scrollAreaRef.current && (
         <ConfiguratorNavbar
           scrollAreaRef={scrollAreaRef as React.RefObject<HTMLDivElement>}
