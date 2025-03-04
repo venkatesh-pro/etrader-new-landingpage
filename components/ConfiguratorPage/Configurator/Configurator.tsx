@@ -1,6 +1,6 @@
 "use client";
 import { formatNumberToCurrency } from "@/utils/functions";
-import React, { useState } from "react";
+import React from "react";
 import { gsap } from "gsap/dist/gsap";
 import { ConfiguratorData } from "@/data";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -9,7 +9,6 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import InputField from "@/components/InputField/InputField";
 import { useForm } from "react-hook-form";
-import ScrollPricing from "@/components/ScrollPricing/ScrollPricing";
 import LoadingSpinner from "@/components/LoadingSpinner/LoadingSpinner";
 
 if (typeof window !== "undefined") {
@@ -26,6 +25,7 @@ interface ConfiguratorProps {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   setIsModalOpenCarousel: React.Dispatch<React.SetStateAction<boolean>>;
   generateSliderImagesForInterior: (image: string) => string[];
+  totalPrice: number;
 }
 
 const Configurator: React.FC<ConfiguratorProps> = ({
@@ -37,20 +37,18 @@ const Configurator: React.FC<ConfiguratorProps> = ({
   setIsImageChangeScroll,
   generateSliderImagesForInterior,
   setIsModalOpen,
-  setIsModalOpenCarousel,
+  // setIsModalOpenCarousel,
   totalPrice,
 }) => {
-  const [isContinue, setIsContinue] = useState(true);
-
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const handleSubmitFunction = async (data) => {
+  const handleSubmitFunction = async () => {
     try {
-      console.log("data", data);
+      // console.log("data", data);
 
       window.location.href = "/configurator/confirmed";
     } catch (error) {
@@ -230,12 +228,12 @@ const Configurator: React.FC<ConfiguratorProps> = ({
     };
   }, [currentModel, isMirrored, configuratorData.chooseYourLayoutFor16]);
 
-  const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  // const scrollToSection = (sectionId: string) => {
+  //   const section = document.getElementById(sectionId);
+  //   if (section) {
+  //     section.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // };
 
   return (
     <>
@@ -778,10 +776,10 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                   <p className="font-[400] text-[17px]">{d.name}</p>
                 </div>
                 <div>
-                  {d?.price > 0 && (
+                  {(d?.price ?? 0) > 0 && (
                     <p className="">
                       <span className="text-[14px] text-silver">
-                        {d.price > 0 && formatNumberToCurrency(d.price)}
+                        {formatNumberToCurrency(d.price ?? 0)}
                       </span>
                     </p>
                   )}
@@ -845,10 +843,10 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                   <p className="font-[400] text-[17px]">{d.name}</p>
                 </div>
                 <div>
-                  {d?.price > 0 && (
+                  {(d?.price ?? 0) > 0 && (
                     <p className="">
                       <span className="text-[14px] text-silver">
-                        {d.price > 0 && formatNumberToCurrency(d.price)}
+                        {formatNumberToCurrency(d.price ?? 0)}
                       </span>
                     </p>
                   )}
@@ -977,10 +975,10 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                   <p className="font-[400] text-[17px]">{d.name}</p>
                 </div>
                 <div>
-                  {d?.price > 0 && (
+                  {(d?.price ?? 0) > 0 && (
                     <p className="">
                       <span className="text-[14px] text-silver">
-                        {d.price > 0 && formatNumberToCurrency(d.price)}
+                        {formatNumberToCurrency(d.price ?? 0)}
                       </span>
                     </p>
                   )}
@@ -1401,7 +1399,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               </div>
               {errors.streetAddress && (
                 <p className="text-[12px] mt-[8px] text-[400] text-red-500">
-                  {errors.streetAddress.message}
+                  {errors.streetAddress.message as string}
                 </p>
               )}
 
@@ -1417,7 +1415,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                 />
                 {errors.apt && (
                   <p className="text-[12px] mt-[8px] text-[400] text-red-500">
-                    {errors.apt.message}
+                    {errors.apt.message as string}
                   </p>
                 )}
               </div>
@@ -1436,7 +1434,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
 
               {errors.suburb && (
                 <p className="text-[12px] mt-[8px] text-[400] text-red-500">
-                  {errors.suburb.message}
+                  {errors.suburb.message as string}
                 </p>
               )}
               <div className="mt-[16px]">
@@ -1452,7 +1450,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               </div>
               {errors.state && (
                 <p className="text-[12px] mt-[8px] text-[400] text-red-500">
-                  {errors.state.message}
+                  {errors.state.message as string}
                 </p>
               )}
 
@@ -1470,7 +1468,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
 
               {errors.postalCode && (
                 <p className="text-[12px] mt-[8px] text-[400] text-red-500">
-                  {errors.postalCode.message}
+                  {errors.postalCode.message as string}
                 </p>
               )}
               <div className="mt-[16px]">
@@ -1488,7 +1486,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               </div>
               {errors.country && (
                 <p className="text-[12px] mt-[8px] text-[400] text-red-500">
-                  {errors.country.message}
+                  {errors.country.message as string}
                 </p>
               )}
             </div>
@@ -1510,7 +1508,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               </div>
               {errors.firstName && (
                 <p className="text-[12px] mt-[8px] text-[400] text-red-500">
-                  {errors.firstName.message}
+                  {errors.firstName.message as string}
                 </p>
               )}
               <div className="mt-[16px]">
@@ -1526,7 +1524,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               </div>
               {errors.lastName && (
                 <p className="text-[12px] mt-[8px] text-[400] text-red-500">
-                  {errors.lastName.message}
+                  {errors.lastName.message as string}
                 </p>
               )}
               <div className="mt-[16px]">
@@ -1542,7 +1540,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               </div>
               {errors.company && (
                 <p className="text-[12px] mt-[8px] text-[400] text-red-500">
-                  {errors.company.message}
+                  {errors.company.message as string}
                 </p>
               )}
 
@@ -1559,7 +1557,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               </div>
               {errors.role && (
                 <p className="text-[12px] mt-[8px] text-[400] text-red-500">
-                  {errors.role.message}
+                  {errors.role.message as string}
                 </p>
               )}
               <div className="mt-[16px]">
@@ -1576,7 +1574,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               </div>
               {errors.email && (
                 <p className="text-[12px] mt-[8px] text-[400] text-red-500">
-                  {errors.email.message}
+                  {errors.email.message as string}
                 </p>
               )}
               <div className="mt-[16px]">
@@ -1593,7 +1591,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               </div>
               {errors.confirmEmail && (
                 <p className="text-[12px] mt-[8px] text-[400] text-red-500">
-                  {errors.confirmEmail.message}
+                  {errors.confirmEmail.message as string}
                 </p>
               )}
               <div className="mt-[16px]">
@@ -1609,7 +1607,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               </div>
               {errors.phoneNumber && (
                 <p className="text-[12px] mt-[8px] text-[400] text-red-500">
-                  {errors.phoneNumber.message}
+                  {errors.phoneNumber.message as string}
                 </p>
               )}
             </div>

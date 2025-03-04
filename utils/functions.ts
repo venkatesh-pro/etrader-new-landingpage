@@ -12,7 +12,7 @@ export const formatNumberToCurrency = (price: number) => {
   return formatter.format(price);
 };
 
-export const calculateTotalPrice = (configuratorData) => {
+export const calculateTotalPrice = (configuratorData: ConfiguratorData) => {
   let totalPrice = 0;
 
   if (configuratorData) {

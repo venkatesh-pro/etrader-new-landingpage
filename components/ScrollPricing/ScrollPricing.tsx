@@ -1,7 +1,7 @@
-import { calculateTotalPrice, formatNumberToCurrency } from "@/utils/functions";
+import { formatNumberToCurrency } from "@/utils/functions";
 import { useState, useEffect } from "react";
 
-const ScrollPricing = ({ totalPrice }) => {
+const ScrollPricing = ({ totalPrice }: { totalPrice: number }) => {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {

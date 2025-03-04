@@ -320,7 +320,7 @@ export interface ConfiguratorData {
   chooseYourLayoutFor16: Array<{
     name: string;
     description: string;
-    details: string[];
+    details?: string[];
     price: number;
     priceCycle: string;
     isSelected: boolean;
@@ -357,19 +357,19 @@ export interface ConfiguratorData {
   chooseYourEnergy: Array<{
     name: string;
     description: string;
-    details: string[];
+    details?: string[];
     price?: number | undefined; // Optional since "No solar" doesn't have a price
     isSelected: boolean;
   }>;
   solar: Array<{
     name: string;
-    details: string[];
+    details?: string[];
     price?: number | undefined; // Optional since "No solar" doesn't have a price
     isSelected: boolean;
   }>;
   bathroom: Array<{
     name: string;
-    details: string[];
+    details?: string[];
     price?: number | undefined; // Optional since "No solar" doesn't have a price
     isSelected: boolean;
   }>;
