@@ -1,8 +1,8 @@
-- add the feature of if bathroom selected only they can select the bathroom feature
 - new logo update for both ✅
-- check the overflow hidden in the parrent layout to work in confirmed page
-- responsive
 - fixed that chatmessage => need to work ✅
-- image
 - loading animation ✅
-- pricing update not working 
+- pricing update not working ✅
+- image
+- responsive
+- check the overflow hidden in the parrent layout to work in confirmed page
+- add the feature of if bathroom selected only they can select the bathroom feature
