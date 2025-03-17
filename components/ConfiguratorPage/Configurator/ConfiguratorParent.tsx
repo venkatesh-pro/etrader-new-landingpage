@@ -31,8 +31,8 @@ const ConfiguratorParent = () => {
   const [isModalOpenCarousel, setIsModalOpenCarousel] = useState(false);
 
   const [sliderImages, setSliderImages] = useState([
-    "/ConfiguratorImages/BLACK COMPRESSED 16:25/16-black-1.jpg",
-    "/ConfiguratorImages/BLACK COMPRESSED 16:25/16-black-2.jpg",
+    "/ConfiguratorImages/BLACK_COMPRESSED_16_25/16-black-1.jpg",
+    "/ConfiguratorImages/BLACK_COMPRESSED_16_25/16-black-2.jpg",
   ]);
 
   const generateSliderImages = (
@@ -43,7 +43,7 @@ const ConfiguratorParent = () => {
     if (!color || !orientation || !model) return [];
     console.log("colorrrr", color);
 
-    const basePath = `/ConfiguratorImages/${color.imageFolderName} COMPRESSED 16:25`;
+    const basePath = `/ConfiguratorImages/${color.imageFolderName}_COMPRESSED_16_25`;
     const mirroredPath = `/MIRRORED`;
     const orientationPath =
       orientation.name === "Standard layout" ? "" : mirroredPath;
@@ -67,7 +67,7 @@ const ConfiguratorParent = () => {
   // };
 
   const generateSliderImagesForInterior = () => {
-    const basePath = `/ConfiguratorImages/INTERIOR COMPRESSED 16:25`;
+    const basePath = `/ConfiguratorImages/INTERIOR_COMPRESSED_16_25`;
     const modelPrefix = currentModel === "Space One Plus" ? "25" : "16";
 
     if (modelPrefix === "16") {
