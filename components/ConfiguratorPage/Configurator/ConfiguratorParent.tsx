@@ -13,7 +13,7 @@ import ScrollPricing from "@/components/ScrollPricing/ScrollPricing";
 import { calculateTotalPrice } from "@/utils/functions";
 
 type Model = { name: string };
-type Color = { name: string };
+type Color = { name: string; imageFolderName: string };
 type Orientation = { name: string };
 
 const ConfiguratorParent = () => {
@@ -41,15 +41,17 @@ const ConfiguratorParent = () => {
     orientation: Orientation | undefined
   ) => {
     if (!color || !orientation || !model) return [];
+    console.log("colorrrr", color);
 
-    const basePath = `/ConfiguratorImages/${color.name} COMPRESSED 16:25`;
+    const basePath = `/ConfiguratorImages/${color.imageFolderName} COMPRESSED 16:25`;
     const mirroredPath = `/MIRRORED`;
-    const orientationPath = orientation.name === "Standard" ? "" : mirroredPath;
+    const orientationPath =
+      orientation.name === "Standard layout" ? "" : mirroredPath;
     const modelPrefix = model.name === "Space One Plus" ? "25" : "16";
 
     return Array.from({ length: 2 }, (_, index) => {
       const imageIndex = index + 1;
-      return `${basePath}${orientationPath}/${modelPrefix}-${color.name.toLowerCase()}-${imageIndex}.jpg`;
+      return `${basePath}${orientationPath}/${modelPrefix}-${color.imageFolderName.toLowerCase()}-${imageIndex}.jpg`;
     });
   };
 
@@ -79,12 +81,17 @@ const ConfiguratorParent = () => {
       (d) => d.isSelected
     );
     if (selectedOrientation) {
-      setIsMirrored(selectedOrientation.name !== "Standard");
+      setIsMirrored(selectedOrientation.name !== "Standard layout");
     }
 
     // const isSolar = configuratorData.chooseYourEnergy.find((d) => d.isSelected);
 
     setSliderImages(
+      generateSliderImages(selectedModel, selectedColor, selectedOrientation)
+    );
+
+    console.log(
+      "fffff",
       generateSliderImages(selectedModel, selectedColor, selectedOrientation)
     );
   };

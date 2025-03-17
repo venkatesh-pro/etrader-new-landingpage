@@ -17,11 +17,36 @@ export const data = {
   ],
 
   chooseYourFinish: [
-    { color: "#000000", name: "Space Black", isSelected: true }, // to image work you need to change to Black, remame the folder
-    { color: "#ECECE7", name: "Cloud White", isSelected: false },
-    { color: "#343C3D", name: "Midnight Silver", isSelected: false },
-    { color: "#CAC1AF", name: "Desert Mist", isSelected: false },
-    { color: "#3E4B41", name: "Sage Green", isSelected: false },
+    {
+      color: "#000000",
+      name: "Space Black",
+      isSelected: true,
+      imageFolderName: "Black",
+    }, // to image work you need to change to Black, remame the folder
+    {
+      color: "#ECECE7",
+      name: "Cloud White",
+      isSelected: false,
+      imageFolderName: "White",
+    },
+    {
+      color: "#343C3D",
+      name: "Midnight Silver",
+      isSelected: false,
+      imageFolderName: "Silver",
+    },
+    {
+      color: "#CAC1AF",
+      name: "Desert Mist",
+      isSelected: false,
+      imageFolderName: "Mist",
+    },
+    {
+      color: "#3E4B41",
+      name: "Sage Green",
+      isSelected: false,
+      imageFolderName: "Green",
+    },
   ],
 
   chooseYourFinishDeck: [
@@ -300,6 +325,7 @@ export interface ConfiguratorData {
     color: string;
     name: string;
     isSelected: boolean;
+    imageFolderName: string;
   }>;
   chooseYourFinishDeck: Array<{
     color: string;
