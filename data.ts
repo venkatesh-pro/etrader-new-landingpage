@@ -87,7 +87,7 @@ export const data = {
       description: "Mesa décor",
       price: 0,
       priceCycle: "week",
-      image: "SO-I-I-min.jpg",
+      image: "16-open.jpg",
       isSelected: true,
     },
     {
@@ -100,7 +100,7 @@ export const data = {
       ],
       price: 6200,
       priceCycle: "week",
-      image: "SO-I-II-min.jpg",
+      image: "16-wardrobe.jpg",
       isSelected: false,
     },
     {
@@ -116,7 +116,7 @@ export const data = {
       ],
       price: 9500,
       priceCycle: "week",
-      image: "SO-I-III-min.jpg",
+      image: "16-kitchen.jpg",
       isSelected: false,
     },
   ],
