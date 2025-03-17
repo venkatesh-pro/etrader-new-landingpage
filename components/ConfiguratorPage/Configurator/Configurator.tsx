@@ -446,7 +446,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
         </div>
 
         {/* deck color */}
-
+        {/* 
         <p className="text-[17px] mt-[60px] md:mt-[160px] font-[450]">
           Deck Color
         </p>
@@ -508,12 +508,10 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                   ></div>
                 </div>
 
-                {/* <p className="mt-2 text-sm text-center capitalize">{d.name}</p> */}
-                {/* <p className="text-sm text-center">${data.price}</p> */}
               </div>
             );
           })}
-        </div>
+        </div> */}
 
         {/* glass */}
         <p className="text-desktop-body-xl mt-[60px] md:mt-[160px]">Glass</p>
