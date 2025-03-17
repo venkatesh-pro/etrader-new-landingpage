@@ -94,12 +94,10 @@ const Configurator: React.FC<ConfiguratorProps> = ({
           // console.log({ selectedLayout });
 
           // setSliderImages(generateSliderImagesForInterior());
-
-          setSliderImages(generateSliderImagesForInterior());
-          // fadeOutImages(() => {
-          //   setSliderImages(generateSliderImagesForInterior());
-          //   fadeInImages();
-          // });
+          fadeOutImages(() => {
+            setSliderImages(generateSliderImagesForInterior());
+            fadeInImages();
+          });
         },
         onLeave: () => {
           console.log("Left section3");
@@ -126,12 +124,11 @@ const Configurator: React.FC<ConfiguratorProps> = ({
 
           // console.log({ selectedLayout });
 
-          // fadeOutImages(() => {
-          //   setSliderImages(generateSliderImagesForInterior());
+          fadeOutImages(() => {
+            setSliderImages(generateSliderImagesForInterior());
 
-          //   fadeInImages();
-          // });
-          setSliderImages(generateSliderImagesForInterior());
+            fadeInImages();
+          });
         },
         onLeaveBack: () => {
           console.log("Leaving section3 from above");
