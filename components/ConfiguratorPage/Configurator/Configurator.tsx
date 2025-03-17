@@ -83,7 +83,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
         start: "top center",
         end: "bottom-=25% center",
         scrub: true,
-        markers: true,
+        // markers: true,
         scroller: ".left-scroll-area",
         onEnter: () => {
           console.log("Entered section3");
