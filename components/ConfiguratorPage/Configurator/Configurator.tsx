@@ -222,7 +222,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
       tl3.kill();
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, [currentModel, isMirrored, configuratorData.chooseYourLayoutFor16]);
+  }, [currentModel, isMirrored]);
 
   // const scrollToSection = (sectionId: string) => {
   //   const section = document.getElementById(sectionId);
