@@ -21,31 +21,31 @@ export const data = {
       color: "#000000",
       name: "Space Black",
       isSelected: true,
-      imageFolderName: "Black",
+      imageFolderName: "BLACK",
     }, // to image work you need to change to Black, remame the folder
     {
       color: "#ECECE7",
       name: "Cloud White",
       isSelected: false,
-      imageFolderName: "White",
+      imageFolderName: "WHITE",
     },
     {
       color: "#343C3D",
       name: "Midnight Silver",
       isSelected: false,
-      imageFolderName: "Silver",
+      imageFolderName: "SILVER",
     },
     {
       color: "#CAC1AF",
       name: "Desert Mist",
       isSelected: false,
-      imageFolderName: "Mist",
+      imageFolderName: "MIST",
     },
     {
       color: "#3E4B41",
       name: "Sage Green",
       isSelected: false,
-      imageFolderName: "Green",
+      imageFolderName: "GREEN",
     },
   ],
 
