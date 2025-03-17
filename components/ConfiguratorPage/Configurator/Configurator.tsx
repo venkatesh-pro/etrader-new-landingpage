@@ -24,7 +24,7 @@ interface ConfiguratorProps {
   setIsImageChangeScroll: React.Dispatch<React.SetStateAction<boolean>>;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   setIsModalOpenCarousel: React.Dispatch<React.SetStateAction<boolean>>;
-  generateSliderImagesForInterior: (image: string) => string[];
+  generateSliderImagesForInterior: () => string[];
   totalPrice: number;
 }
 
@@ -81,26 +81,25 @@ const Configurator: React.FC<ConfiguratorProps> = ({
       scrollTrigger: {
         trigger: "#section3",
         start: "top center",
-        end: "top+=35% center",
+        end: "bottom-=25% center",
         scrub: true,
-        // markers: true,
+        markers: true,
         scroller: ".left-scroll-area",
         onEnter: () => {
           console.log("Entered section3");
-          const selectedLayout = configuratorData.chooseYourLayoutFor16.find(
-            (layout) => layout.isSelected
-          );
+          // const selectedLayout = configuratorData.chooseYourLayoutFor16.find(
+          //   (layout) => layout.isSelected
+          // );
 
-          console.log({ selectedLayout });
+          // console.log({ selectedLayout });
 
           // setSliderImages(generateSliderImagesForInterior());
 
-          fadeOutImages(() => {
-            setSliderImages(
-              generateSliderImagesForInterior(selectedLayout!.image)
-            );
-            fadeInImages();
-          });
+          setSliderImages(generateSliderImagesForInterior());
+          // fadeOutImages(() => {
+          //   setSliderImages(generateSliderImagesForInterior());
+          //   fadeInImages();
+          // });
         },
         onLeave: () => {
           console.log("Left section3");
@@ -121,18 +120,18 @@ const Configurator: React.FC<ConfiguratorProps> = ({
 
           // setSliderImages(generateSliderImagesForInterior());
 
-          const selectedLayout = configuratorData.chooseYourLayoutFor16.find(
-            (layout) => layout.isSelected
-          );
+          // const selectedLayout = configuratorData.chooseYourLayoutFor16.find(
+          //   (layout) => layout.isSelected
+          // );
 
-          console.log({ selectedLayout });
+          // console.log({ selectedLayout });
 
-          fadeOutImages(() => {
-            setSliderImages(
-              generateSliderImagesForInterior(selectedLayout!.image)
-            );
-            fadeInImages();
-          });
+          // fadeOutImages(() => {
+          //   setSliderImages(generateSliderImagesForInterior());
+
+          //   fadeInImages();
+          // });
+          setSliderImages(generateSliderImagesForInterior());
         },
         onLeaveBack: () => {
           console.log("Leaving section3 from above");
