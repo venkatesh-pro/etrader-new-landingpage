@@ -49,7 +49,7 @@ const ConfiguratorParent = () => {
       orientation.name === "Standard layout" ? "" : mirroredPath;
     const modelPrefix = model.name === "Space One Plus" ? "25" : "16";
 
-    return Array.from({ length: 2 }, (_, index) => {
+    return Array.from({ length: 3 }, (_, index) => {
       const imageIndex = index + 1;
       return `${basePath}${orientationPath}/${modelPrefix}-${color.imageFolderName.toLowerCase()}-${imageIndex}.jpg`;
     });
