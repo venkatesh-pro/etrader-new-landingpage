@@ -55,55 +55,81 @@ const ConfiguratorParent = () => {
     });
   };
 
-  // const generateSliderImagesForInterior = (image: string) => {
-  //   const basePath = `/ConfiguratorImages/INTERIOR COMPRESSED 16:25`;
-  //   console.log({ image });
+  const generateSliderImagesForInterior = (image: string) => {
+    const selectedBathroom = configuratorData.bathroom.find(
+      (d) => d.isSelected
+    );
 
-  //   if (isMirrored) {
-  //     return [`${basePath}/MIRRORED/${image}`];
-  //   } else {
-  //     return [`${basePath}/${image}`];
-  //   }
-  // };
-
-  const generateSliderImagesForInterior = () => {
     const basePath = `/ConfiguratorImages/INTERIOR_COMPRESSED_16_25`;
-    const modelPrefix = currentModel === "Space One Plus" ? "25" : "16";
+    console.log({ image });
 
-    if (modelPrefix === "16") {
-      if (isMirrored) {
-        return [
-          `${basePath}/MIRRORED/16-open.jpg`,
-          `${basePath}/MIRRORED/16-wardrobe.jpg`,
-          `${basePath}/MIRRORED/16-kitchen.jpg`,
-        ];
+    if (isMirrored) {
+      if (selectedBathroom?.name === "Bathroom") {
+        if (image === "25-open.jpg") {
+          // alert("25-open.jpg");
+          return [`${basePath}/MIRRORED/${image}`];
+        } else if (image === "25-wardrobe.jpg") {
+          return [`${basePath}/MIRRORED/25-wardrobe-bathroom.jpg`];
+        } else if (image === "25-kitchen.jpg") {
+          return [`${basePath}/MIRRORED/25-kitchen-bathroom.jpg`];
+        }
       } else {
-        return [
-          `${basePath}/16-open.jpg`,
-          `${basePath}/16-wardrobe.jpg`,
-          `${basePath}/16-kitchen.jpg`,
-        ];
+        return [`${basePath}/MIRRORED/${image}`];
       }
     } else {
-      if (isMirrored) {
-        return [
-          `${basePath}/MIRRORED/25-open.jpg`,
-          `${basePath}/MIRRORED/25-wardrobe.jpg`,
-          `${basePath}/MIRRORED/25-kitchen.jpg`,
-          `${basePath}/MIRRORED/25-wardrobe-bathroom.jpg`,
-          `${basePath}/MIRRORED/25-kitchen-bathroom.jpg`,
-        ];
+      if (selectedBathroom?.name === "Bathroom") {
+        if (image === "25-open.jpg") {
+          // alert("25-open.jpg");
+          return [`${basePath}/${image}`];
+        } else if (image === "25-wardrobe.jpg") {
+          return [`${basePath}/25-wardrobe-bathroom.jpg`];
+        } else if (image === "25-kitchen.jpg") {
+          return [`${basePath}/25-kitchen-bathroom.jpg`];
+        }
       } else {
-        return [
-          `${basePath}/25-open.jpg`,
-          `${basePath}/25-wardrobe.jpg`,
-          `${basePath}/25-kitchen.jpg`,
-          `${basePath}/25-wardrobe-bathroom.jpg`,
-          `${basePath}/25-kitchen-bathroom.jpg`,
-        ];
+        return [`${basePath}/${image}`];
       }
     }
   };
+
+  // const generateSliderImagesForInterior = () => {
+  //   const basePath = `/ConfiguratorImages/INTERIOR_COMPRESSED_16_25`;
+  //   const modelPrefix = currentModel === "Space One Plus" ? "25" : "16";
+
+  //   if (modelPrefix === "16") {
+  //     if (isMirrored) {
+  //       return [
+  //         `${basePath}/MIRRORED/16-open.jpg`,
+  //         `${basePath}/MIRRORED/16-wardrobe.jpg`,
+  //         `${basePath}/MIRRORED/16-kitchen.jpg`,
+  //       ];
+  //     } else {
+  //       return [
+  //         `${basePath}/16-open.jpg`,
+  //         `${basePath}/16-wardrobe.jpg`,
+  //         `${basePath}/16-kitchen.jpg`,
+  //       ];
+  //     }
+  //   } else {
+  //     if (isMirrored) {
+  //       return [
+  //         `${basePath}/MIRRORED/25-open.jpg`,
+  //         `${basePath}/MIRRORED/25-wardrobe.jpg`,
+  //         `${basePath}/MIRRORED/25-kitchen.jpg`,
+  //         `${basePath}/MIRRORED/25-wardrobe-bathroom.jpg`,
+  //         `${basePath}/MIRRORED/25-kitchen-bathroom.jpg`,
+  //       ];
+  //     } else {
+  //       return [
+  //         `${basePath}/25-open.jpg`,
+  //         `${basePath}/25-wardrobe.jpg`,
+  //         `${basePath}/25-kitchen.jpg`,
+  //         `${basePath}/25-wardrobe-bathroom.jpg`,
+  //         `${basePath}/25-kitchen-bathroom.jpg`,
+  //       ];
+  //     }
+  //   }
+  // };
 
   const imageStoreInStateFunction = () => {
     const selectedModel = configuratorData.chooseYourModel.find(

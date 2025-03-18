@@ -24,7 +24,7 @@ interface ConfiguratorProps {
   setIsImageChangeScroll: React.Dispatch<React.SetStateAction<boolean>>;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   setIsModalOpenCarousel: React.Dispatch<React.SetStateAction<boolean>>;
-  generateSliderImagesForInterior: () => string[];
+  generateSliderImagesForInterior: (image: string) => string[];
   totalPrice: number;
 }
 
@@ -86,16 +86,27 @@ const Configurator: React.FC<ConfiguratorProps> = ({
         // markers: true,
         scroller: ".left-scroll-area",
         onEnter: () => {
-          console.log("Entered section3");
-          // const selectedLayout = configuratorData.chooseYourLayoutFor16.find(
-          //   (layout) => layout.isSelected
-          // );
+          console.log("Entered section3", currentModel);
+
+          let selectedLayout;
+          if (currentModel === "Space One") {
+            selectedLayout = configuratorData.chooseYourLayoutFor16.find(
+              (layout) => layout.isSelected
+            );
+          } else {
+            selectedLayout = configuratorData.chooseYourLayoutFor25.find(
+              (layout) => layout.isSelected
+            );
+          }
+          console.log({ selectedLayout });
 
           // console.log({ selectedLayout });
 
           // setSliderImages(generateSliderImagesForInterior());
           fadeOutImages(() => {
-            setSliderImages(generateSliderImagesForInterior());
+            setSliderImages(
+              generateSliderImagesForInterior(selectedLayout!.image)
+            );
             fadeInImages();
           });
         },
@@ -121,11 +132,22 @@ const Configurator: React.FC<ConfiguratorProps> = ({
           // const selectedLayout = configuratorData.chooseYourLayoutFor16.find(
           //   (layout) => layout.isSelected
           // );
-
+          let selectedLayout;
+          if (currentModel === "Space One") {
+            selectedLayout = configuratorData.chooseYourLayoutFor16.find(
+              (layout) => layout.isSelected
+            );
+          } else {
+            selectedLayout = configuratorData.chooseYourLayoutFor25.find(
+              (layout) => layout.isSelected
+            );
+          }
           // console.log({ selectedLayout });
 
           fadeOutImages(() => {
-            setSliderImages(generateSliderImagesForInterior());
+            setSliderImages(
+              generateSliderImagesForInterior(selectedLayout!.image)
+            );
 
             fadeInImages();
           });
@@ -222,7 +244,13 @@ const Configurator: React.FC<ConfiguratorProps> = ({
       tl3.kill();
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, [currentModel, isMirrored]);
+  }, [
+    currentModel,
+    isMirrored,
+    configuratorData.chooseYourLayoutFor16,
+    configuratorData.chooseYourLayoutFor25,
+    configuratorData.bathroom,
+  ]);
 
   // const scrollToSection = (sectionId: string) => {
   //   const section = document.getElementById(sectionId);
@@ -564,76 +592,147 @@ const Configurator: React.FC<ConfiguratorProps> = ({
       {/* section 3 */}
       <section className="section mb-[160px]" id="section3">
         <p className="text-[22px] mt-[60px] md:mt-[120px]">Interior </p>
-        {configuratorData.chooseYourLayoutFor16.map((d, i) => {
-          return (
-            <div
-              onClick={() => {
-                const updatedData: ConfiguratorData = {
-                  ...configuratorData,
-                  chooseYourLayoutFor16:
-                    configuratorData.chooseYourLayoutFor16.map((model) =>
-                      model.name === d.name
-                        ? { ...model, isSelected: true }
-                        : { ...model, isSelected: false }
-                    ),
-                };
+        {currentModel === "Space One"
+          ? configuratorData.chooseYourLayoutFor16.map((d, i) => {
+              return (
+                <div
+                  onClick={() => {
+                    const updatedData: ConfiguratorData = {
+                      ...configuratorData,
+                      chooseYourLayoutFor16:
+                        configuratorData.chooseYourLayoutFor16.map((model) =>
+                          model.name === d.name
+                            ? { ...model, isSelected: true }
+                            : { ...model, isSelected: false }
+                        ),
+                    };
 
-                setConfiguratorData(updatedData);
-              }}
-              key={i}
-              className={` p-4 min-h-[60px] rounded-xl mt-[16px] cursor-pointer`}
-              style={{
-                borderColor: `${d.isSelected ? "#0071e3" : ""}`,
-                outline: d.isSelected ? "1px solid #0071e3" : "none",
-                border: d.isSelected
-                  ? "1px solid #0071e3"
-                  : "1px solid #c4c4c4",
-              }}
-            >
-              <div className="flex justify-between w-full">
-                <div>
-                  <p className="font-[450] text-[17px]">{d.name}</p>
-                </div>
-                <div>
-                  {d?.price > 0 ? (
-                    <p className="">
-                      <span className="text-[14px] text-silver">
-                        {d.price > 0 && formatNumberToCurrency(d.price)}
-                      </span>
-                    </p>
-                  ) : (
-                    <p className="font-[400]">
-                      <span className="text-[14px] text-silver font-[400]">
-                        Included
-                      </span>
-                    </p>
-                  )}
-                </div>
-              </div>
+                    setConfiguratorData(updatedData);
+                  }}
+                  key={i}
+                  className={` p-4 min-h-[60px] rounded-xl mt-[16px] cursor-pointer`}
+                  style={{
+                    borderColor: `${d.isSelected ? "#0071e3" : ""}`,
+                    outline: d.isSelected ? "1px solid #0071e3" : "none",
+                    border: d.isSelected
+                      ? "1px solid #0071e3"
+                      : "1px solid #c4c4c4",
+                  }}
+                >
+                  <div className="flex justify-between w-full">
+                    <div>
+                      <p className="font-[450] text-[17px]">{d.name}</p>
+                    </div>
+                    <div>
+                      {d?.price > 0 ? (
+                        <p className="">
+                          <span className="text-[14px] text-silver">
+                            {d.price > 0 && formatNumberToCurrency(d.price)}
+                          </span>
+                        </p>
+                      ) : (
+                        <p className="font-[400]">
+                          <span className="text-[14px] text-silver font-[400]">
+                            Included
+                          </span>
+                        </p>
+                      )}
+                    </div>
+                  </div>
 
-              <div>
-                {d?.details && (
-                  <hr className="my-[20px] h-[1.5px] bg-[#CCCCCCCC]" />
-                )}
-                <ul className="list-disc list-inside">
-                  {d?.details?.map((val, i) => {
-                    return (
-                      <li
-                        className={`text-[14px] text-silver ${
-                          i > 0 && " mt-[5px]"
-                        }`}
-                        key={val}
-                      >
-                        {" "}
-                        {val}
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            </div>
-          );
-        })}
+                  <div>
+                    {d?.details && (
+                      <hr className="my-[20px] h-[1.5px] bg-[#CCCCCCCC]" />
+                    )}
+                    <ul className="list-disc list-inside">
+                      {d?.details?.map((val, i) => {
+                        return (
+                          <li
+                            className={`text-[14px] text-silver ${
+                              i > 0 && " mt-[5px]"
+                            }`}
+                            key={val}
+                          >
+                            {" "}
+                            {val}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                </div>
+              );
+            })
+          : configuratorData.chooseYourLayoutFor25.map((d, i) => {
+              return (
+                <div
+                  onClick={() => {
+                    const updatedData: ConfiguratorData = {
+                      ...configuratorData,
+                      chooseYourLayoutFor25:
+                        configuratorData.chooseYourLayoutFor25.map((model) =>
+                          model.name === d.name
+                            ? { ...model, isSelected: true }
+                            : { ...model, isSelected: false }
+                        ),
+                    };
+
+                    setConfiguratorData(updatedData);
+                  }}
+                  key={i}
+                  className={` p-4 min-h-[60px] rounded-xl mt-[16px] cursor-pointer`}
+                  style={{
+                    borderColor: `${d.isSelected ? "#0071e3" : ""}`,
+                    outline: d.isSelected ? "1px solid #0071e3" : "none",
+                    border: d.isSelected
+                      ? "1px solid #0071e3"
+                      : "1px solid #c4c4c4",
+                  }}
+                >
+                  <div className="flex justify-between w-full">
+                    <div>
+                      <p className="font-[450] text-[17px]">{d.name}</p>
+                    </div>
+                    <div>
+                      {d?.price > 0 ? (
+                        <p className="">
+                          <span className="text-[14px] text-silver">
+                            {d.price > 0 && formatNumberToCurrency(d.price)}
+                          </span>
+                        </p>
+                      ) : (
+                        <p className="font-[400]">
+                          <span className="text-[14px] text-silver font-[400]">
+                            Included
+                          </span>
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+                  <div>
+                    {d?.details && (
+                      <hr className="my-[20px] h-[1.5px] bg-[#CCCCCCCC]" />
+                    )}
+                    <ul className="list-disc list-inside">
+                      {d?.details?.map((val, i) => {
+                        return (
+                          <li
+                            className={`text-[14px] text-silver ${
+                              i > 0 && " mt-[5px]"
+                            }`}
+                            key={val}
+                          >
+                            {" "}
+                            {val}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                </div>
+              );
+            })}
 
         <div
           className="bg-[#f4f4f4] flex mt-[16px] px-[16px] items-center h-[94px] rounded-xl cursor-pointer"
@@ -805,138 +904,142 @@ const Configurator: React.FC<ConfiguratorProps> = ({
         })}
 
         {/* Bathroom */}
+        {currentModel === "Space One Plus" && (
+          <>
+            <p className="text-[22px] mt-[60px] md:mt-[120px]">Bathroom</p>
+            {configuratorData.bathroom.map((d, i) => {
+              return (
+                <div
+                  onClick={() => {
+                    const updatedData: ConfiguratorData = {
+                      ...configuratorData,
+                      bathroom: configuratorData.bathroom.map((model) =>
+                        model.name === d.name
+                          ? { ...model, isSelected: true }
+                          : { ...model, isSelected: false }
+                      ),
+                    };
 
-        <p className="text-[22px] mt-[60px] md:mt-[120px]">Bathroom</p>
-        {configuratorData.bathroom.map((d, i) => {
-          return (
-            <div
-              onClick={() => {
-                const updatedData: ConfiguratorData = {
-                  ...configuratorData,
-                  bathroom: configuratorData.bathroom.map((model) =>
-                    model.name === d.name
-                      ? { ...model, isSelected: true }
-                      : { ...model, isSelected: false }
-                  ),
-                };
+                    setConfiguratorData(updatedData);
+                  }}
+                  key={i}
+                  className={` p-4 min-h-[60px] rounded-xl mt-[16px] cursor-pointer`}
+                  style={{
+                    borderColor: `${d.isSelected ? "#0071e3" : ""}`,
+                    outline: d.isSelected ? "1px solid #0071e3" : "none",
+                    border: d.isSelected
+                      ? "1px solid #0071e3"
+                      : "1px solid #c4c4c4",
+                  }}
+                >
+                  <div className="flex justify-between w-full">
+                    <div>
+                      <p className="font-[400] text-[17px]">{d.name}</p>
+                    </div>
+                    <div>
+                      {(d?.price ?? 0) > 0 && (
+                        <p className="">
+                          <span className="text-[14px] text-silver">
+                            {formatNumberToCurrency(d.price ?? 0)}
+                          </span>
+                        </p>
+                      )}
+                    </div>
+                  </div>
 
-                setConfiguratorData(updatedData);
-              }}
-              key={i}
-              className={` p-4 min-h-[60px] rounded-xl mt-[16px] cursor-pointer`}
-              style={{
-                borderColor: `${d.isSelected ? "#0071e3" : ""}`,
-                outline: d.isSelected ? "1px solid #0071e3" : "none",
-                border: d.isSelected
-                  ? "1px solid #0071e3"
-                  : "1px solid #c4c4c4",
-              }}
-            >
-              <div className="flex justify-between w-full">
-                <div>
-                  <p className="font-[400] text-[17px]">{d.name}</p>
+                  <div>
+                    {d?.details && (
+                      <hr className="my-[20px] h-[1.5px] bg-[#CCCCCCCC]" />
+                    )}
+                    <ul className="list-disc list-inside">
+                      {d?.details?.map((val, i) => {
+                        return (
+                          <li
+                            className={`text-[14px] text-silver ${
+                              i > 0 && " mt-[5px]"
+                            }`}
+                            key={val}
+                          >
+                            {" "}
+                            {val}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
                 </div>
-                <div>
-                  {(d?.price ?? 0) > 0 && (
-                    <p className="">
-                      <span className="text-[14px] text-silver">
-                        {formatNumberToCurrency(d.price ?? 0)}
-                      </span>
+              );
+            })}
+
+            {/* Bathroom upgrades */}
+            <p className="text-[22px] mt-[60px] md:mt-[120px]">
+              Bathroom Upgrades
+            </p>
+            {configuratorData.bathroomUpgrades.map((d, i) => {
+              return (
+                <div
+                  style={{
+                    borderColor: `${d.isSelected ? "#0071e3" : ""}`,
+                    outline: d.isSelected ? "1px solid #0071e3" : "none",
+                    border: d.isSelected
+                      ? "1px solid #0071e3"
+                      : "1px solid #c4c4c4",
+                  }}
+                  onClick={() => {
+                    // const updatedData: ConfiguratorData = {
+                    //   ...configuratorData,
+                    //   bathroomUpgrades:
+                    //     configuratorData.bathroomUpgrades.map((model) => ({
+                    //       ...model,
+                    //       isSelected:
+                    //         model.name === d.name ? !model.isSelected : false,
+                    //     })),
+                    // };
+
+                    // setConfiguratorData(updatedData);
+
+                    const updatedData: ConfiguratorData = {
+                      ...configuratorData,
+                      bathroomUpgrades: configuratorData.bathroomUpgrades.map(
+                        (model) =>
+                          model.name === d.name
+                            ? { ...model, isSelected: !model.isSelected } // Toggle isSelected for the clicked option
+                            : model // Leave other options unchanged
+                      ),
+                    };
+
+                    setConfiguratorData(updatedData);
+                  }}
+                  key={i}
+                  className={`flex justify-between items-center p-4 rounded-xl mt-[16px] cursor-pointer`}
+                >
+                  <div>
+                    <p className="font-[450] text-[17px]">{d.name}</p>
+                    <p className=" text-[14px] mt-[8px]">
+                      {d.isSelected ? (
+                        <span className="text-black flex">
+                          <img src="/tick-icon.svg" alt="" />
+                          <span className="ml-[5px]">Added</span>
+                        </span>
+                      ) : (
+                        <span className="text-blue">Add</span>
+                      )}
                     </p>
-                  )}
+                  </div>
+                  <div className="">
+                    {d.price > 0 && (
+                      <p className="">
+                        <span className="text-[14px]">
+                          {d.price > 0 && formatNumberToCurrency(d.price)}
+                        </span>
+                      </p>
+                    )}
+                  </div>
                 </div>
-              </div>
-
-              <div>
-                {d?.details && (
-                  <hr className="my-[20px] h-[1.5px] bg-[#CCCCCCCC]" />
-                )}
-                <ul className="list-disc list-inside">
-                  {d?.details?.map((val, i) => {
-                    return (
-                      <li
-                        className={`text-[14px] text-silver ${
-                          i > 0 && " mt-[5px]"
-                        }`}
-                        key={val}
-                      >
-                        {" "}
-                        {val}
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            </div>
-          );
-        })}
-
-        {/* Bathroom upgrades */}
-        <p className="text-[22px] mt-[60px] md:mt-[120px]">Bathroom Upgrades</p>
-        {configuratorData.bathroomUpgrades.map((d, i) => {
-          return (
-            <div
-              style={{
-                borderColor: `${d.isSelected ? "#0071e3" : ""}`,
-                outline: d.isSelected ? "1px solid #0071e3" : "none",
-                border: d.isSelected
-                  ? "1px solid #0071e3"
-                  : "1px solid #c4c4c4",
-              }}
-              onClick={() => {
-                // const updatedData: ConfiguratorData = {
-                //   ...configuratorData,
-                //   bathroomUpgrades:
-                //     configuratorData.bathroomUpgrades.map((model) => ({
-                //       ...model,
-                //       isSelected:
-                //         model.name === d.name ? !model.isSelected : false,
-                //     })),
-                // };
-
-                // setConfiguratorData(updatedData);
-
-                const updatedData: ConfiguratorData = {
-                  ...configuratorData,
-                  bathroomUpgrades: configuratorData.bathroomUpgrades.map(
-                    (model) =>
-                      model.name === d.name
-                        ? { ...model, isSelected: !model.isSelected } // Toggle isSelected for the clicked option
-                        : model // Leave other options unchanged
-                  ),
-                };
-
-                setConfiguratorData(updatedData);
-              }}
-              key={i}
-              className={`flex justify-between items-center p-4 rounded-xl mt-[16px] cursor-pointer`}
-            >
-              <div>
-                <p className="font-[450] text-[17px]">{d.name}</p>
-                <p className=" text-[14px] mt-[8px]">
-                  {d.isSelected ? (
-                    <span className="text-black flex">
-                      <img src="/tick-icon.svg" alt="" />
-                      <span className="ml-[5px]">Added</span>
-                    </span>
-                  ) : (
-                    <span className="text-blue">Add</span>
-                  )}
-                </p>
-              </div>
-              <div className="">
-                {d.price > 0 && (
-                  <p className="">
-                    <span className="text-[14px]">
-                      {d.price > 0 && formatNumberToCurrency(d.price)}
-                    </span>
-                  </p>
-                )}
-              </div>
-            </div>
-          );
-        })}
-
+              );
+            })}
+          </>
+        )}
         {/* Solar */}
         <p className="text-[22px] mt-[60px] md:mt-[120px]">Solar</p>
         {configuratorData.solar.map((d, i) => {

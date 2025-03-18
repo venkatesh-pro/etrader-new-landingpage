@@ -120,26 +120,45 @@ export const data = {
       isSelected: false,
     },
   ],
-  // chooseYourLayoutFor25: [
-  //   {
-  //     name: "Bedoom suite",
-  //     description: "Mesa décor",
-  //     price: 0,
-  //     isSelected: true,
-  //   },
-  //   {
-  //     name: "Bedroom ensuite",
-  //     description: "Mesa Oak décor",
-  //     price: 14000,
-  //     isSelected: false,
-  //   },
-  //   {
-  //     name: "Studio ensuite",
-  //     description: "Mesa Oak décor",
-  //     price: 28000,
-  //     isSelected: false,
-  //   },
-  // ],
+  chooseYourLayoutFor25: [
+    {
+      name: "Open Plan",
+      description: "Mesa décor",
+      price: 0,
+      priceCycle: "week",
+      image: "25-open.jpg",
+      isSelected: true,
+    },
+    {
+      name: "Wardrobe",
+      description: "Mesa Oak décor",
+      details: [
+        "Natural light oak finish",
+        "Top shelve",
+        "Satin black handles",
+      ],
+      price: 6200,
+      priceCycle: "week",
+      image: "25-wardrobe.jpg",
+      isSelected: false,
+    },
+    {
+      name: "Kitchen",
+      description: "Mesa Oak décor",
+      details: [
+        "Natural light oak finish",
+        "Satin black handles",
+        "2 burner electric cooktop",
+        "Stone splash back",
+        "Undermount sink",
+        "Satin black faucet",
+      ],
+      price: 9500,
+      priceCycle: "week",
+      image: "25-kitchen.jpg",
+      isSelected: false,
+    },
+  ],
   optionalUpgradesForLayout: [
     {
       name: "Ceiling fan",
@@ -207,6 +226,7 @@ export const data = {
         "Robe hook",
       ],
       price: 9200,
+      // image: "25-wardrobe-bathroom.jpg",
       isSelected: false,
     },
     {
@@ -344,6 +364,15 @@ export interface ConfiguratorData {
     price: number;
   }>;
   chooseYourLayoutFor16: Array<{
+    name: string;
+    description: string;
+    details?: string[];
+    price: number;
+    priceCycle: string;
+    isSelected: boolean;
+    image: string;
+  }>;
+  chooseYourLayoutFor25: Array<{
     name: string;
     description: string;
     details?: string[];
