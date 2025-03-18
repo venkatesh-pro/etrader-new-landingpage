@@ -90,6 +90,7 @@ const ConfiguratorParent = () => {
         return [`${basePath}/${image}`];
       }
     }
+    return [];
   };
 
   // const generateSliderImagesForInterior = () => {
