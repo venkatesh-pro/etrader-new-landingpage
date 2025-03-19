@@ -1,15 +1,15 @@
 - new logo update for both ✅
-- fixed that chatmessage => need to work ✅
 - loading animation ✅
 - pricing update not working ✅
-- image
+- image ✅
 - responsive
+- chatbot
 - check the overflow hidden in the parrent layout to work in confirmed page
 - add the feature of if bathroom selected only they can select the bathroom feature
 
 - remove the bathroom for the Open Plan ✅
 - fix the gsap scroll animation in correct length
 -
--
+- add cloudflare cdn for fast load
 -
 -
