@@ -36,7 +36,7 @@ const ConfiguratorSubmitNavbar = () => {
     >
       <div className="flex items-center text-center ">
         <Link href={"/"}>
-          <img src="/logo.png" className="w-[70px]" alt="Logo" />
+          <img src="/logo.svg" className="w-[70px]" alt="Logo" />
         </Link>
       </div>
     </div>

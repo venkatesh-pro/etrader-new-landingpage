@@ -63,7 +63,7 @@ const ConfiguratorNavbar: React.FC<ConfiguratorNavbarProps> = ({
       <div className="flex items-center text-center justify-between w-full">
         <div>
           <Link href="/">
-            <img src="/logo.png" className="w-[70px]" alt="Logo" />
+            <img src="/logo.svg" className="w-[70px]" alt="Logo" />
           </Link>
         </div>
         <div className="flex items-center">
