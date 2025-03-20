@@ -83,7 +83,7 @@ const Slider: React.FC<SliderProps> = ({ sliderImages }) => {
                 prevActive - 1 < 0 ? sliderImages.length - 1 : prevActive - 1
               )
             }
-            className="w-[28px] h-[28px] rounded-[6px] bg-[#D4D4D4] flex items-center justify-center"
+            className="w-[28px] h-[28px] rounded-[6px] bg-[rgba(212,212,212,0.3)] flex items-center justify-center"
           >
             <img
               src="/images/left-arrow-small.svg"
@@ -98,7 +98,7 @@ const Slider: React.FC<SliderProps> = ({ sliderImages }) => {
                 prevActive + 1 >= sliderImages.length ? 0 : prevActive + 1
               )
             }
-            className="w-[28px] h-[28px] rounded-[6px] bg-[#D4D4D4] flex items-center justify-center"
+            className="w-[28px] h-[28px] rounded-[6px] bg-[rgba(212,212,212,0.3)] flex items-center justify-center"
           >
             <img
               src="/images/left-arrow-small.svg"
