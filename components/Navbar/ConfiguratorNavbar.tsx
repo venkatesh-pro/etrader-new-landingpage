@@ -56,9 +56,9 @@ const ConfiguratorNavbar: React.FC<ConfiguratorNavbarProps> = ({
 
   return (
     <div
-      className={`w-full  md:h-[42px] h-[56px] flex items-center lg:px-[48px] px-[20px] transition-transform duration-300 ${
+      className={`w-full h-[42px] flex items-center lg:px-[48px] px-[20px] transition-transform duration-300 ${
         isNavbarVisible || !isMobileView ? "translate-y-0" : "-translate-y-full"
-      } fixed top-0 left-0 z-40  bg-[#FCFCFC]`}
+      } fixed top-0 left-0 z-40  bg-[rgba(244,244,244,0.3)]`}
     >
       <div className="flex items-center text-center justify-between w-full">
         <div>

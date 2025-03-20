@@ -12,4 +12,5 @@
 -
 - add cloudflare cdn for fast load
 -
--
+- prevent the slider button and touch conflict
+- after working on the navbar the loading is not working for mobile because of the navbar is sandablone in the mobile and in desktop it is fixed, fix it later

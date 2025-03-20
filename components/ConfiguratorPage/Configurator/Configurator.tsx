@@ -283,7 +283,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
   return (
     <>
       {/* section 1 */}
-      <section className="section section1 mt-[140px]" id="section1">
+      <section className="section section1 " id="section1">
         <span className="text-dark-red text-[17px]">New</span>
         <h1 className="text-mobile-header-lg font-[450] leading-[50px] mt-[10px]">
           Customize your Space One

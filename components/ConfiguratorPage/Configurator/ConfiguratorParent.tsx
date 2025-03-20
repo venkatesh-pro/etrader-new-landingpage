@@ -319,7 +319,7 @@ const ConfiguratorParent = () => {
       <div className="flex flex-col justify-between">
         {/* Slider Section */}
         <div
-          className="sticky z-30 bg-white top-0 w-full desktop:min-w-[1242px] lapS:w-[72%] sm:h-[40vh] h-[280px] lapS:h-[100vh] desktopG:w-[72vw]"
+          className="sticky z-30 bg-white top-0 w-full desktop:min-w-[1242px] lapS:w-[72%] sm:h-[380px] h-[252px] lapS:h-[100vh] desktopG:w-[72vw]"
           ref={sliderRef}
         >
           <Slider sliderImages={sliderImages} />
@@ -327,7 +327,7 @@ const ConfiguratorParent = () => {
 
         {/* Configurator Section */}
         <div
-          className="overflow-y-auto h-[100vh] pt-[290px] sm:pt-[370px] lapS:pt-[84px] absolute z-20 desktop:w-[438px] desktopG:w-[28%] lapS:w-[28%] lapS:right-0 px-[28px] desktop:px-[48px] desktopG:px-[48px] left-scroll-area w-full"
+          className="overflow-y-auto h-[100vh] pt-[332px] sm:pt-[460px] lapS:pt-[140px] absolute z-20 desktop:w-[438px] desktopG:w-[28%] lapS:w-[28%] lapS:right-0 px-[28px] desktop:px-[48px] desktopG:px-[48px] left-scroll-area w-full"
           ref={scrollAreaRef}
         >
           <Configurator
