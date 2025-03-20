@@ -93,6 +93,20 @@ const ConfiguratorParent = () => {
     return [];
   };
 
+  const generateSolarImages = (image: string) => {
+    const basePath = `/ConfiguratorImages/SOLAR`;
+    console.log({ generateSolarImages: image });
+
+    return [`${basePath}/${image}`];
+  };
+
+  const generateEssentialImages = (image: string) => {
+    const basePath = `/ConfiguratorImages/ESSENTIALS`;
+    console.log({ generateEssentialImages: image });
+
+    return [`${basePath}/${image}`];
+  };
+
   // const generateSliderImagesForInterior = () => {
   //   const basePath = `/ConfiguratorImages/INTERIOR_COMPRESSED_16_25`;
   //   const modelPrefix = currentModel === "Space One Plus" ? "25" : "16";
@@ -338,6 +352,8 @@ const ConfiguratorParent = () => {
             setSliderImages={setSliderImages}
             setIsImageChangeScroll={setIsImageChangeScroll}
             generateSliderImagesForInterior={generateSliderImagesForInterior}
+            generateSolarImages={generateSolarImages}
+            generateEssentialImages={generateEssentialImages}
             setIsModalOpen={setIsModalOpen}
             setIsModalOpenCarousel={setIsModalOpenCarousel}
             totalPrice={totalPrice}

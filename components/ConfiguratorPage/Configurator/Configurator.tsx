@@ -25,6 +25,8 @@ interface ConfiguratorProps {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   setIsModalOpenCarousel: React.Dispatch<React.SetStateAction<boolean>>;
   generateSliderImagesForInterior: (image: string) => string[];
+  generateSolarImages: (image: string) => string[];
+  generateEssentialImages: (image: string) => string[];
   totalPrice: number;
 }
 
@@ -36,6 +38,8 @@ const Configurator: React.FC<ConfiguratorProps> = ({
   setSliderImages,
   setIsImageChangeScroll,
   generateSliderImagesForInterior,
+  generateSolarImages,
+  generateEssentialImages,
   setIsModalOpen,
   // setIsModalOpenCarousel,
   totalPrice,
@@ -280,6 +284,50 @@ const Configurator: React.FC<ConfiguratorProps> = ({
     currentModel,
   ]);
 
+  // useeffect for the solar
+  useEffect(() => {
+    const solar = configuratorData.solar.find((d) => d.isSelected);
+
+    if (solar?.name === "Solar Package") {
+      fadeOutImages(() => {
+        setSliderImages(generateSolarImages(solar!.image));
+        fadeInImages();
+      });
+    } else {
+      fadeOutImages(() => {
+        setIsImageChangeScroll((prev: boolean) => !prev);
+        // If this causes a new image set, fade them in after
+        fadeInImages();
+      });
+    }
+  }, [configuratorData.solar]);
+  // useeffect for the essentials
+
+  const [essentialNameSelected, setEssentialNameSelected] = useState("");
+  useEffect(() => {
+    const essentials = configuratorData.essentials.find(
+      (d) => d.name === essentialNameSelected
+    );
+    console.log({ essentialNameSelected });
+
+    if (essentialNameSelected === "Translucent glass") {
+      fadeOutImages(() => {
+        setSliderImages(generateEssentialImages(essentials!.image));
+        fadeInImages();
+      });
+    } else if (essentialNameSelected === "Sliding door insect screen") {
+      fadeOutImages(() => {
+        setSliderImages(generateEssentialImages(essentials!.image));
+        fadeInImages();
+      });
+    } else {
+      fadeOutImages(() => {
+        setIsImageChangeScroll((prev: boolean) => !prev);
+        // If this causes a new image set, fade them in after
+        fadeInImages();
+      });
+    }
+  }, [essentialNameSelected, configuratorData.essentials]);
   return (
     <>
       {/* section 1 */}
@@ -1155,13 +1203,21 @@ const Configurator: React.FC<ConfiguratorProps> = ({
 
                 const updatedData: ConfiguratorData = {
                   ...configuratorData,
-                  essentials: configuratorData.essentials.map(
-                    (model) =>
-                      model.name === d.name
-                        ? { ...model, isSelected: !model.isSelected } // Toggle isSelected for the clicked option
-                        : model // Leave other options unchanged
-                  ),
+                  essentials: configuratorData.essentials.map((model) => {
+                    if (model.name === d.name) {
+                      if (!model.isSelected) {
+                        setEssentialNameSelected(d.name); // Set only if first time selecting
+                      } else {
+                        setEssentialNameSelected("");
+                      }
+                    }
+                    return model.name === d.name
+                      ? { ...model, isSelected: !model.isSelected } // Toggle isSelected for the clicked option
+                      : model; // Leave other options unchanged
+                  }),
                 };
+
+                console.log("updatedData=>>>>", updatedData);
 
                 setConfiguratorData(updatedData);
               }}

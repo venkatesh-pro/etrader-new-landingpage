@@ -202,12 +202,14 @@ export const data = {
       name: "Solar Package",
       details: ["Tesla Powerwall 3", "Solar roof array"],
       price: 32000,
+      image: "solar.jpg",
       isSelected: false,
     },
     {
       name: "No Solar Package",
       isSelected: true,
       price: 0,
+      image: "",
     },
   ],
 
@@ -260,6 +262,7 @@ export const data = {
       price: 65,
       priceCycle: "week",
       isSelected: false,
+      image: "",
     },
     {
       name: "Translucent glass",
@@ -267,6 +270,7 @@ export const data = {
       price: 850,
       priceCycle: "week",
       isSelected: false,
+      image: "translucent-glass.jpg",
     },
     {
       name: "Sliding door insect screen",
@@ -274,6 +278,7 @@ export const data = {
       price: 1050,
       priceCycle: "week",
       isSelected: false,
+      image: "insect-screen.jpg",
     },
   ],
 
@@ -408,6 +413,7 @@ export interface ConfiguratorData {
     price: number;
     priceCycle: string;
     isSelected: boolean;
+    image: string;
   }>;
   chooseYourEnergy: Array<{
     name: string;
@@ -421,6 +427,7 @@ export interface ConfiguratorData {
     details?: string[];
     price?: number | undefined; // Optional since "No solar" doesn't have a price
     isSelected: boolean;
+    image: string;
   }>;
   bathroom: Array<{
     name: string;
