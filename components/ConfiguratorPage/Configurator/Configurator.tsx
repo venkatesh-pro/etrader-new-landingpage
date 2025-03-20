@@ -415,7 +415,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
             setIsModalOpen(true);
           }}
         >
-          <div className="flex w-full justify-between">
+          <div className="group flex w-full justify-between">
             <div className="">
               <p className="text-[17px] font-[450]">Compare models</p>
               <p className="text-[14px] font-[400] max-w-[250px] mt-[8px] pr-[20px] text-silver">
@@ -423,11 +423,24 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               </p>
             </div>
             <div className="mt-[4px]">
-              <div>
+              {/* <div>
                 <img
                   src="/circle-plus-icon.svg"
                   className=""
                   alt="circle-plus-icon"
+                />
+              </div> */}
+
+              <div className="w-[17.33px] h-[17.33px]">
+                <img
+                  src="/circle-plus-icon.svg"
+                  className="group-hover:hidden w-full h-full"
+                  alt="circle-plus-icon"
+                />
+                <img
+                  src="/circle-plus-icon-fill.svg"
+                  className="hidden group-hover:block w-full h-full"
+                  alt="circle-plus-icon-fill"
                 />
               </div>
             </div>
@@ -809,7 +822,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
             setIsModalOpen(true);
           }}
         >
-          <div className="flex w-full justify-between">
+          <div className="group flex w-full justify-between">
             <div className="">
               <p className="text-[17px] font-[450]">Explore layouts</p>
               <p className="text-[14px] font-[400] max-w-[250px] mt-[8px] pr-[0px] text-silver">
@@ -817,11 +830,24 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               </p>
             </div>
             <div className="mt-[4px]">
-              <div>
+              {/* <div>
                 <img
                   src="/circle-plus-icon.svg"
                   className=""
                   alt="circle-plus-icon"
+                />
+              </div> */}
+
+              <div className="w-[17.33px] h-[17.33px]">
+                <img
+                  src="/circle-plus-icon.svg"
+                  className="group-hover:hidden w-full h-full"
+                  alt="circle-plus-icon"
+                />
+                <img
+                  src="/circle-plus-icon-fill.svg"
+                  className="hidden group-hover:block w-full h-full"
+                  alt="circle-plus-icon-fill"
                 />
               </div>
             </div>
