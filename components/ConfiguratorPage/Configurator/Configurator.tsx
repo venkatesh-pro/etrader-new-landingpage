@@ -389,7 +389,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
       {/* section 2 */}
       <section className="section" id="section2">
         {/* Choose your orientation */}
-        <p className="text-desktop-body-xl mt-[60px] md:mt-[100px]">Layout</p>
+        <p className="text-desktop-body-xl mt-[60px] md:mt-[160px]">Layout</p>
         {configuratorData.chooseYourOrientation.map((d, i) => {
           return (
             <div
@@ -611,8 +611,8 @@ const Configurator: React.FC<ConfiguratorProps> = ({
         </div>
       </section>
       {/* section 3 */}
-      <section className="section mb-[160px]" id="section3">
-        <p className="text-[22px] mt-[60px] md:mt-[120px]">Interior </p>
+      <section className="section mb-[80px] md:mb-[160px]" id="section3">
+        <p className="text-[22px] mt-[80px] md:mt-[160px]">Interior </p>
         {currentModel === "Space One"
           ? configuratorData.chooseYourLayoutFor16.map((d, i) => {
               return (
@@ -784,7 +784,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
         {currentModel === "Space One Plus" &&
           currentInterior !== "Open Plan" && (
             <>
-              <p className="text-[22px] mt-[60px] md:mt-[120px]">Bathroom</p>
+              <p className="text-[22px] mt-[80px] md:mt-[160px]">Bathroom</p>
               {configuratorData.bathroom.map((d, i) => {
                 return (
                   <div
@@ -850,7 +850,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               })}
 
               {/* Bathroom upgrades */}
-              <p className="text-[22px] mt-[60px] md:mt-[120px]">
+              <p className="text-[22px] mt-[80px] md:mt-[160px]">
                 Bathroom Upgrades
               </p>
               {configuratorData.bathroomUpgrades.map((d, i) => {
@@ -919,7 +919,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
             </>
           )}
         {/* Choose your orientation */}
-        <p className="text-[22px] mt-[60px] md:mt-[120px]">Interior Upgrades</p>
+        <p className="text-[22px] mt-[80px] md:mt-[160px]">Interior Upgrades</p>
         {configuratorData.optionalUpgradesForLayout.map((d, i) => {
           return (
             <div
@@ -996,7 +996,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
 
         {/* solar system */}
 
-        <p className="text-[22px] mt-[60px] md:mt-[120px]">Sound System</p>
+        <p className="text-[22px] mt-[80px] md:mt-[160px]">Sound System</p>
         {configuratorData.chooseYourEnergy.map((d, i) => {
           return (
             <div
@@ -1063,7 +1063,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
         })}
 
         {/* Solar */}
-        <p className="text-[22px] mt-[60px] md:mt-[120px]">Solar</p>
+        <p className="text-[22px] mt-[80px] md:mt-[160px]">Solar</p>
         {configuratorData.solar.map((d, i) => {
           return (
             <div
@@ -1129,7 +1129,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
         })}
 
         {/* Essentials */}
-        <p className="text-[22px] mt-[60px] md:mt-[120px]">Essentials</p>
+        <p className="text-[22px] mt-[80px] md:mt-[160px]">Essentials</p>
         {configuratorData.essentials.map((d, i) => {
           return (
             <div
@@ -1501,7 +1501,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
           <section className="section" id="section6">
             {/* delivery details */}
             <div>
-              <p className="text-[24px] font-[450] mt-[80px]">
+              <p className="text-[24px] font-[450] mt-[80px] md:mt-[160px]">
                 Enter your delivery address:
               </p>
 

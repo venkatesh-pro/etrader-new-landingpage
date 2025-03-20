@@ -76,33 +76,34 @@ const Slider: React.FC<SliderProps> = ({ sliderImages }) => {
         ))}
       </div>
       {sliderImages.length > 1 && (
-        <div className="buttons absolute top-1/2 left-[5%] transform -translate-y-1/2 w-[90%] flex justify-between">
+        <div className="buttons absolute top-1/2 left-[5%] transform -translate-y-1/2 w-[90%] flex justify-between items-center">
           <button
             onClick={() =>
               setActive((prevActive) =>
                 prevActive - 1 < 0 ? sliderImages.length - 1 : prevActive - 1
               )
             }
-            className="w-[52px] h-[52px] rounded-full bg-[#00000064] flex items-center justify-center"
+            className="w-[28px] h-[28px] rounded-[6px] bg-[#D4D4D4] flex items-center justify-center"
           >
             <img
-              src="/images/arrow-left.svg"
-              className="w-[20.73px] h-[15.33px]"
+              src="/images/left-arrow-small.svg"
+              className="w-[6.82px] h-[11.8px]"
               alt="Previous"
             />
           </button>
+
           <button
             onClick={() =>
               setActive((prevActive) =>
                 prevActive + 1 >= sliderImages.length ? 0 : prevActive + 1
               )
             }
-            className="w-[52px] h-[52px] rounded-full bg-[#00000064] flex items-center justify-center"
+            className="w-[28px] h-[28px] rounded-[6px] bg-[#D4D4D4] flex items-center justify-center"
           >
             <img
-              src="/images/arrow-right.svg"
-              className="w-[20.73px] h-[15.33px]"
-              alt="Next"
+              src="/images/left-arrow-small.svg"
+              className="w-[6.82px] h-[11.8px] rotate-180"
+              alt="Previous"
             />
           </button>
         </div>
