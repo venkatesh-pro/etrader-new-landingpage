@@ -945,7 +945,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                         {d.isSelected ? (
                           <span className="text-black flex">
                             {/* <img src="/tick-icon.svg" alt="" /> */}
-                            <span className="">Added</span>
+                            <span className="text-blue">Added</span>
                           </span>
                         ) : (
                           <span className="text-blue">Add</span>
@@ -1013,7 +1013,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                   {d.isSelected ? (
                     <span className="text-black flex">
                       {/* <img src="/tick-icon.svg" alt="" /> */}
-                      <span className="">Added</span>
+                      <span className="text-blue">Added</span>
                     </span>
                   ) : (
                     <span className="text-blue">Add</span>
@@ -1230,7 +1230,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                   {d.isSelected ? (
                     <span className="text-black flex">
                       {/* <img src="/tick-icon.svg" alt="" /> */}
-                      <span className="">Added</span>
+                      <span className="text-blue">Added</span>
                     </span>
                   ) : (
                     <span className="text-blue">Add</span>
