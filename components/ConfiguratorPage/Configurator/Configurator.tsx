@@ -301,6 +301,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
       });
     }
   }, [configuratorData.solar]);
+
   // useeffect for the essentials
 
   const [essentialNameSelected, setEssentialNameSelected] = useState("");
@@ -328,6 +329,53 @@ const Configurator: React.FC<ConfiguratorProps> = ({
       });
     }
   }, [essentialNameSelected, configuratorData.essentials]);
+
+  // useEffect for bathroom upgrades
+  useEffect(() => {
+    const selectedBathroom = configuratorData.bathroom.find(
+      (d) => d.isSelected
+    );
+
+    if (selectedBathroom?.name === "No Bathroom") {
+      const updatedData = {
+        ...configuratorData,
+        bathroomUpgrades: configuratorData.bathroomUpgrades.map((d) => ({
+          ...d,
+          isSelected: false, // Set all upgrades to false
+        })),
+      };
+      setConfiguratorData(updatedData); // Update the state
+    }
+  }, [configuratorData.bathroom]);
+
+  // useEffect for bathroom
+  useEffect(() => {
+    let selectedInterior;
+    if (currentModel === "Space One") {
+      selectedInterior = configuratorData.chooseYourLayoutFor16.find(
+        (d) => d.isSelected
+      );
+    } else {
+      selectedInterior = configuratorData.chooseYourLayoutFor25.find(
+        (d) => d.isSelected
+      );
+    }
+
+    if (selectedInterior?.name === "Open Plan") {
+      const updatedData = {
+        ...configuratorData,
+        bathroom: configuratorData.bathroom.map((d) => ({
+          ...d,
+          isSelected: d.name === "No Bathroom", // True for "No Bathroom", false for "Bathroom"
+        })),
+      };
+      setConfiguratorData(updatedData); // Update the state
+    }
+  }, [
+    configuratorData.chooseYourLayoutFor16,
+    configuratorData.chooseYourLayoutFor25,
+  ]);
+
   return (
     <>
       {/* section 1 */}
@@ -924,72 +972,82 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               })}
 
               {/* Bathroom upgrades */}
-              <p className="text-[22px] mt-[80px] md:mt-[160px]">
-                Bathroom Upgrades
-              </p>
-              {configuratorData.bathroomUpgrades.map((d, i) => {
-                return (
-                  <div
-                    style={{
-                      borderColor: `${d.isSelected ? "#0071e3" : ""}`,
-                      outline: d.isSelected ? "1px solid #0071e3" : "none",
-                      border: d.isSelected
-                        ? "1px solid #0071e3"
-                        : "1px solid #c4c4c4",
-                    }}
-                    onClick={() => {
-                      // const updatedData: ConfiguratorData = {
-                      //   ...configuratorData,
-                      //   bathroomUpgrades:
-                      //     configuratorData.bathroomUpgrades.map((model) => ({
-                      //       ...model,
-                      //       isSelected:
-                      //         model.name === d.name ? !model.isSelected : false,
-                      //     })),
-                      // };
+              {configuratorData.bathroom.find(
+                (d) => d.name === "Bathroom" && d.isSelected === true
+              ) && (
+                <>
+                  <p className="text-[22px] mt-[80px] md:mt-[160px]">
+                    Bathroom Upgrades
+                  </p>
+                  {configuratorData.bathroomUpgrades.map((d, i) => {
+                    return (
+                      <div
+                        style={{
+                          borderColor: `${d.isSelected ? "#0071e3" : ""}`,
+                          outline: d.isSelected ? "1px solid #0071e3" : "none",
+                          border: d.isSelected
+                            ? "1px solid #0071e3"
+                            : "1px solid #c4c4c4",
+                        }}
+                        onClick={() => {
+                          // const updatedData: ConfiguratorData = {
+                          //   ...configuratorData,
+                          //   bathroomUpgrades:
+                          //     configuratorData.bathroomUpgrades.map((model) => ({
+                          //       ...model,
+                          //       isSelected:
+                          //         model.name === d.name ? !model.isSelected : false,
+                          //     })),
+                          // };
 
-                      // setConfiguratorData(updatedData);
+                          // setConfiguratorData(updatedData);
 
-                      const updatedData: ConfiguratorData = {
-                        ...configuratorData,
-                        bathroomUpgrades: configuratorData.bathroomUpgrades.map(
-                          (model) =>
-                            model.name === d.name
-                              ? { ...model, isSelected: !model.isSelected } // Toggle isSelected for the clicked option
-                              : model // Leave other options unchanged
-                        ),
-                      };
+                          const updatedData: ConfiguratorData = {
+                            ...configuratorData,
+                            bathroomUpgrades:
+                              configuratorData.bathroomUpgrades.map(
+                                (model) =>
+                                  model.name === d.name
+                                    ? {
+                                        ...model,
+                                        isSelected: !model.isSelected,
+                                      } // Toggle isSelected for the clicked option
+                                    : model // Leave other options unchanged
+                              ),
+                          };
 
-                      setConfiguratorData(updatedData);
-                    }}
-                    key={i}
-                    className={`flex justify-between items-center p-4 rounded-xl mt-[16px] cursor-pointer`}
-                  >
-                    <div>
-                      <p className="font-[450] text-[17px]">{d.name}</p>
-                      <p className=" text-[14px] mt-[8px]">
-                        {d.isSelected ? (
-                          <span className="text-black flex">
-                            {/* <img src="/tick-icon.svg" alt="" /> */}
-                            <span className="text-blue">Added</span>
-                          </span>
-                        ) : (
-                          <span className="text-blue">Add</span>
-                        )}
-                      </p>
-                    </div>
-                    <div className="">
-                      {d.price > 0 && (
-                        <p className="">
-                          <span className="text-[14px]">
-                            {d.price > 0 && formatNumberToCurrency(d.price)}
-                          </span>
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
+                          setConfiguratorData(updatedData);
+                        }}
+                        key={i}
+                        className={`flex justify-between items-center p-4 rounded-xl mt-[16px] cursor-pointer`}
+                      >
+                        <div>
+                          <p className="font-[450] text-[17px]">{d.name}</p>
+                          <p className=" text-[14px] mt-[8px]">
+                            {d.isSelected ? (
+                              <span className="text-black flex">
+                                {/* <img src="/tick-icon.svg" alt="" /> */}
+                                <span className="text-blue">Added</span>
+                              </span>
+                            ) : (
+                              <span className="text-blue">Add</span>
+                            )}
+                          </p>
+                        </div>
+                        <div className="">
+                          {d.price > 0 && (
+                            <p className="">
+                              <span className="text-[14px]">
+                                {d.price > 0 && formatNumberToCurrency(d.price)}
+                              </span>
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </>
+              )}
             </>
           )}
         {/* Choose your orientation */}
