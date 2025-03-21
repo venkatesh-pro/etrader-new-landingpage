@@ -864,7 +864,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               );
             })}
 
-        <div
+        {/* <div
           className="bg-[#f4f4f4] flex mt-[16px] px-[16px] items-center h-[94px] rounded-xl cursor-pointer"
           onClick={() => {
             setIsModalOpen(true);
@@ -878,14 +878,6 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               </p>
             </div>
             <div className="mt-[4px]">
-              {/* <div>
-                <img
-                  src="/circle-plus-icon.svg"
-                  className=""
-                  alt="circle-plus-icon"
-                />
-              </div> */}
-
               <div className="w-[17.33px] h-[17.33px]">
                 <img
                   src="/circle-plus-icon.svg"
@@ -900,7 +892,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Bathroom */}
         {currentModel === "Space One Plus" &&
