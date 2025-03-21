@@ -32,7 +32,7 @@ const ScrollPricing = ({ totalPrice }: { totalPrice: number }) => {
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
-      <div className="md:mx-[23px]  bg-[#D4D4D4]/30 backdrop-blur-2xl  h-[91px] rounded-tl-[20px] rounded-tr-[20px]  px-[24px] py-[20px]">
+      <div className="md:mx-[23px]  bg-[#D4D4D4]/30 backdrop-blur-2xl  h-[91px] rounded-tl-[12px] rounded-tr-[12px]  px-[24px] py-[20px]">
         <div className="flex justify-between">
           <div>
             <p className="text-[24px] font-[450]  text-silver">
