@@ -2,7 +2,7 @@ import React from "react";
 
 const page = () => {
   return (
-    <div className="mx-[48px] md:mt-[160px] flex flex-col items-center  justify-center !overflow-scroll">
+    <div className="mx-[24px] md:mx-[48px] md:mt-[160px] mt-[80px] flex flex-col items-center  justify-center !overflow-scroll">
       <div>
         <img src="/tick-green.svg" className="" alt="circle-plus-icon" />
       </div>
@@ -29,8 +29,8 @@ const page = () => {
         </p>
       </div>
 
-      <div className="mt-[30px]">
-        <button className="w-[342px] p-4 min-h-[60px] text-white rounded-xl bg-blue">
+      <div className="mt-[30px] w-full items-center justify-center flex">
+        <button className="w-full block sm:w-[312px] lapS:w-[342px] p-4 min-h-[60px] rounded-[12px] text-white bg-blue">
           Get Updates
         </button>
       </div>
@@ -45,7 +45,7 @@ const page = () => {
         />
       </div>
 
-      <div className="mt-[60px] mb-[118px]">
+      <div className="mt-[40px] md:mt-[60px] mb-[118px]">
         <p className="text-[17px] font-[450] text-light-silver">
           Where thou art, that is home.
         </p>

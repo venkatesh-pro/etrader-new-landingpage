@@ -40,17 +40,18 @@ export default function ConfiguratorLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.className} antialiased`}
-        style={{
-          background: "white",
-          color: "black",
-          height: "100%",
-          overflow: "hidden",
-        }}
-      >
-        {/* <ConfiguratorNavbar /> */}
-        {children}
+      <body className={`${geistSans.className} antialiased`}>
+        <div
+          style={{
+            background: "white",
+            color: "black",
+            height: "100%",
+            overflow: "hidden",
+          }}
+        >
+          {/* <ConfiguratorNavbar /> */}
+          {children}
+        </div>
       </body>
     </html>
   );

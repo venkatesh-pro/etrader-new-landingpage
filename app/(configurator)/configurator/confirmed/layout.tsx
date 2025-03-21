@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   description: "confirmed",
 };
 
-export default function ConfiguratorLayout({
+export default function ConfiguratorConfirmedLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
