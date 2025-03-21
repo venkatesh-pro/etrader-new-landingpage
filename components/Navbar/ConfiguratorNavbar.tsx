@@ -68,9 +68,13 @@ const ConfiguratorNavbar: React.FC<ConfiguratorNavbarProps> = ({
         </div>
         <div className="flex items-center">
           <div>
-            <img src="/globe-icon.svg" className="" alt="globe-icon" />
+            <img
+              src="/globe-icon.svg"
+              className="w-[19px] h-[19px]"
+              alt="globe-icon"
+            />
           </div>
-          <div className="ml-[6px] text-[14px]">AU</div>
+          <div className="ml-[9px] text-[14px]">AU</div>
         </div>
       </div>
     </div>
