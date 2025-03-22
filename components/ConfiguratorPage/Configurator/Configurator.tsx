@@ -296,6 +296,38 @@ const Configurator: React.FC<ConfiguratorProps> = ({
     }, 100); // Delay recalculation slightly to ensure DOM is updated
   }, [configuratorData]);
 
+  // useEffect(() => {
+  //   const section5 = document.querySelector("#section5");
+
+  //   if (section5) {
+  //     const observer = new MutationObserver((mutations) => {
+  //       mutations.forEach((mutation) => {
+  //         if (
+  //           mutation.attributeName === "style" &&
+  //           getComputedStyle(section5).display === "block"
+  //         ) {
+  //           setTimeout(() => {
+  //             ScrollTrigger.refresh();
+  //           }, 100);
+  //         }
+  //       });
+  //     });
+
+  //     observer.observe(section5, {
+  //       attributes: true,
+  //       attributeFilter: ["style"],
+  //     });
+
+  //     return () => observer.disconnect();
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     ScrollTrigger.refresh();
+  //   }, 100);
+  // }, [configuratorData]);
+
   // const scrollToSection = (sectionId: string) => {
   //   const section = document.getElementById(sectionId);
   //   if (section) {
