@@ -1,3 +1,2 @@
 - prevent the slider button and touch conflict
-- loading animation problem
 - fix the pricing box touch problem

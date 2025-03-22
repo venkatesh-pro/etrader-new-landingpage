@@ -175,7 +175,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
       },
     });
 
-    gsap.timeline({
+    const tl2 = gsap.timeline({
       scrollTrigger: {
         trigger: "#section5tl2",
         // start: "top+=50% center+=45%",
@@ -184,6 +184,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
         // end: "bottom+10% bottom-=5%",
         start: "top 96%",
         end: "bottom 20%",
+        once: true,
         // markers: true,
         scroller: ".left-scroll-area",
         onEnter: () => {
@@ -211,14 +212,15 @@ const Configurator: React.FC<ConfiguratorProps> = ({
       },
     });
 
-    gsap.timeline({
+    const tl3 = gsap.timeline({
       scrollTrigger: {
         trigger: "#section5tl3-trigger",
         // start: "center-=30% center",
         // end: "bottom bottom",
         start: "top 80%",
         end: "bottom 20%",
-        // markers: true,
+        once: true,
+        markers: true,
         scroller: ".left-scroll-area",
         onEnter: () => {
           // alert("hi");
@@ -273,12 +275,11 @@ const Configurator: React.FC<ConfiguratorProps> = ({
     //     });
     //   },
     // });
-
     return () => {
       tl.kill();
-      // tl2.kill();
-      // tl3.kill();
-      // ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      tl2.kill();
+      tl3.kill();
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, [
     currentModel,
@@ -286,7 +287,14 @@ const Configurator: React.FC<ConfiguratorProps> = ({
     configuratorData.chooseYourLayoutFor16,
     configuratorData.chooseYourLayoutFor25,
     configuratorData.bathroom,
+    configuratorData,
   ]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100); // Delay recalculation slightly to ensure DOM is updated
+  }, [configuratorData]);
 
   // const scrollToSection = (sectionId: string) => {
   //   const section = document.getElementById(sectionId);
