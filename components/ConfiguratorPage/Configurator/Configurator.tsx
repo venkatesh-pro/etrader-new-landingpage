@@ -180,9 +180,10 @@ const Configurator: React.FC<ConfiguratorProps> = ({
         trigger: "#section5tl2",
         // start: "top+=50% center+=45%",
         // end: "bottom bottom-=10%",
-        start: "top+=50% bottom",
-        end: "bottom bottom",
-
+        // start: "top+=50% bottom-=10%",
+        // end: "bottom+10% bottom-=5%",
+        start: "top 96%",
+        end: "bottom 20%",
         // markers: true,
         scroller: ".left-scroll-area",
         onEnter: () => {
@@ -212,12 +213,15 @@ const Configurator: React.FC<ConfiguratorProps> = ({
 
     const tl3 = gsap.timeline({
       scrollTrigger: {
-        trigger: "#section5tl3",
-        start: "center-=30% center",
-        end: "bottom bottom",
+        trigger: "#section5tl3-trigger",
+        // start: "center-=30% center",
+        // end: "bottom bottom",
+        start: "top 80%",
+        end: "bottom 20%",
         // markers: true,
         scroller: ".left-scroll-area",
         onEnter: () => {
+          // alert("hi");
           const tl = gsap.timeline();
 
           tl.to("#section5tl3-loader-container", {
@@ -241,12 +245,40 @@ const Configurator: React.FC<ConfiguratorProps> = ({
         },
       },
     });
+    // ScrollTrigger.create({
+    //   trigger: "#section5tl3-trigger", // The element before tl3
+    //   start: "top 96%",
+    //   end: "bottom 20%",
+    //   once: true, // Ensures it runs only once
+    //   markers: true,
+    //   onEnter: () => {
+    //     // Show loading animation
+    //     alert("hi");
+    //     gsap.to("#loading-spinner-2", {
+    //       opacity: 1,
+    //       duration: 1,
+    //       onComplete: () => {
+    //         // Hide loading and reveal tl3
+    //         gsap.set("#loading-spinner-2", {
+    //           display: "none",
+    //           pointerEvents: "none",
+    //         });
+    //         gsap.set("#section5tl3", { pointerEvents: "auto" });
+
+    //         // Start tl3 animation
+    //         let tl3 = gsap.timeline();
+    //         tl3.to("#section5tl3", { opacity: 1, duration: 1 }); // Fade in tl3
+    //         // .to("#tl3-content", { y: 0, opacity: 1, duration: 1 }); // Animate content
+    //       },
+    //     });
+    //   },
+    // });
 
     return () => {
       tl.kill();
-      tl2.kill();
-      tl3.kill();
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      // tl2.kill();
+      // tl3.kill();
+      // ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, [
     currentModel,
@@ -1347,12 +1379,10 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               Just the way you want it.{" "}
             </span>
           </p>
-
           <p className="mt-[20px] text-[14px] font-[400] text-light-silver">
             Review your configuration below. You’ll be able to finalize your
             order once it’s time for production.
           </p>
-
           {/* 1 */}
           <div className="mt-[60px] md:mt-[60px] flex justify-between">
             <div>
@@ -1378,7 +1408,6 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               </p>
             </div>
           </div>
-
           {/* 2 */}
           <div className="mt-[15px] flex justify-between">
             <div>
@@ -1393,7 +1422,6 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               <p className="text-[14px] font-[400]  text-silver">Included</p>
             </div>
           </div>
-
           {/* 3
           <div className="mt-[15px] flex justify-between">
             <div>
@@ -1409,7 +1437,6 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               <p className="text-[14px] font-[400]  text-silver">Included</p>
             </div>
           </div> */}
-
           {/* 4 */}
           <div className="mt-[15px] flex justify-between">
             <div>
@@ -1425,7 +1452,6 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               <p className="text-[14px] font-[400]  text-silver">Included</p>
             </div>
           </div>
-
           {/* 5 */}
           <div className="mt-[15px] flex justify-between">
             <div>
@@ -1451,7 +1477,6 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               </p>
             </div>
           </div>
-
           {/* 6 */}
           <div className="mt-[15px] flex justify-between">
             <div>
@@ -1479,7 +1504,6 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               </p>
             </div>
           </div>
-
           {/* 7 */}
           <div className="">
             {configuratorData.optionalUpgradesForLayout.map((d, i) => {
@@ -1501,7 +1525,6 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               );
             })}
           </div>
-
           {/* 8 */}
           <div className="">
             {(() => {
@@ -1526,7 +1549,6 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               ) : null;
             })()}
           </div>
-
           {/* 9 */}
           <div className="">
             {configuratorData.bathroomUpgrades.map((d, i) => {
@@ -1548,7 +1570,6 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               );
             })}
           </div>
-
           {/* 10 */}
           <div className="">
             {(() => {
@@ -1573,7 +1594,6 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               ) : null;
             })()}
           </div>
-
           {/* 11 */}
           <div className="">
             {configuratorData.essentials.map((d, i) => {
@@ -1595,25 +1615,21 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               );
             })}
           </div>
-
           <div>
             <hr className="my-[20px] h-[1.5px] bg-[#C4C4C4]" />
           </div>
-
           <div className="flex items-center justify-between">
             <p className="text-[14px] font-[400]  text-silver">Est. Price</p>
             <p className="text-[14px] font-[400]  text-silver">
               {formatNumberToCurrency(totalPrice)}
             </p>
           </div>
-
           <div className="mt-[40px] flex items-center justify-between">
             <p className="text-[24px] font-[450]  text-silver">Est. Price</p>
             <p className="text-[24px] font-[450]  text-silver">
               {formatNumberToCurrency(totalPrice)}
             </p>
           </div>
-
           <div className="mb-[100px] ">
             <p className="text-[12px] mt-[20px] font-[400]  text-light-silver">
               Illustrative model shown. Pricing does not include on-site
@@ -1621,9 +1637,11 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               are subject to local permits and delivery location.
             </p>
           </div>
-          {/* TODO: */}
         </section>
-
+        {/* TODO: */}
+        <div id="section5tl3-trigger" className="opacity-0">
+          test
+        </div>{" "}
         {/* main section */}
         <div id="section5tl3-loader-container" className="hidden text-center">
           <LoadingSpinner id={"2"} />
@@ -1633,7 +1651,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
           <section className="section" id="section6">
             {/* delivery details */}
             <div>
-              <p className="text-[24px] font-[450] mt-[80px] md:mt-[160px]">
+              <p className="text-[24px] font-[450] mt-[80px] md:mt-[45px]">
                 Enter your delivery address:
               </p>
 
