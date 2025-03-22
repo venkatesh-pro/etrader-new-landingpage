@@ -220,7 +220,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
         start: "top 80%",
         end: "bottom 20%",
         once: true,
-        markers: true,
+        // markers: true,
         scroller: ".left-scroll-area",
         onEnter: () => {
           // alert("hi");
