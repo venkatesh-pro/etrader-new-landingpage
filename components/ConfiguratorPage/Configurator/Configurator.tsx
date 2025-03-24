@@ -1685,8 +1685,8 @@ const Configurator: React.FC<ConfiguratorProps> = ({
             </p>
           </div>
           <div className="mt-[40px] flex items-center justify-between">
-            <p className="text-[24px] font-[450]  text-silver">Est. Price</p>
-            <p className="text-[24px] font-[450]  text-silver">
+            <p className="text-[24px] font-[450]">Est. Price</p>
+            <p className="text-[24px] font-[450]">
               {formatNumberToCurrency(totalPrice)}
             </p>
           </div>
