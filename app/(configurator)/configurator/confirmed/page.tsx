@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const page = () => {
@@ -30,12 +31,16 @@ const page = () => {
       </div>
 
       <div className="mt-[30px] w-full items-center justify-center flex">
-        <button className="w-full block sm:w-[312px] lapS:w-[342px] p-4 min-h-[60px] rounded-[12px] text-white bg-blue">
+        <Link
+          href={"https://www.spacehaven.com.au/pages/brochure"}
+          target="_blank"
+          className="w-full text-center flex items-center justify-center sm:w-[312px] lapS:w-[342px] p-4 min-h-[60px] rounded-[12px] text-white bg-blue"
+        >
           Get Updates
-        </button>
+        </Link>
       </div>
 
-      <div className="item flex-shrink-0 w-full h-full flex items-center justify-center mt-[60px]">
+      <div className="item flex-shrink-0 w-full h-full hidden md:flex items-center justify-center mt-[60px] ">
         <img
           src={"/ConfiguratorImages/popup/SO-FD-I-min.jpg"}
           className="object-cover w-full h-full"
