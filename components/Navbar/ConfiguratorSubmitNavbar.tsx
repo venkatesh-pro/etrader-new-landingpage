@@ -30,7 +30,7 @@ const ConfiguratorSubmitNavbar = () => {
 
   return (
     <div
-      className={`h-[42px] flex items-center w-full lg:px-[60px] px-[20px] transition-transform duration-300 ${
+      className={`h-[42px] flex items-center w-full lg:px-[48px] px-[20px] transition-transform duration-300 ${
         isNavbarVisible ? "translate-y-0" : "-translate-y-full"
       } md:translate-y-0 fixed top-0 left-0  bg-[rgba(244,244,244,0.3)] backdrop-blur-2xl z-40`}
     >
