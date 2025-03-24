@@ -31,10 +31,12 @@ const InputField = ({
         id={id}
         className={`h-[56px] w-full p-4 rounded-[12px] ${
           isFixed ? "bg-[#f4f4f4]" : ""
-        } border-[1.5px] text-[17px] font-normal border-[#c4c4c4] placeholder:text-light-silver focus:border-[#0071e3] focus:outline-none peer pb-[0px] ${
-          errors?.[label] &&
-          "!border-dark-red text-dark-red bg-light-red active:!border-dark-red focus:!border-dark-red"
-        }`}
+        } border border-[#c4c4c4] text-[17px] font-normal placeholder:text-light-silver 
+          focus:border-[#0071e3] focus:outline focus:outline-[1px] focus:outline-[#0071e3]
+          peer pb-[0px] ${
+            errors?.[label] &&
+            "!border-dark-red text-dark-red bg-light-red active:!border-dark-red focus:!border-dark-red"
+          }`}
         placeholder={" "}
         value={fixedValue}
         data-filled={fixedValue ? "true" : "false"}
