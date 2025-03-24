@@ -55,7 +55,7 @@ const InputField = ({
       />
       <label
         htmlFor={id}
-        className={`absolute left-4 transition-all duration-200 ease-in-out top-3.5 text-[17px] text-light-silver peer-focus:top-2 peer-focus:text-[10px] peer-focus:text-blue-500 ${
+        className={`absolute left-4 transition-all duration-200 ease-in-out text-[17px] text-light-silver peer-focus:top-4 peer-focus:text-[10px] peer-focus:text-blue-500 top-1/2 -translate-y-1/2 peer-data-[filled=true]:top-4 peer-data-[filled=true]:text-[10px] ${
           errors?.[label] && "!text-dark-red"
         }`}
         data-filled="false"
