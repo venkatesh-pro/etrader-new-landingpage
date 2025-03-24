@@ -322,9 +322,6 @@ const ConfiguratorParent = () => {
   }, [configuratorData]);
   return (
     <>
-      {/* overlay component */}
-      <ScrollPricing totalPrice={totalPrice}></ScrollPricing>
-
       {scrollAreaRef.current && (
         <ConfiguratorNavbar
           scrollAreaRef={scrollAreaRef as React.RefObject<HTMLDivElement>}
@@ -341,23 +338,29 @@ const ConfiguratorParent = () => {
 
         {/* Configurator Section */}
         <div
-          className="overflow-y-auto h-[100vh] pt-[332px] sm:pt-[460px] lapS:pt-[140px] absolute z-20 desktop:w-[438px] desktopG:w-[28%] lapS:w-[28%] lapS:right-0 px-[28px] desktop:px-[48px] desktopG:px-[48px] left-scroll-area w-full"
+          className="overflow-y-auto h-[100vh] pt-[332px] sm:pt-[460px] lapS:pt-[140px] absolute z-20 desktop:w-[438px] desktopG:w-[28%] lapS:w-[28%] lapS:right-0 left-scroll-area w-full"
           ref={scrollAreaRef}
         >
-          <Configurator
-            currentModel={currentModel}
-            isMirrored={isMirrored}
-            configuratorData={configuratorData}
-            setConfiguratorData={setConfiguratorData}
-            setSliderImages={setSliderImages}
-            setIsImageChangeScroll={setIsImageChangeScroll}
-            generateSliderImagesForInterior={generateSliderImagesForInterior}
-            generateSolarImages={generateSolarImages}
-            generateEssentialImages={generateEssentialImages}
-            setIsModalOpen={setIsModalOpen}
-            setIsModalOpenCarousel={setIsModalOpenCarousel}
-            totalPrice={totalPrice}
-          />
+          <div className="px-[28px] desktop:px-[48px] desktopG:px-[48px] ">
+            <Configurator
+              currentModel={currentModel}
+              isMirrored={isMirrored}
+              configuratorData={configuratorData}
+              setConfiguratorData={setConfiguratorData}
+              setSliderImages={setSliderImages}
+              setIsImageChangeScroll={setIsImageChangeScroll}
+              generateSliderImagesForInterior={generateSliderImagesForInterior}
+              generateSolarImages={generateSolarImages}
+              generateEssentialImages={generateEssentialImages}
+              setIsModalOpen={setIsModalOpen}
+              setIsModalOpenCarousel={setIsModalOpenCarousel}
+              totalPrice={totalPrice}
+            />
+          </div>
+
+          {/* overlay component */}
+
+          <ScrollPricing totalPrice={totalPrice}></ScrollPricing>
         </div>
       </div>
       {/* modal */}
