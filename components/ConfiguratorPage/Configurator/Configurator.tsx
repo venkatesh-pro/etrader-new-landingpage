@@ -530,15 +530,15 @@ const Configurator: React.FC<ConfiguratorProps> = ({
           })}
         </div>
         <div
-          className="bg-[#f4f4f4] flex mt-[16px] px-[16px] items-center h-[94px] rounded-xl cursor-pointer"
+          className="bg-[#f4f4f4] flex mt-[16px] p-[16px] min-h-[94px] rounded-xl cursor-pointer"
           onClick={() => {
             setIsModalOpen(true);
           }}
         >
           <div className="group flex w-full justify-between">
             <div className="">
-              <p className="text-[17px] font-[450]">Compare models</p>
-              <p className="text-[14px] font-[400] max-w-[250px] mt-[8px] pr-[20px] text-silver">
+              <p className="text-[17px] font-[450] leading-[16px]">Compare models</p>
+              <p className="text-[14px] font-[400] max-w-[250px] mt-[14px] pr-[20px] text-silver leading-[18px]">
                 Get a better understanding of how much space you’ll need
               </p>
             </div>
