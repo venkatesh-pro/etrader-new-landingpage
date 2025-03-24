@@ -537,7 +537,9 @@ const Configurator: React.FC<ConfiguratorProps> = ({
         >
           <div className="group flex w-full justify-between">
             <div className="">
-              <p className="text-[17px] font-[450] leading-[16px]">Compare models</p>
+              <p className="text-[17px] font-[450] leading-[16px]">
+                Compare models
+              </p>
               <p className="text-[14px] font-[400] max-w-[250px] mt-[14px] pr-[20px] text-silver leading-[18px]">
                 Get a better understanding of how much space you’ll need
               </p>
@@ -843,10 +845,14 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                   </div>
 
                   <div>
-                    {d?.details && (
+                    {/* {d?.details && (
                       <hr className="my-[20px] h-[1.5px] bg-[#CCCCCCCC]" />
-                    )}
-                    <ul className="list-disc list-inside">
+                    )} */}
+                    <ul
+                      className={`mt-[${
+                        i !== 0 && "20px"
+                      }] list-disc list-inside`}
+                    >
                       {d?.details?.map((val, i) => {
                         return (
                           <li
@@ -913,10 +919,14 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                   </div>
 
                   <div>
-                    {d?.details && (
+                    {/* {d?.details && (
                       <hr className="my-[20px] h-[1.5px] bg-[#CCCCCCCC]" />
-                    )}
-                    <ul className="list-disc list-inside">
+                    )} */}
+                    <ul
+                      className={`mt-[${
+                        i !== 0 && "20px"
+                      }] list-disc list-inside`}
+                    >
                       {d?.details?.map((val, i) => {
                         return (
                           <li
@@ -1012,10 +1022,14 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                     </div>
 
                     <div>
-                      {d?.details && (
+                      {/* {d?.details && (
                         <hr className="my-[20px] h-[1.5px] bg-[#CCCCCCCC]" />
-                      )}
-                      <ul className="list-disc list-inside">
+                      )} */}
+                      <ul
+                        className={`mt-[${
+                          i === 0 && "20px"
+                        }] list-disc list-inside`}
+                      >
                         {d?.details?.map((val, i) => {
                           return (
                             <li
@@ -1235,10 +1249,13 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               </div>
 
               <div>
-                {d?.details && (
+                {/* {d?.details && (
                   <hr className="my-[20px] h-[1.5px] bg-[#CCCCCCCC]" />
-                )}
-                <ul className="list-disc list-inside">
+                )} */}
+                {/* <ul className="list-disc list-inside"> */}
+                <ul
+                  className={`mt-[${i === 0 && "20px"}] list-disc list-inside`}
+                >
                   {d?.details?.map((val, i) => {
                     return (
                       <li
@@ -1301,10 +1318,13 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               </div>
 
               <div>
-                {d?.details && (
+                {/* {d?.details && (
                   <hr className="my-[20px] h-[1.5px] bg-[#CCCCCCCC]" />
-                )}
-                <ul className="list-disc list-inside">
+                )} */}
+                <ul
+                  className={`mt-[${i === 0 && "20px"}] list-disc list-inside`}
+                >
+                  {" "}
                   {d?.details?.map((val, i) => {
                     return (
                       <li
