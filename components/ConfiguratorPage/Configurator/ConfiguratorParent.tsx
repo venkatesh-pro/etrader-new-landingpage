@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import Configurator from "./Configurator";
 import { ConfiguratorData, data } from "@/data";
 import Slider from "../Slider/Slider";
@@ -55,17 +55,17 @@ const ConfiguratorParent = () => {
   }, []);
 
   // Dynamically calculate navbar height with a delay to ensure rendering
-  useEffect(() => {
-    const calculateHeight = () => {
-      if (navbarRef.current) {
-        const height = navbarRef.current.offsetHeight;
-        setNavbarHeight(height);
-      }
-    };
-    calculateHeight();
-    window.addEventListener("resize", calculateHeight);
-    return () => window.removeEventListener("resize", calculateHeight);
-  }, [isMobile, isNavbarVisible]);
+  // useEffect(() => {
+  //   const calculateHeight = () => {
+  //     if (navbarRef.current) {
+  //       // const height = navbarRef.current.offsetHeight;
+  //       setNavbarHeight(height);
+  //     }
+  //   };
+  //   calculateHeight();
+  //   window.addEventListener("resize", calculateHeight);
+  //   return () => window.removeEventListener("resize", calculateHeight);
+  // }, [isMobile, isNavbarVisible]);
 
   // Scroll to top on mount with a delay to ensure ref is ready
   useEffect(() => {
@@ -360,21 +360,17 @@ const ConfiguratorParent = () => {
 
   return (
     <>
-      {!isMobile && <ConfiguratorNavbar />}
+      {/* {!isMobile && <ConfiguratorNavbar />} */}
       <div className="relative min-h-screen m-0 p-0">
         {/* Navbar */}
-        {isMobile && (
-          <div
-            ref={navbarRef}
-            className={`sticky top-0 left-0 w-full z-40 bg-white transition-transform duration-300 m-0 p-0 ${
-              isMobile && !isNavbarVisible
-                ? "-translate-y-full"
-                : "translate-y-0"
-            }`}
-          >
-            <ConfiguratorNavbar />
-          </div>
-        )}
+        <div
+          ref={navbarRef}
+          className={`sticky top-0 left-0 w-full z-40 bg-white transition-transform duration-300 m-0 p-0 ${
+            isMobile && !isNavbarVisible ? "-translate-y-full" : "translate-y-0"
+          }`}
+        >
+          <ConfiguratorNavbar />
+        </div>
 
         {/* Main Content */}
         <div className="flex flex-col justify-between gap-0 m-0 p-0">
