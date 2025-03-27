@@ -1,10 +1,10 @@
 "use client";
 import Link from "next/link";
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 
-interface ConfiguratorNavbarProps {
-  scrollAreaRef: React.RefObject<HTMLDivElement> | null;
-}
+// interface ConfiguratorNavbarProps {
+//   scrollAreaRef: React.RefObject<HTMLDivElement> | null;
+// }
 
 const ConfiguratorNavbar = ({}) => {
   // const [isNavbarVisible, setIsNavbarVisible] = useState(true);

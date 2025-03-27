@@ -1,11 +1,11 @@
 "use client";
 
-import React, { Suspense, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Configurator from "./Configurator";
 import { ConfiguratorData, data } from "@/data";
 import Slider from "../Slider/Slider";
-import usePreloadImages from "@/hooks/usePreloadImages";
-import { gsap } from "gsap/dist/gsap";
+// import usePreloadImages from "@/hooks/usePreloadImages";
+// import { gsap } from "gsap/dist/gsap";
 import FeatureModal from "../Modal/FeatureModal";
 import FeatureModalCarousel from "../Modal/FeatureModalCarousel";
 import ConfiguratorNavbar from "@/components/Navbar/ConfiguratorNavbar";
@@ -26,7 +26,7 @@ const ConfiguratorParent = () => {
   const [isMirrored, setIsMirrored] = useState(false);
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
-  const [navbarHeight, setNavbarHeight] = useState(42);
+  // const [navbarHeight] = useState(42);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpenCarousel, setIsModalOpenCarousel] = useState(false);
@@ -270,7 +270,7 @@ const ConfiguratorParent = () => {
     isImageChangeScroll,
   ]);
 
-  const imagesLoaded = usePreloadImages(sliderImages);
+  // const imagesLoaded = usePreloadImages(sliderImages);
 
   // // Loading overlay
   // const loadingOverlayRef = useRef<HTMLDivElement>(null);
@@ -382,11 +382,7 @@ const ConfiguratorParent = () => {
                 ? `fixed left-0 w-full h-[252px] z-30 bg-white transition-[top] duration-300 ease-in-out top-[42px] m-0 p-0`
                 : "sticky top-0 w-full desktop:min-w-[1242px] lapS:w-[72%] sm:h-[380px] h-[252px] lapS:h-[100vh] desktopG:w-[72vw] z-30 bg-white m-0 p-0"
             }`}
-            style={
-              isMobile
-                ? { top: isNavbarVisible ? `${navbarHeight}px` : "0px" }
-                : {}
-            }
+            style={isMobile ? { top: isNavbarVisible ? `${42}px` : "0px" } : {}}
           >
             <Slider sliderImages={sliderImages} />
           </div>
