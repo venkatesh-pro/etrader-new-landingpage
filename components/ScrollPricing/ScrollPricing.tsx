@@ -28,11 +28,11 @@ const ScrollPricing = ({ totalPrice }: { totalPrice: number }) => {
 
   return (
     <div
-      className={`desktop:w-[438px] desktopG:w-full sticky bottom-0 px-0 z-[10001] transition-opacity duration-500 w-full  ${
-        isVisible ? "sticky opacity-100" : "hidden"
-      }`}
+      className={`w-full desktop:w-[438px] desktopG:w-full z-[10001] transition-opacity duration-500 ${
+        isVisible ? "fixed opacity-100" : "opacity-0 hidden pointer-events-none"
+      } fixed bottom-0 left-0 md:sticky md:bottom-0`}
     >
-      <div className="md:mx-[23px]  bg-[#D4D4D4]/30 backdrop-blur-2xl h-[91px] rounded-tl-[12px] rounded-tr-[12px] px-[24px] py-[20px]">
+      <div className="md:mx-[23px] bg-[#D4D4D4]/30 backdrop-blur-2xl h-[91px] rounded-tl-[12px] rounded-tr-[12px] px-[24px] py-[20px]">
         <div className="flex justify-between">
           <div>
             <p className="text-[24px] font-[450] text-silver">

@@ -1421,15 +1421,16 @@ const Configurator: React.FC<ConfiguratorProps> = ({
       {/*  section 5 */}
 
       <div id="endOfPricing">
-        <div id="section5tl2-loader-container" className="hidden text-center">
+        <div
+          id="section5tl2-loader-container"
+          className="hidden text-center mb-[20px] md:mb-0"
+        >
           <LoadingSpinner id={"1"} />
         </div>
         {/* make this effect */}
         <div id="section5tl2" className=""></div>
         <section className="section hidden" id="section5">
-          <p className="font-[450] mt-[40px] text-[40px] leading-[30px]">
-            Summary
-          </p>
+          <p className="font-[450]  text-[40px] leading-[30px]">Summary</p>
           <p className="text-desktop-body-xl leading-[20px] font-[450] mt-[40px]">
             <span>Your new Space One.</span>
           </p>
@@ -1703,15 +1704,18 @@ const Configurator: React.FC<ConfiguratorProps> = ({
           test
         </div>{" "}
         {/* main section */}
-        <div id="section5tl3-loader-container" className="hidden text-center">
+        <div
+          id="section5tl3-loader-container"
+          className="hidden text-center mb-[20px] md:mb-0"
+        >
           <LoadingSpinner id={"2"} />
         </div>
-        <section id="section5tl3" className="hidden">
+        <section id="section5tl3" className="hidden mt-[-24px] md:mt-0">
           {/* section 6 */}
           <section className="section" id="section6">
             {/* delivery details */}
             <div>
-              <p className="text-[24px] font-[450] mt-[80px] md:mt-[45px]">
+              <p className="text-[24px] font-[450]">
                 Enter your delivery address:
               </p>
 
@@ -1821,7 +1825,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
             </div>
 
             <div>
-              <p className="text-[22px] mt-[80px]">
+              <p className="text-[22px] font-[450] mt-[80px]">
                 What is your contact information?
               </p>
               <div className="mt-[20px]">
