@@ -20,29 +20,175 @@ const ConfiguratorParent = () => {
   const [configuratorData, setConfiguratorData] =
     useState<ConfiguratorData>(data);
   const [totalPrice, setTotalPrice] = useState(0);
-
   const [isImageChangeScroll, setIsImageChangeScroll] =
     useState<boolean>(false);
   const [currentModel, setCurrentModel] = useState("");
   const [isMirrored, setIsMirrored] = useState(false);
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+  const [navbarHeight, setNavbarHeight] = useState(42);
 
-  // modal
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpenCarousel, setIsModalOpenCarousel] = useState(false);
+
+  const BRAKE_POINT = 640;
 
   const [sliderImages, setSliderImages] = useState([
     "/ConfiguratorImages/BLACK_COMPRESSED_16_25/16-black-1.jpg",
     "/ConfiguratorImages/BLACK_COMPRESSED_16_25/16-black-2.jpg",
   ]);
 
+  const scrollAreaRef = useRef<HTMLDivElement | null>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const navbarRef = useRef<HTMLDivElement>(null);
+  const lastScrollY = useRef(0);
+  const hasScrolled = useRef(false);
+
+  // Detect mobile view
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= BRAKE_POINT);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Dynamically calculate navbar height with a delay to ensure rendering
+  useEffect(() => {
+    const calculateHeight = () => {
+      if (navbarRef.current) {
+        const height = navbarRef.current.offsetHeight;
+        setNavbarHeight(height);
+      }
+    };
+    calculateHeight();
+    window.addEventListener("resize", calculateHeight);
+    return () => window.removeEventListener("resize", calculateHeight);
+  }, [isMobile, isNavbarVisible]);
+
+  // Scroll to top on mount with a delay to ensure ref is ready
+  useEffect(() => {
+    const scrollToTop = () => {
+      if (scrollAreaRef.current) {
+        scrollAreaRef.current.scrollTop = 0;
+        setIsNavbarVisible(true);
+      }
+    };
+    setTimeout(scrollToTop, 0);
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
+  // Handle navbar visibility on scroll (mobile only)
+  useEffect(() => {
+    if (!isMobile) {
+      setIsNavbarVisible(true);
+      return;
+    }
+
+    const handleScroll = () => {
+      if (scrollAreaRef.current) {
+        const currentScrollY = scrollAreaRef.current.scrollTop;
+        hasScrolled.current = true;
+
+        if (currentScrollY > lastScrollY.current && currentScrollY > 50) {
+          setIsNavbarVisible(false);
+        } else if (currentScrollY === 0) {
+          setIsNavbarVisible(true);
+        }
+        lastScrollY.current = currentScrollY;
+      }
+    };
+
+    const scrollElement = scrollAreaRef.current;
+    if (scrollElement) {
+      scrollElement.addEventListener("scroll", handleScroll);
+    }
+
+    return () => {
+      if (scrollElement) {
+        scrollElement.removeEventListener("scroll", handleScroll);
+      }
+    };
+  }, [isMobile]);
+
+  // Wheel and touch handling (desktop and mobile)
+  useEffect(() => {
+    let touchStartY = 0;
+    let touchDeltaY = 0;
+    let isTouching = false;
+
+    const handleWheel = (e: WheelEvent) => {
+      if (scrollAreaRef.current) {
+        scrollAreaRef.current.scrollTop += e.deltaY;
+        e.preventDefault();
+      }
+    };
+
+    const handleNavbarWheel = (e: WheelEvent) => {
+      if (scrollAreaRef.current && !isMobile) {
+        scrollAreaRef.current.scrollTop += e.deltaY;
+        e.preventDefault();
+      }
+    };
+
+    const handleTouchStart = (e: TouchEvent) => {
+      if (!scrollAreaRef.current) return;
+      touchStartY = e.touches[0].clientY;
+      isTouching = true;
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (!scrollAreaRef.current || !isTouching) return;
+      const currentY = e.touches[0].clientY;
+      touchDeltaY = touchStartY - currentY;
+      scrollAreaRef.current.scrollTop += touchDeltaY;
+      touchStartY = currentY;
+      e.preventDefault();
+    };
+
+    const handleTouchEnd = () => {
+      isTouching = false;
+      touchDeltaY = 0;
+    };
+
+    const sliderElement = sliderRef.current;
+    const navbarElement = navbarRef.current;
+
+    if (sliderElement) {
+      sliderElement.addEventListener("wheel", handleWheel);
+      sliderElement.addEventListener("touchstart", handleTouchStart);
+      sliderElement.addEventListener("touchmove", handleTouchMove);
+      sliderElement.addEventListener("touchend", handleTouchEnd);
+    }
+
+    if (navbarElement && !isMobile) {
+      navbarElement.addEventListener("wheel", handleNavbarWheel);
+    }
+
+    return () => {
+      if (sliderElement) {
+        sliderElement.removeEventListener("wheel", handleWheel);
+        sliderElement.removeEventListener("touchstart", handleTouchStart);
+        sliderElement.removeEventListener("touchmove", handleTouchMove);
+        sliderElement.removeEventListener("touchend", handleTouchEnd);
+      }
+      if (navbarElement && !isMobile) {
+        navbarElement.removeEventListener("wheel", handleNavbarWheel);
+      }
+    };
+  }, [isMobile]);
+
+  // Image generation functions
   const generateSliderImages = (
     model: Model | undefined,
     color: Color | undefined,
     orientation: Orientation | undefined
   ) => {
     if (!color || !orientation || !model) return [];
-    console.log("colorrrr", color);
-
     const basePath = `/ConfiguratorImages/${color.imageFolderName}_COMPRESSED_16_25`;
     const mirroredPath = `/MIRRORED`;
     const orientationPath =
@@ -59,33 +205,25 @@ const ConfiguratorParent = () => {
     const selectedBathroom = configuratorData.bathroom.find(
       (d) => d.isSelected
     );
-
     const basePath = `/ConfiguratorImages/INTERIOR_COMPRESSED_16_25`;
-    console.log({ image });
 
     if (isMirrored) {
       if (selectedBathroom?.name === "Bathroom") {
-        if (image === "25-open.jpg") {
-          // alert("25-open.jpg");
-          return [`${basePath}/MIRRORED/${image}`];
-        } else if (image === "25-wardrobe.jpg") {
+        if (image === "25-open.jpg") return [`${basePath}/MIRRORED/${image}`];
+        else if (image === "25-wardrobe.jpg")
           return [`${basePath}/MIRRORED/25-wardrobe-bathroom.jpg`];
-        } else if (image === "25-kitchen.jpg") {
+        else if (image === "25-kitchen.jpg")
           return [`${basePath}/MIRRORED/25-kitchen-bathroom.jpg`];
-        }
       } else {
         return [`${basePath}/MIRRORED/${image}`];
       }
     } else {
       if (selectedBathroom?.name === "Bathroom") {
-        if (image === "25-open.jpg") {
-          // alert("25-open.jpg");
-          return [`${basePath}/${image}`];
-        } else if (image === "25-wardrobe.jpg") {
+        if (image === "25-open.jpg") return [`${basePath}/${image}`];
+        else if (image === "25-wardrobe.jpg")
           return [`${basePath}/25-wardrobe-bathroom.jpg`];
-        } else if (image === "25-kitchen.jpg") {
+        else if (image === "25-kitchen.jpg")
           return [`${basePath}/25-kitchen-bathroom.jpg`];
-        }
       } else {
         return [`${basePath}/${image}`];
       }
@@ -95,64 +233,19 @@ const ConfiguratorParent = () => {
 
   const generateSolarImages = (image: string) => {
     const basePath = `/ConfiguratorImages/SOLAR`;
-    console.log({ generateSolarImages: image });
-
     return [`${basePath}/${image}`];
   };
 
   const generateEssentialImages = (image: string) => {
     const basePath = `/ConfiguratorImages/ESSENTIALS`;
-    console.log({ generateEssentialImages: image });
-
     return [`${basePath}/${image}`];
   };
-
-  // const generateSliderImagesForInterior = () => {
-  //   const basePath = `/ConfiguratorImages/INTERIOR_COMPRESSED_16_25`;
-  //   const modelPrefix = currentModel === "Space One Plus" ? "25" : "16";
-
-  //   if (modelPrefix === "16") {
-  //     if (isMirrored) {
-  //       return [
-  //         `${basePath}/MIRRORED/16-open.jpg`,
-  //         `${basePath}/MIRRORED/16-wardrobe.jpg`,
-  //         `${basePath}/MIRRORED/16-kitchen.jpg`,
-  //       ];
-  //     } else {
-  //       return [
-  //         `${basePath}/16-open.jpg`,
-  //         `${basePath}/16-wardrobe.jpg`,
-  //         `${basePath}/16-kitchen.jpg`,
-  //       ];
-  //     }
-  //   } else {
-  //     if (isMirrored) {
-  //       return [
-  //         `${basePath}/MIRRORED/25-open.jpg`,
-  //         `${basePath}/MIRRORED/25-wardrobe.jpg`,
-  //         `${basePath}/MIRRORED/25-kitchen.jpg`,
-  //         `${basePath}/MIRRORED/25-wardrobe-bathroom.jpg`,
-  //         `${basePath}/MIRRORED/25-kitchen-bathroom.jpg`,
-  //       ];
-  //     } else {
-  //       return [
-  //         `${basePath}/25-open.jpg`,
-  //         `${basePath}/25-wardrobe.jpg`,
-  //         `${basePath}/25-kitchen.jpg`,
-  //         `${basePath}/25-wardrobe-bathroom.jpg`,
-  //         `${basePath}/25-kitchen-bathroom.jpg`,
-  //       ];
-  //     }
-  //   }
-  // };
 
   const imageStoreInStateFunction = () => {
     const selectedModel = configuratorData.chooseYourModel.find(
       (d) => d.isSelected
     );
-    if (selectedModel) {
-      setCurrentModel(selectedModel.name);
-    }
+    if (selectedModel) setCurrentModel(selectedModel.name);
 
     const selectedColor = configuratorData.chooseYourFinish.find(
       (d) => d.isSelected
@@ -160,26 +253,16 @@ const ConfiguratorParent = () => {
     const selectedOrientation = configuratorData.chooseYourOrientation.find(
       (d) => d.isSelected
     );
-    if (selectedOrientation) {
+    if (selectedOrientation)
       setIsMirrored(selectedOrientation.name !== "Standard layout");
-    }
-
-    // const isSolar = configuratorData.chooseYourEnergy.find((d) => d.isSelected);
 
     setSliderImages(
-      generateSliderImages(selectedModel, selectedColor, selectedOrientation)
-    );
-
-    console.log(
-      "fffff",
       generateSliderImages(selectedModel, selectedColor, selectedOrientation)
     );
   };
 
   useEffect(() => {
-    if (configuratorData) {
-      imageStoreInStateFunction();
-    }
+    if (configuratorData) imageStoreInStateFunction();
   }, [
     configuratorData.chooseYourModel,
     configuratorData.chooseYourFinish,
@@ -188,100 +271,60 @@ const ConfiguratorParent = () => {
   ]);
 
   const imagesLoaded = usePreloadImages(sliderImages);
-  console.log({ imagesLoaded });
 
-  // useEffect(() => {
-  //   console.log("changed");
-  // }, [sliderImages]);
-
-  // Ref for the Loading Overlay
+  // Loading overlay
   const loadingOverlayRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     if (loadingOverlayRef.current) {
       if (!imagesLoaded) {
-        // When images start loading, fade in the loading overlay
-        gsap.set(loadingOverlayRef.current, { display: "flex" }); // Ensure it's visible
-        gsap.to(loadingOverlayRef.current, {
-          opacity: 1,
-          duration: 0.2,
-        });
+        gsap.set(loadingOverlayRef.current, { display: "flex" });
+        gsap.to(loadingOverlayRef.current, { opacity: 1, duration: 0.2 });
       } else {
-        // When images are loaded, fade out the loading overlay
         gsap.to(loadingOverlayRef.current, {
           opacity: 0,
           duration: 0.2,
-          onComplete: () => {
-            gsap.set(loadingOverlayRef.current, { display: "none" });
-          },
+          onComplete: () =>
+            gsap.set(loadingOverlayRef.current, { display: "none" }),
         });
       }
     }
   }, [imagesLoaded]);
 
-  // new
-  const scrollAreaRef = useRef<HTMLDivElement | null>(null);
-  const sliderRef = useRef<HTMLDivElement>(null);
-  // only cursor scroll
-  // useEffect(() => {
-  //   const handleScroll = (e: WheelEvent) => {
-  //     if (scrollAreaRef.current) {
-  //       scrollAreaRef.current.scrollTop += e.deltaY; // Access scrollTop safely
-  //       e.preventDefault(); // Prevent default behavior
-  //     }
-  //   };
-
-  //   const sliderElement = sliderRef.current;
-
-  //   if (sliderElement) {
-  //     sliderElement.addEventListener("wheel", handleScroll); // Attach event
-  //   }
-
-  //   return () => {
-  //     if (sliderElement) {
-  //       sliderElement.removeEventListener("wheel", handleScroll); // Cleanup
-  //     }
-  //   };
-  // }, []);
-
-  // with scroll as well as touch
+  // Scroll and touch handling
   useEffect(() => {
-    let touchStartY = 0; // Track the starting Y position
-    let touchDeltaY = 0; // Track the movement delta
-    let isTouching = false; // Flag for touch status
+    let touchStartY = 0;
+    let touchDeltaY = 0;
+    let isTouching = false;
 
     const handleWheel = (e: WheelEvent) => {
       if (scrollAreaRef.current) {
-        scrollAreaRef.current.scrollTop += e.deltaY; // Scroll based on wheel delta
-        e.preventDefault(); // Prevent default browser scrolling
+        scrollAreaRef.current.scrollTop += e.deltaY;
+        e.preventDefault();
       }
     };
 
     const handleTouchStart = (e: TouchEvent) => {
       if (!scrollAreaRef.current) return;
-      touchStartY = e.touches[0].clientY; // Store the initial touch Y position
-      isTouching = true; // Set touching to true
+      touchStartY = e.touches[0].clientY;
+      isTouching = true;
     };
 
     const handleTouchMove = (e: TouchEvent) => {
       if (!scrollAreaRef.current || !isTouching) return;
-
-      const currentY = e.touches[0].clientY; // Get current touch Y position
-      touchDeltaY = touchStartY - currentY; // Calculate touch delta
-      scrollAreaRef.current.scrollTop += touchDeltaY; // Update scroll position
-      touchStartY = currentY; // Reset start position for the next frame
-      e.preventDefault(); // Prevent default touch behavior
+      const currentY = e.touches[0].clientY;
+      touchDeltaY = touchStartY - currentY;
+      scrollAreaRef.current.scrollTop += touchDeltaY;
+      touchStartY = currentY;
+      e.preventDefault();
     };
 
     const handleTouchEnd = () => {
-      isTouching = false; // Reset the touch status
-      touchDeltaY = 0; // Reset delta
+      isTouching = false;
+      touchDeltaY = 0;
     };
 
     const sliderElement = sliderRef.current;
-
     if (sliderElement) {
-      // Add wheel and touch events
       sliderElement.addEventListener("wheel", handleWheel);
       sliderElement.addEventListener("touchstart", handleTouchStart);
       sliderElement.addEventListener("touchmove", handleTouchMove);
@@ -290,7 +333,6 @@ const ConfiguratorParent = () => {
 
     return () => {
       if (sliderElement) {
-        // Remove wheel and touch events
         sliderElement.removeEventListener("wheel", handleWheel);
         sliderElement.removeEventListener("touchstart", handleTouchStart);
         sliderElement.removeEventListener("touchmove", handleTouchMove);
@@ -299,81 +341,100 @@ const ConfiguratorParent = () => {
     };
   }, []);
 
-  // Ensure the slider section doesn't shift due to browser behavior
+  // Fix slider position
   useEffect(() => {
     const fixSliderPosition = () => {
-      if (sliderRef.current) {
+      if (sliderRef.current)
         sliderRef.current.style.transform = "translateZ(0)";
-      }
     };
-
     window.addEventListener("resize", fixSliderPosition);
-    fixSliderPosition(); // Apply on mount
-
-    return () => {
-      window.removeEventListener("resize", fixSliderPosition);
-    };
+    fixSliderPosition();
+    return () => window.removeEventListener("resize", fixSliderPosition);
   }, []);
-  useEffect(() => {
-    console.log("changed=>>>");
 
+  // Calculate total price
+  useEffect(() => {
     const totalPrice = calculateTotalPrice(configuratorData);
     setTotalPrice(totalPrice);
   }, [configuratorData]);
+
   return (
     <>
-      {scrollAreaRef.current && (
-        <ConfiguratorNavbar
-          scrollAreaRef={scrollAreaRef as React.RefObject<HTMLDivElement>}
-        />
-      )}
-      <div className="flex flex-col justify-between">
-        {/* Slider Section */}
-        <div
-          className="sticky z-30 bg-white top-0 w-full desktop:min-w-[1242px] lapS:w-[72%] sm:h-[380px] h-[252px] lapS:h-[100vh] desktopG:w-[72vw]"
-          ref={sliderRef}
-        >
-          <Slider sliderImages={sliderImages} />
-        </div>
+      {!isMobile && <ConfiguratorNavbar />}
+      <div className="relative min-h-screen m-0 p-0">
+        {/* Navbar */}
+        {isMobile && (
+          <div
+            ref={navbarRef}
+            className={`sticky top-0 left-0 w-full z-40 bg-white transition-transform duration-300 m-0 p-0 ${
+              isMobile && !isNavbarVisible
+                ? "-translate-y-full"
+                : "translate-y-0"
+            }`}
+          >
+            <ConfiguratorNavbar />
+          </div>
+        )}
 
-        {/* Configurator Section */}
-        <div
-          className="overflow-y-auto h-[100vh] pt-[332px] sm:pt-[460px] lapS:pt-[140px] absolute z-20 desktop:w-[438px] desktopG:w-[28%] lapS:w-[28%] lapS:right-0 left-scroll-area w-full"
-          ref={scrollAreaRef}
-        >
-          <div className="px-[28px] desktop:px-[48px] desktopG:px-[48px] ">
-            <Configurator
-              currentModel={currentModel}
-              isMirrored={isMirrored}
-              configuratorData={configuratorData}
-              setConfiguratorData={setConfiguratorData}
-              setSliderImages={setSliderImages}
-              setIsImageChangeScroll={setIsImageChangeScroll}
-              generateSliderImagesForInterior={generateSliderImagesForInterior}
-              generateSolarImages={generateSolarImages}
-              generateEssentialImages={generateEssentialImages}
-              setIsModalOpen={setIsModalOpen}
-              setIsModalOpenCarousel={setIsModalOpenCarousel}
-              totalPrice={totalPrice}
-            />
+        {/* Main Content */}
+        <div className="flex flex-col justify-between gap-0 m-0 p-0">
+          {/* Slider Section */}
+          <div
+            ref={sliderRef}
+            className={`${
+              isMobile
+                ? `fixed left-0 w-full h-[252px] z-30 bg-white transition-[top] duration-300 ease-in-out top-[42px] m-0 p-0`
+                : "sticky top-0 w-full desktop:min-w-[1242px] lapS:w-[72%] sm:h-[380px] h-[252px] lapS:h-[100vh] desktopG:w-[72vw] z-30 bg-white m-0 p-0"
+            }`}
+            style={
+              isMobile
+                ? { top: isNavbarVisible ? `${navbarHeight}px` : "0px" }
+                : {}
+            }
+          >
+            <Slider sliderImages={sliderImages} />
           </div>
 
-          {/* overlay component */}
-
-          <ScrollPricing totalPrice={totalPrice}></ScrollPricing>
+          {/* Scrollable Configurator Section */}
+          <div
+            ref={scrollAreaRef}
+            className={`overflow-y-auto absolute top-0 h-[100vh] z-20 desktop:w-[438px] desktopG:w-[28%] lapS:w-[28%] lapS:right-0 left-scroll-area w-full m-0 pt-[332px] sm:pt-[460px] lapS:pt-[140px]`}
+            // style={!isMobile ? { paddingTop: `11${navbarHeight}px` } : {}}
+          >
+            <div className="px-[28px] desktop:px-[48px] desktopG:px-[48px] ">
+              <Configurator
+                currentModel={currentModel}
+                isMirrored={isMirrored}
+                configuratorData={configuratorData}
+                setConfiguratorData={setConfiguratorData}
+                setSliderImages={setSliderImages}
+                setIsImageChangeScroll={setIsImageChangeScroll}
+                generateSliderImagesForInterior={
+                  generateSliderImagesForInterior
+                }
+                generateSolarImages={generateSolarImages}
+                generateEssentialImages={generateEssentialImages}
+                setIsModalOpen={setIsModalOpen}
+                setIsModalOpenCarousel={setIsModalOpenCarousel}
+                totalPrice={totalPrice}
+              />
+            </div>
+            <ScrollPricing totalPrice={totalPrice} />
+          </div>
         </div>
-      </div>
-      {/* modal */}
 
-      <FeatureModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
-      <FeatureModalCarousel
-        isModalOpenCarousel={isModalOpenCarousel}
-        setIsModalOpenCarousel={setIsModalOpenCarousel}
-      />
+        {/* Modals */}
+        <FeatureModal
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+        />
+        <FeatureModalCarousel
+          isModalOpenCarousel={isModalOpenCarousel}
+          setIsModalOpenCarousel={setIsModalOpenCarousel}
+        />
+      </div>
     </>
   );
 };
 
 export default ConfiguratorParent;
-
-//  <div className="relative w-full h-full lg:pl-[60px] md:pl-[20px] md:py-[20px] p-0 ">
