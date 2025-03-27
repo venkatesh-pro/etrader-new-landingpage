@@ -272,23 +272,23 @@ const ConfiguratorParent = () => {
 
   const imagesLoaded = usePreloadImages(sliderImages);
 
-  // Loading overlay
-  const loadingOverlayRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (loadingOverlayRef.current) {
-      if (!imagesLoaded) {
-        gsap.set(loadingOverlayRef.current, { display: "flex" });
-        gsap.to(loadingOverlayRef.current, { opacity: 1, duration: 0.2 });
-      } else {
-        gsap.to(loadingOverlayRef.current, {
-          opacity: 0,
-          duration: 0.2,
-          onComplete: () =>
-            gsap.set(loadingOverlayRef.current, { display: "none" }),
-        });
-      }
-    }
-  }, [imagesLoaded]);
+  // // Loading overlay
+  // const loadingOverlayRef = useRef<HTMLDivElement>(null);
+  // useEffect(() => {
+  //   if (loadingOverlayRef.current) {
+  //     if (!imagesLoaded) {
+  //       gsap.set(loadingOverlayRef.current, { display: "flex" });
+  //       gsap.to(loadingOverlayRef.current, { opacity: 1, duration: 0.2 });
+  //     } else {
+  //       gsap.to(loadingOverlayRef.current, {
+  //         opacity: 0,
+  //         duration: 0.2,
+  //         onComplete: () =>
+  //           gsap.set(loadingOverlayRef.current, { display: "none" }),
+  //       });
+  //     }
+  //   }
+  // }, [imagesLoaded]);
 
   // Scroll and touch handling
   useEffect(() => {
