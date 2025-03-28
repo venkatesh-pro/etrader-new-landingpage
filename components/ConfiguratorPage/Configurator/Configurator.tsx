@@ -1710,7 +1710,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
         >
           <LoadingSpinner id={"2"} />
         </div>
-        <section id="section5tl3" className="hidden mt-[-24px] md:mt-0">
+        <section id="section5tl3" className="hidden mt-[-78px] md:mt-0">
           {/* section 6 */}
           <section className="section" id="section6">
             {/* delivery details */}
