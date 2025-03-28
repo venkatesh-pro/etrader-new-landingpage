@@ -39,10 +39,14 @@ const ScrollPricing = ({ totalPrice }: { totalPrice: number }) => {
               {formatNumberToCurrency(totalPrice)}
             </p>
             <p className="text-[14px] font-[400] text-light-silver">
-              Est. Configuration Price
+              Est. Price
             </p>
           </div>
-          <div></div>
+          <div>
+            <button>
+              <img src="/images/chatbox.svg" alt="image" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
