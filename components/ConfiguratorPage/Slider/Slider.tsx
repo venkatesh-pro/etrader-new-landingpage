@@ -6,8 +6,9 @@ interface SliderProps {
 
 const Slider: React.FC<SliderProps> = ({ sliderImages }) => {
   const [active, setActive] = useState(0);
-  const touchStartX = useRef(0); // To store the X position where the touch started
-  const touchEndX = useRef(0); // To store the X position where the touch ended
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+  const isDragging = useRef(false); // Track if a drag is happening
 
   // Adjust active index if the sliderImages array length changes
   useEffect(() => {
@@ -26,13 +27,17 @@ const Slider: React.FC<SliderProps> = ({ sliderImages }) => {
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
+    isDragging.current = true; // Mark as dragging
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging.current) return;
     touchEndX.current = e.touches[0].clientX;
   };
 
   const handleTouchEnd = () => {
+    if (!isDragging.current) return;
+
     const diff = touchStartX.current - touchEndX.current;
     if (diff > 50) {
       // Swipe left
@@ -45,6 +50,11 @@ const Slider: React.FC<SliderProps> = ({ sliderImages }) => {
         prevActive - 1 < 0 ? sliderImages.length - 1 : prevActive - 1
       );
     }
+    isDragging.current = false; // Reset dragging state
+  };
+
+  const handleButtonTouchStart = (e: React.TouchEvent) => {
+    e.stopPropagation(); // Prevent touch event from bubbling to the slider
   };
 
   const translateValue = `translateX(-${active * 100}%)`;
@@ -83,6 +93,7 @@ const Slider: React.FC<SliderProps> = ({ sliderImages }) => {
                 prevActive - 1 < 0 ? sliderImages.length - 1 : prevActive - 1
               )
             }
+            onTouchStart={handleButtonTouchStart} // Stop touch propagation
             className="w-[28px] h-[28px] rounded-[6px] bg-[rgba(212,212,212,0.3)] flex items-center justify-center"
           >
             <img
@@ -98,12 +109,13 @@ const Slider: React.FC<SliderProps> = ({ sliderImages }) => {
                 prevActive + 1 >= sliderImages.length ? 0 : prevActive + 1
               )
             }
+            onTouchStart={handleButtonTouchStart} // Stop touch propagation
             className="w-[28px] h-[28px] rounded-[6px] bg-[rgba(212,212,212,0.3)] flex items-center justify-center"
           >
             <img
               src="/images/left-arrow-small.svg"
               className="w-[6.82px] h-[11.8px] rotate-180"
-              alt="Previous"
+              alt="Next"
             />
           </button>
         </div>
